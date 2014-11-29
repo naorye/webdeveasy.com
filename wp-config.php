@@ -29,20 +29,20 @@ define( 'DB_COLLATE', '' );
 // Salts, for security
 // Grab these from: https://api.wordpress.org/secret-key/1.1/salt
 // ==============================================================
-define( 'AUTH_KEY',         'put your unique phrase here' );
-define( 'SECURE_AUTH_KEY',  'put your unique phrase here' );
-define( 'LOGGED_IN_KEY',    'put your unique phrase here' );
-define( 'NONCE_KEY',        'put your unique phrase here' );
-define( 'AUTH_SALT',        'put your unique phrase here' );
-define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );
-define( 'LOGGED_IN_SALT',   'put your unique phrase here' );
-define( 'NONCE_SALT',       'put your unique phrase here' );
+define( 'AUTH_KEY',         'P{..4+P_v+lvaEH5<H-MSMKJ2v?2Yob+J>9RFS/+=GN(gn.5Z>$S~X-Y^QB[(@Nq');
+define( 'SECURE_AUTH_KEY',  'UeOpFe1p$e[+[8;S=jc81/i(,{+aD;N`>#&4|6X+W+@em-+*&.9$##qrEW8ILsWb');
+define( 'LOGGED_IN_KEY',    '0:b:^-iivOlM+:q&><8oJ-VYf#xz9(&v;b]2=$oA)V=h2oV,d?^{$mSm(vsG+2|d');
+define( 'NONCE_KEY',        'Vo9^}R^Yb,5S]VCU|V-4AvF`~U{Qqnq)_ovg|OHQL;u`jazHe{MdCI7izI0j?0!O');
+define( 'AUTH_SALT',        'M*aDLNWOW^Ay<1-oaPW]&=@e^g}A=Shs+e7a&=?7p4(TsdCVgp?h@tu&!9b#$Y*}');
+define( 'SECURE_AUTH_SALT', 's2u&C_1H|_F<TxC-=e-`r&pqevw}aW PuhRv|ZCW~zHuI7Q@ADo;awEB1:E-wW]]');
+define( 'LOGGED_IN_SALT',   'r-C6HOuDrW+}kqR{>O0{Sv#tJ5b:4b1wIVe*HOd?D$/wlnmA&!s}Rw@|}C`)H,N&');
+define( 'NONCE_SALT',       'CG}HxRo(+oTad-Utmor`DQG~wtx1FOk3Q:U|G>WlPnwO~C`?3IY)Kp{QGc-E6c0D');
 
 // ==============================================================
 // Table prefix
 // Change this if you have multiple installs in the same database
 // ==============================================================
-$table_prefix  = 'wp_';
+$table_prefix  = 'ny_';
 
 // ================================
 // Language

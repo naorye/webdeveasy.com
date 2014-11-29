@@ -1,0 +1,6 @@
+.content {
+    padding-top: $header-top + $header-height;
+    flex-grow: 1;
+    overflow: auto;
+    background: $content-background-color;
+}
