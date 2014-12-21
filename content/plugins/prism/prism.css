@@ -1,4 +1,4 @@
-/* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+css-extras+clike+javascript+coffeescript+scss+bash+ruby+go+git */
+/* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+css-extras+clike+javascript+coffeescript+scss+bash+ruby+go+git&plugins=autolinker+wpd+show-language */
 /**
  * okaidia theme for JavaScript, CSS and HTML
  * Loosely based on Monokai textmate theme by http://www.monokai.nl/
@@ -114,3 +114,38 @@ pre[class*="language-"] {
 	cursor: help;
 }
 
+.token a {
+	color: inherit;
+}
+code[class*="language-"] a[href],
+pre[class*="language-"] a[href] {
+	cursor: help;
+	text-decoration: none;
+}
+
+code[class*="language-"] a[href]:hover,
+pre[class*="language-"] a[href]:hover {
+	cursor: help;
+	text-decoration: underline;
+}
+pre[class*='language-'] {
+	position: relative;
+}
+pre[class*='language-'] > code[data-language] {
+	overflow: scroll;
+	max-height: 28em;
+	display: block;
+}
+pre[class*='language-'] > code[data-language]::before {
+	content: attr(data-language);
+	color: black;
+	background-color: #CFCFCF;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 0.9em;
+	border-radius: 0 0 0 5px;
+	padding: 0 0.5em;
+	text-shadow: none;
+}
