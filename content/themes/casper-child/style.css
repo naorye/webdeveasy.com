@@ -1,0 +1,56 @@
+/*
+  Theme Name:       Casper Child
+  Theme URI:        https://github.com/lacymorrow/casper-wp
+  Author:           Lacy Morrow
+  Author URI:       http://lacymorrow.com
+  Description:      Casper Child Theme
+  Version:          1.0.0
+  Template:         casper
+  Usage: Copy the casper-child folder into your wp-content/themes/ directory and activate it in the dashboard.
+*/
+/* ----- Begin Customizations Here - Enjoy :) ----- */
+/* line 3, sass/_partials/_prism.scss */
+pre[class*="language-"] {
+  padding: 0;
+  border: none;
+}
+/* line 6, sass/_partials/_prism.scss */
+pre[class*="language-"] > code[data-language] {
+  padding: 1em;
+}
+
+/* line 11, sass/_partials/_prism.scss */
+.prism-title {
+  margin-top: .5em;
+  background-color: #f5f2f0;
+  border-radius: 0.3em 0.3em 0 0;
+  background-color: #e18728;
+  padding: 0 1em;
+  color: #ffffff;
+  line-height: 30px;
+}
+
+/* line 20, sass/_partials/_prism.scss */
+.prism-title + pre[class*="language-"] {
+  margin-top: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  padding: 1em;
+  overflow: auto;
+}
+/* line 26, sass/_partials/_prism.scss */
+.prism-title + pre[class*="language-"] > code[data-language]::before {
+  color: #afafaf;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+/* line 1, sass/_partials/_reset.scss */
+iframe {
+  border: none;
+}
+
+/* line 5, sass/_partials/_reset.scss */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0.83em;
+}
