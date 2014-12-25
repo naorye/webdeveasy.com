@@ -54,3 +54,11 @@ iframe {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0.83em;
 }
+
+/* line 1, sass/_partials/_disqus.scss */
+.disqus_thread {
+  width: 80%;
+  max-width: 700px;
+  margin: 4rem auto;
+  text-align: center;
+}
