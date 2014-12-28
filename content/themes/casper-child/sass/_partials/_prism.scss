@@ -6,6 +6,13 @@ pre[class*="language-"] {
      > code[data-language] {
         padding: 1em;
      }
+
+    // Override theme class for comment
+    .token.comment {
+        border: none;
+        padding: 0;
+        margin-bottom: 0;
+    }
 }
 
 .prism-title {
