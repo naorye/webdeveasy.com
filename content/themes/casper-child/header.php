@@ -160,3 +160,6 @@
 </header><!-- #masthead -->
 
 <main id="content" class="content" role="main">
+    <?php if ( function_exists('yoast_breadcrumb') ) {
+        yoast_breadcrumb('<p id="breadcrumbs">','</p>');
+    } ?>
