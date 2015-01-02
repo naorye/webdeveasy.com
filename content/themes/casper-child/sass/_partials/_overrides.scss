@@ -1,0 +1,10 @@
+.inner,
+.main-navigation > div,
+#main > header.page-header,
+.widget-area,
+.post-wrap,
+.hentry,
+.comments-area,
+.pagination {
+   @include main-width;
+}

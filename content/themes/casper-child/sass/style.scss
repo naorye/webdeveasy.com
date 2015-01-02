@@ -13,8 +13,11 @@
 
 @import 'compass/utilities/general/clearfix';
 
+@import '_partials/variables';
+@import '_partials/mixins';
+
 @import '_partials/prism';
 @import '_partials/reset';
 
-@import '_partials/content';
+@import '_partials/overrides';
 @import '_partials/disqus';
