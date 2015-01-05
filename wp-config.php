@@ -66,6 +66,16 @@ if ( file_exists( dirname( __FILE__ ) . '/memcached.php' ) )
 define( 'WP_STAGE', '%%WP_STAGE%%' );
 define( 'STAGING_DOMAIN', '%%WP_STAGING_DOMAIN%%' ); // Does magic in WP Stack to handle staging domain rewriting
 
+// =========
+// Multisite
+// =========
+define('MULTISITE', true);
+define('SUBDOMAIN_INSTALL', false);
+define('DOMAIN_CURRENT_SITE', 'www.webdeveasy.com');
+define('PATH_CURRENT_SITE', '/');
+define('SITE_ID_CURRENT_SITE', 1);
+define('BLOG_ID_CURRENT_SITE', 1);
+
 // ===================
 // Bootstrap WordPress
 // ===================
