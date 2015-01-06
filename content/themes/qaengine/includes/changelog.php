@@ -177,13 +177,13 @@ function qa_changelog_point_vote_up($post, $point) {
     
     // change log when question is voted up
     if ($post->post_type == 'question') {
-        $args['post_title'] = __('q_vote_up', ET_DOMAIN);
+        $args['post_title'] = 'q_vote_up';
         $args['post_content'] = sprintf(__('Your question "%s" was voted up, earned %d points', ET_DOMAIN) , $post->post_title, $point);
     }
     
     // change log when answer is voted up
     if ($post->post_type == 'answer') {
-        $args['post_title'] = __('a_vote_up', ET_DOMAIN);
+        $args['post_title'] = 'a_vote_up';
         $args['post_content'] = sprintf(__('Your answer on question "%s" was voted up, earned %d points', ET_DOMAIN) , get_the_title($post->post_parent) , $point);
     }
     
@@ -211,13 +211,13 @@ function qa_changelog_point_vote_down($post, $point) {
     
     // change log when question is voted down
     if ($post->post_type == 'question') {
-        $args['post_title'] = __('q_vote_down', ET_DOMAIN);
+        $args['post_title'] = 'q_vote_down';
         $args['post_content'] = sprintf(__('Your question "%s" was voted down, earned %d points', ET_DOMAIN) , $post->post_title, $point);
     }
     
     // change log when answer is voted up
     if ($post->post_type == 'answer') {
-        $args['post_title'] = __('a_vote_down', ET_DOMAIN);
+        $args['post_title'] = 'a_vote_down';
         $args['post_content'] = sprintf(__('Your answer on question "%s" was voted down, earned %d points', ET_DOMAIN) , get_the_title($post->post_parent) , $point);
     }
     
@@ -244,12 +244,12 @@ function qa_changelog_unvote($post, $point) {
     $args = array();
     
     if ($post->post_type == 'question') {
-        $args['post_title'] = __('q_unvote', ET_DOMAIN);
+        $args['post_title'] = 'q_unvote';
         $args['post_content'] = sprintf(__('Your question "%s" was unvoted, return %d points', ET_DOMAIN) , $post->post_title, $point);
     }
     
     if ($post->post_type == 'answer') {
-        $args['post_title'] = __('a_unvote', ET_DOMAIN);
+        $args['post_title'] = 'a_unvote';
         $args['post_content'] = sprintf(__('Your answer on question "%s" was unvoted, return %d points', ET_DOMAIN) , get_the_title($post->post_parent) , $point);
     }
     
@@ -276,7 +276,7 @@ function qa_changelog_mark_answered($post, $point) {
     $args = array();
     
     if ($post->post_type == 'answer') {
-        $args['post_title'] = __('a_marked', ET_DOMAIN);
+        $args['post_title'] = 'a_marked';
         $args['post_content'] = sprintf(__('Your answer on question "%s" was marked best answer, gain %d points', ET_DOMAIN) , get_the_title($post->post_parent) , $point);
         
         /**
@@ -303,7 +303,7 @@ function qa_changelog_answer_unmark($post, $point) {
     $args = array();
     
     if ($post->post_type == 'answer') {
-        $args['post_title'] = __('a_unmarked', ET_DOMAIN);
+        $args['post_title'] = 'a_unmarked';
         $args['post_content'] = sprintf(__('Your best answer on question "%s" was undo, gain %d points', ET_DOMAIN) , get_the_title($post->post_parent) , $point);
         
         /**
@@ -330,12 +330,12 @@ function qa_changelog_insert_post($post, $point) {
     $args = array();
     
     if ($post->post_type == 'answer') {
-        $args['post_title'] = __('post_answer', ET_DOMAIN);
+        $args['post_title'] = 'post_answer';
         $args['post_content'] = sprintf(__('You answered on question "%s"', ET_DOMAIN) , get_the_title($post->post_parent));
     }
     
     if ($post->post_type == 'question') {
-        $args['post_title'] = __('post_question', ET_DOMAIN);
+        $args['post_title'] = 'post_question';
         $args['post_content'] = sprintf(__('Your posted a question "%s" ', ET_DOMAIN) , get_the_title($post->post_parent) , $point);
     }
     
@@ -363,12 +363,12 @@ function qa_changelog_update_post($post_id, $post, $update) {
     $point  = 0;
 
     if($post->post_type == 'question') {
-        $args['post_title'] = __('edit_question', ET_DOMAIN);
+        $args['post_title'] = 'edit_question';
         $args['post_content'] = sprintf(__('You question on question "%s" was edited', ET_DOMAIN) , get_the_title($post->post_parent));
     }
 
     if($post->post_type == 'answer') {
-        $args['post_title'] = __('edit_answer', ET_DOMAIN);
+        $args['post_title'] = 'edit_answer';
         $args['post_content'] = sprintf(__('Your answer on question "%s was edited"', ET_DOMAIN) , get_the_title($post->post_parent));
     }
 
@@ -403,7 +403,8 @@ function qa_list_changelog($args = array()) {
             $log = $change_log->convert($post);
             $parent = get_post($post->post_parent);
             
-            $i = '<i class="fa fa-circle"></i>';
+            $i    = '<i class="fa fa-circle"></i>';
+            $text = __("This is default text.", ET_DOMAIN);
 
             switch ($log->post_title) {
                 case 'a_vote_up':

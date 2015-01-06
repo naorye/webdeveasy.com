@@ -1,8 +1,42 @@
 <?php
 /**
 *
+* HOOK TO TOP & BOTTOM QUESTION LISTING
+* @param
+* @author ThaiNT
+* @since 1.0
+*
+**/
+add_action( 'qa_top_quetions_listing', 'qa_top_quetions_listing' );
+function qa_top_quetions_listing(){
+	if(is_active_sidebar( 'qa-top-questions-banner-sidebar' )){
+	?>
+    <div class="row">
+        <div class="col-md-12 ads-wrapper">
+            <?php dynamic_sidebar( 'qa-top-questions-banner-sidebar' ); ?>
+        </div>
+    </div><!-- END WIDGET BANNER -->
+	<?php
+	}
+}
+
+add_action( 'qa_btm_quetions_listing', 'qa_btm_quetions_listing' );
+function qa_btm_quetions_listing(){
+	if(is_active_sidebar( 'qa-btm-questions-banner-sidebar' )){
+	?>
+    <div class="row">
+        <div class="col-md-12 ads-wrapper btm-ads-wrapper">
+            <?php dynamic_sidebar( 'qa-btm-questions-banner-sidebar' ); ?>
+        </div>
+    </div><!-- END WIDGET BANNER -->
+	<?php
+	}
+}
+
+/**
+*
 * TEMPLATE SELECT CATEGORIES (REDIRECT)
-* @param 
+* @param
 * @author ThaiNT
 * @since 1.0
 *
@@ -15,7 +49,7 @@ function qa_template_share($id){
 /**
 *
 * TEMPLATE SELECT CATEGORIES (REDIRECT)
-* @param 
+* @param
 * @author ThaiNT
 * @since 1.0
 *
@@ -36,7 +70,7 @@ function qa_template_paginations($query,$paged){
 /**
 *
 * TEMPLATE SELECT CATEGORIES (REDIRECT)
-* @param 
+* @param
 * @author ThaiNT
 * @since 1.0
 *
@@ -45,14 +79,15 @@ function qa_option_categories_redirect($current = false, $args = array()){
 	$current = get_query_var( 'term' );
 	$args = wp_parse_args( $args, array(
 		'hide_empty' => 0,
+		'orderby'    => 'term_group'
 	));
 		$terms = get_terms( 'question_category', $args );
 		foreach ($terms as $term) {
+			$space = $term->parent ? '&nbsp;&nbsp;&nbsp;&nbsp;' : '';
 	?>
 	<option <?php echo $current == $term->slug ? 'selected' : ''; ?> value="<?php echo get_term_link($term, 'question_category' ); ?>">
 		<?php
-			if($term->parent) echo '--';
-			echo $term->name;
+			echo $space.$term->name;
 		?>
 	</option>
 	<?php
@@ -61,25 +96,14 @@ function qa_option_categories_redirect($current = false, $args = array()){
 /**
 *
 * TEMPLATE FILTER QUESTIONS LIST
-* @param 
+* @param
 * @author ThaiNT
 * @since 1.0
 *
 **/
 function qa_template_filter_questions(){
-	if(is_post_type_archive( 'question' )){
-		$current = get_post_type_archive_link( 'question' );
-	} elseif (is_page_template( 'page-questions.php' ) || is_page_template( 'page-pending.php' )) {
-		$current = et_get_page_link('questions');
-	} elseif ( is_tax() ) {
-		global $term;
-		$taxonomy = is_tax('question_category') ? 'question_category' : 'qa_tag';
-		$current = get_term_link( $term, $taxonomy );
-	} elseif(is_front_page()) {
-		$current = home_url();
-	} else {
-		$current = '';
-	}
+
+	$current = "http".(isset($_SERVER['HTTPS']) ? 's' : '')."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 	if(isset($_GET['sort']) && $_GET['sort'] == 'vote')
 		$args = array('sort' => 'vote');
@@ -100,7 +124,7 @@ function qa_template_filter_questions(){
 			<div class="col-md-2 col-xs-2">
 				<button type="button" data-toggle="modal" class="action ask-question">
 	                <i class="fa fa-plus"></i> <?php _e("ASK A QUESTION", ET_DOMAIN) ?>
-	            </button>				
+	            </button>
 			</div>
 			<div class="col-md-8 col-sm-10 col-xs-10">
 				<div class="row">
@@ -109,27 +133,43 @@ function qa_template_filter_questions(){
 							$keyword = get_query_var( 'keyword' );
 							if( isset($keyword) && $keyword != "" ){
 						?>
-						<span class="q-f-title"><?php _e("Search Questions", ET_DOMAIN) ?></span>
+						<span class="q-f-title">
+							<?php _e("Search Questions", ET_DOMAIN) ?>
+						</span>
 						<?php } else { ?>
 						<span class="q-f-title">
 							<?php _e("All Questions", ET_DOMAIN) ?>
 						</span>
 						<?php } ?>
 					</div><!-- END TITLE -->
-					<div class="col-md-4 col-xs-4">
+					<div class="col-md-5 col-xs-5">
 						<ul class="q-f-sort">
 		                    <li>
-		                        <a class="<?php echo !isset($_GET['sort']) ? 'active' : ''; ?>" href="<?php echo $current ?>"><?php _e("Latest",ET_DOMAIN) ?></a>
+		                        <a class="<?php echo !isset($_GET['sort']) && !is_page_template( 'page-pending.php' ) ? 'active' : ''; ?>" href="<?php echo !is_page_template( 'page-pending.php' ) ? remove_query_arg( 'sort' ,$current) : home_url(); ?>">
+		                        	<?php _e("Latest",ET_DOMAIN) ?>
+		                        </a>
 		                    </li>
 		                    <li>
-		                        <a class="<?php echo isset($_GET['sort']) && $_GET['sort'] == 'vote' ? 'active' : ''; ?>" href="<?php echo add_query_arg(array('sort' => 'vote')); ?>"><?php _e("Votes",ET_DOMAIN) ?></a>
+		                        <a class="<?php echo isset($_GET['sort']) && $_GET['sort'] == 'vote' ? 'active' : ''; ?>" href="<?php echo add_query_arg(array('sort' => 'vote')); ?>">
+		                        	<?php _e("Votes",ET_DOMAIN) ?>
+		                        </a>
 		                    </li>
 		                    <li>
-		                        <a class="<?php echo isset($_GET['sort']) && $_GET['sort'] == 'unanswer' ? 'active' : ''; ?>" href="<?php echo add_query_arg(array('sort' => 'unanswer')); ?>"><?php _e("Unanswered",ET_DOMAIN) ?></a>
+		                        <a class="<?php echo isset($_GET['sort']) && $_GET['sort'] == 'unanswer' ? 'active' : ''; ?>" href="<?php echo add_query_arg(array('sort' => 'unanswer')); ?>">
+		                        	<?php _e("Unanswered",ET_DOMAIN) ?>
+		                        </a>
 		                    </li>
-		                </ul><!-- END FILTER -->						
+		                    <?php
+		                    	global $current_user;
+		                    	if( current_user_can( 'manage_options' ) && et_count_posts("pending") > 0 ){
+		                    ?>
+		                    <li>
+		                        <a class="<?php echo is_page_template( 'page-pending.php' ) ? 'active' : ''; ?>" href="<?php echo et_get_page_link('pending'); ?>"><?php _e("Pending",ET_DOMAIN) ?></a>
+		                    </li>
+		                    <?php } ?>
+		                </ul><!-- END FILTER -->
 					</div>
-					<div class="col-md-6 col-xs-6">
+					<div class="col-md-5 col-xs-5 categories-wrapper">
 						<div class="select-categories-wrapper">
 		                    <div class="select-categories">
 		                        <select class="select-grey-bg" id="move_to_category">
@@ -151,29 +191,31 @@ function qa_template_filter_questions(){
                                 </select>
                             </div>
                         </div><!-- END POSTS PER PAGE -->
-					</div>										
+					</div>
 				</div>
-			</div>			
+			</div>
 		</div>
         <div class="row question-filter" id="question_filter">
             <div class="col-md-6 col-xs-6 sort-questions">
                 <ul>
                     <li>
-                        <a class="<?php echo !isset($_GET['sort']) && !is_page_template( 'page-pending.php' ) ? 'active' : ''; ?>" href="<?php echo $current ?>"><?php _e("Latest",ET_DOMAIN) ?></a>
+                        <a class="<?php echo !isset($_GET['sort']) && !is_page_template( 'page-pending.php' ) ? 'active' : ''; ?>" href="<?php echo !is_page_template( 'page-pending.php' ) ? remove_query_arg( 'sort' ,$current) : home_url(); ?>">
+                        	<?php _e("Latest",ET_DOMAIN) ?>
+                        </a>
                     </li>
                     <li>
-                        <a class="<?php echo isset($_GET['sort']) && $_GET['sort'] == 'vote' ? 'active' : ''; ?>" href="<?php echo add_query_arg(array('sort' => 'vote'), $current); ?>"><?php _e("Votes",ET_DOMAIN) ?></a>
+                        <a class="<?php echo isset($_GET['sort']) && $_GET['sort'] == 'vote' ? 'active' : ''; ?>" href="<?php echo add_query_arg(array('sort' => 'vote'), is_page_template( 'page-pending.php' ) ? home_url() : $current); ?>"><?php _e("Votes",ET_DOMAIN) ?></a>
                     </li>
                     <li>
-                        <a class="<?php echo isset($_GET['sort']) && $_GET['sort'] == 'unanswer' ? 'active' : ''; ?>" href="<?php echo add_query_arg(array('sort' => 'unanswer'), $current); ?>"><?php _e("Unanswered",ET_DOMAIN) ?></a>
+                        <a class="<?php echo isset($_GET['sort']) && $_GET['sort'] == 'unanswer' ? 'active' : ''; ?>" href="<?php echo add_query_arg(array('sort' => 'unanswer'), is_page_template( 'page-pending.php' ) ? home_url() : $current); ?>"><?php _e("Unanswered",ET_DOMAIN) ?></a>
                     </li>
-                    <?php 
+                    <?php
                     	global $current_user;
                     	if( current_user_can( 'manage_options' ) && et_count_posts("pending") > 0 ){
                     ?>
                     <li>
                         <a class="<?php echo is_page_template( 'page-pending.php' ) ? 'active' : ''; ?>" href="<?php echo et_get_page_link('pending'); ?>"><?php _e("Pending",ET_DOMAIN) ?></a>
-                    </li>                    
+                    </li>
                     <?php } ?>
                 </ul>
             </div>
@@ -219,18 +261,18 @@ function qa_comment_post_template($comment, $args, $depth){
 				<span class="et-comment-time icon" data-icon="t"><?php comment_date() ?></span>
 			</div>
 			<div class="et-comment-content">
-				<?php comment_text() ?>
+				<?php echo esc_attr( get_comment_text($comment->comment_ID) ) ?>
 				<p class="et-comment-reply"><?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?></p>
 			</div>
 		</div>
 		<div class="clearfix"></div>
-<?php	
+<?php
 }
 
 /**
 *
 * TEMPLATE TAG
-* @param array $comments 
+* @param array $comments
 * @author ThaiNT
 * @since 1.0
 *
@@ -238,17 +280,25 @@ function qa_comment_post_template($comment, $args, $depth){
 function qa_tag_template(){
 	?>
 	<script type="text/template" id="tag_item">
-	
-		<input type="hidden" name="tags[]" value="<%= name %>" />
-		<%= name %> <a href="javascript:void(0)" class="delete"><i class="fa fa-times"></i></a>
-		
+
+		<input type="hidden" name="tags[]" value="{{= stripHTML(name) }}" />
+		{{= stripHTML(name) }} <a href="javascript:void(0)" class="delete"><i class="fa fa-times"></i></a>
+
+	</script>
+	<script type="text/javascript">
+		function stripHTML(html)
+		{
+		   var tmp = document.createElement("DIV");
+		   tmp.innerHTML = html;
+		   return tmp.textContent||tmp.innerText;
+		}
 	</script>
 	<?php
 }
 /**
 *
 * JS TEMPLATE COMMENT
-* @param array $comments 
+* @param array $comments
 * @author ThaiNT
 * @since 1.0
 *
@@ -261,7 +311,7 @@ function qa_comment_template(){
 /**
 *
 * JS TEMPLATE ANSWER
-* @param array $comments 
+* @param array $comments
 * @author ThaiNT
 * @since 1.0
 *
@@ -273,7 +323,7 @@ function qa_answer_template(){
 /**
 *
 * TEMPLATE print selec categories
-* @param array $comments 
+* @param array $comments
 * @author ThaiNT
 * @since 1.0
 *
@@ -291,14 +341,14 @@ function qa_select_categories($args = array()){
 				foreach ($terms as $term) {
 			?>
 			<option value="<?php echo $term->slug ?>">
-				<?php 
+				<?php
 					if($term->parent) echo '--';
 					echo $term->name;
 				?>
 			</option>
 			<?php
 				}
-			?>		
+			?>
 		</select>
 	</div>
 	<?php
@@ -306,7 +356,7 @@ function qa_select_categories($args = array()){
 /**
 *
 * TEMPLATE LOOP FOR COMMENTS
-* @param array $comments 
+* @param array $comments
 * @author ThaiNT
 * @since 1.0
 *
@@ -323,29 +373,32 @@ function qa_comments_loop($child){
 /**
 *
 * TEMPLATE LOOP FOR ANSWERS
-* @param array $answers 
+* @param array $answers
 * @author ThaiNT
 * @since 1.0
 *
 **/
 function qa_answers_loop(){
 
-	global $post,$wp_rewrite,$current_user , $qa_question;
-	$question_ID = $post->ID;
-	$answersData = array();
-	$commentsData = array();
-	$question = QA_Questions::convert(get_post($question_ID));
+	global $post, $wp_rewrite, $current_user, $qa_question;
 
-	$qa_question =	$question;
+	$question_ID  = $post->ID;
+	$answersData  = array();
+	$commentsData = array();
+	$question     = QA_Questions::convert(get_post($question_ID));
+	$qa_question  =	$question;
 
 	$paged = get_query_var( 'page' ) ? get_query_var( 'page' ) : 1 ;
 
 	$reply_args = array(
-			'post_type' 	=> 'answer',
-			'post_status'	=> 'publish',
-			'post_parent'	=> $post->ID,
-			'paged'			=> $paged,
-		);
+		'post_type'   => 'answer',
+		'post_parent' => $post->ID,
+		'paged'       => $paged,
+	);
+	//show pending answer if current user is admin
+	if( is_user_logged_in() && ( qa_user_can('approve_answer') || current_user_can( 'manage_options' ) ) ){
+		$reply_args['post_status'] = array( 'publish', 'pending' );
+	}
 
 	if( isset($_GET['sort']) && $_GET['sort'] == "oldest" ){
 		$reply_args['order'] = 'ASC';
@@ -361,17 +414,17 @@ function qa_answers_loop(){
 		if($replyQuery->have_posts()){
 			while($replyQuery->have_posts()){ $replyQuery->the_post();
 				global $post, $qa_answer, $qa_answer_comments;
-				$qa_answer =  QA_Answers::convert($post);
-				$answersData[] = $qa_answer;
-				$qa_answer_comments   = get_comments( array( 
-			                        'post_id'       => $qa_answer->ID,
-			                        'parent'        => 0,
-			                        'status'        => 'approve',
-			                        'post_status'   => 'publish',
-			                        'order'         => 'ASC',
-			                        'type'			=> 'answer'
-			                    ) );
-				$commentsData = array_merge($commentsData, $qa_answer_comments);
+				$qa_answer          = QA_Answers::convert($post);
+				$answersData[]      = $qa_answer;
+				$qa_answer_comments = get_comments( array(
+					'post_id'     => $qa_answer->ID,
+					'parent'      => 0,
+					'status'      => 'approve',
+					'post_status' => 'publish',
+					'order'       => 'ASC',
+					'type'        => 'answer'
+				) );
+				$commentsData       = array_merge($commentsData, $qa_answer_comments);
 
 			?>
 			<div class="row question-main-content question-item answer-item" id="<?php echo $qa_answer->ID ?>">
@@ -381,8 +434,8 @@ function qa_answers_loop(){
 			}
 		}
 		wp_reset_query();
-		?> 
-	</div>      
+		?>
+	</div>
 	<!-- ANSWERS LOOP -->
 	<div class="row paginations <?php echo $replyQuery->max_num_pages > 1 ? '' : 'collapse'; ?>">
 	    <div class="col-md-12">
@@ -397,12 +450,12 @@ function qa_answers_loop(){
 	                'next_text' => '>',
 	                'type'      => 'list'
 	            ) );
-	        ?>        
+	        ?>
 	    </div>
 	</div><!-- END PAGINATIONS -->
 	<script type="text/javascript">
 		<?php
-	        $parent_comments    = get_comments( array( 
+	        $parent_comments    = get_comments( array(
 	            'post_id'       => $question_ID,
 	            'parent'        => 0,
 	            'status'        => 'approve',
@@ -412,8 +465,8 @@ function qa_answers_loop(){
 	        ) );
 	        $commentsData = !empty($commentsData) ? $commentsData : array();
 		?>
-		var answersData  = <?php echo json_encode( $answersData, JSON_HEX_QUOT ) ?>;
-		var commentsData = <?php echo json_encode( array_merge( $parent_comments, $commentsData ), JSON_HEX_QUOT ) ?>;
+		var answersData  = <?php echo defined('JSON_HEX_QUOT') ? json_encode( $answersData, JSON_HEX_QUOT ) : json_encode( $answersData ) ?>;
+		var commentsData = <?php echo defined('JSON_HEX_QUOT') ? json_encode( array_merge( $parent_comments, $commentsData ), JSON_HEX_QUOT ) : json_encode( array_merge( $parent_comments, $commentsData ) ) ?>;
 	</script>
 <?php
 }
@@ -428,7 +481,7 @@ function qa_answers_loop(){
 **/
 function qa_count_post_in_tags($tag){
 	$today   = getdate();
-	$today_query = new WP_Query( 'post_type=question&qa_tag='.$tag.'&year=' . $today["year"] . '&monthnum=' . $today["mon"] . '&day=' . $today["mday"] );	
+	$today_query = new WP_Query( 'post_type=question&qa_tag='.$tag.'&year=' . $today["year"] . '&monthnum=' . $today["mon"] . '&day=' . $today["mday"] );
 
 	$week  = date('W');
 	$year  = date('Y');
@@ -441,52 +494,6 @@ function qa_count_post_in_tags($tag){
 						$week_query->found_posts,
 						$month_query->found_posts
 		);
-}
-/**
-*
-* MODAL UPLOAD IMAGES TINYMCE
-* @param null
-* @author ThaiNT
-* @since 1.0
-*
-**/
-function qa_upload_images_modal(){
-	?>
-	<div class="modal fade modal-submit-questions" id="upload_images" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-					<h4 class="modal-title modal-title-sign-in" id="myModalLabel"><?php _e("Insert Images", ET_DOMAIN) ?></h4>
-				</div>
-				<div class="modal-body">
-					<div class="upload-location" id="images_upload_container">
-						<span class="title"><?php _e( 'Upload an image', ET_DOMAIN ) ?></span>
-						<div class="input-file">
-							<?php
-								$disabled = !is_user_logged_in() ? 'disabled="disabled" style="opacity:0.7;"' : '' ;
-								$file_text = is_user_logged_in() ? __("No file chosen.",ET_DOMAIN) : __("Please log in to use this function.",ET_DOMAIN);
-							?>                     
-							<input type="button" <?php echo $disabled ?> value="<?php _e("Browse",ET_DOMAIN);?>" class="bg-button-file button" id="images_upload_browse_button">                        
-							<span class="filename"><?php echo $file_text; ?></span>
-							<span class="et_ajaxnonce" id="<?php echo wp_create_nonce( 'et_upload_images' ); ?>"></span> 
-						</div>
-					</div> 
-	                <div class="upload-url">
-	                    <span class="title"><?php _e( 'Add an image via URL', ET_DOMAIN ) ?></span>
-	                    <div class="input-url">
-	                      	<input type="text" placeholder="https://www.images.jpg" id="external_link" class="form-control">
-		                    <div class="button-event">
-		                  		<button type="button" id="insert" class="btn"><?php _e( 'Insert', ET_DOMAIN ) ?></button>
-		                    	<a href="javascript:void(0)" class="btn-cancel collapse" data-dismiss="modal"><?php _e( 'Cancel', ET_DOMAIN ) ?></a>
-		                    </div>
-	                    </div>                  
-	                </div>					 
-				</div>
-			</div>
-		</div>
-	</div>
-	<?php
 }
 /**
 *
@@ -541,10 +548,20 @@ function qa_insert_question_modal(){
  *
  **/
 function et_count_answer($id){
-	$childs = get_children( array(
- 			'post_type' 	=> 'answer',
- 			'post_parent'	=> $id,
-		) );
+	global $current_user;
+
+	$args = array(
+		'post_type'   => 'answer',
+		'post_parent' => $id,
+		'post_status' => 'publish'
+	);
+
+	//if current user is admin show pending answers
+	if( is_user_logged_in() && current_user_can( 'manage_options' ) )
+		$args['post_status'] = array('publish','pending');
+
+	$childs = get_children( $args );
+
 	return count($childs);
 }
 /**
@@ -555,8 +572,8 @@ function et_count_answer($id){
  * @since v1.0
  *
  **/
-function et_the_time( $from ){	
-	// 
+function et_the_time( $from ){
+	//
 	if ( time() - $from > (7 * 24 * 60 * 60) ){
 		return sprintf( __('on %s', ET_DOMAIN), date_i18n( get_option('date_format'), $from, true ) );
 	} else {
@@ -582,7 +599,7 @@ function et_selected( $selected, $current, $echo = true){
 	}
 
 	if ( $echo ) echo $return;
-	
+
 	return $return;
 }
 
@@ -692,7 +709,7 @@ function time_elapsed_string($ptime){
  **/
 function et_get_page_link( $pages , $params = array() , $create = true ){
 	//'page_template'
-	
+
 
 	$page_args	=	array(
 			'post_title'        => '',
@@ -709,7 +726,7 @@ function et_get_page_link( $pages , $params = array() , $create = true ){
 		$page_args['post_title'] = $page_type;
 	}
 
-	$link	=	apply_filters( 'et_pre_filter_get_page_link' , '' , $page_type ); 
+	$link	=	apply_filters( 'et_pre_filter_get_page_link' , '' , $page_type );
 	if( $link ) {
 		$return = add_query_arg( $params , $link );
 		return $return ;
@@ -718,9 +735,9 @@ function et_get_page_link( $pages , $params = array() , $create = true ){
 	// find post template
 	$pages = get_pages( array( 'meta_key' => '_wp_page_template' ,'meta_value' => 'page-'.$page_type.'.php', 'numberposts' => 1 ) );
 	if ( empty($pages) || !is_array($pages) ){
-		if(! $create ) return false; 
+		if(! $create ) return false;
 		$id = wp_insert_post($page_args);
-		
+
 		if ( $id ){
 			update_post_meta( $id , '_wp_page_template' , 'page-'.$page_type.'.php' );
 		}
@@ -729,18 +746,18 @@ function et_get_page_link( $pages , $params = array() , $create = true ){
 		$page = array_shift( $pages );
 		$id = $page->ID;
 	}
-	
+
 	$return = get_permalink( $id );
 	/**
-	 * update transient page link 
+	 * update transient page link
 	*/
 	//set_transient( 'page-'.$page_type.'.php', $return , 3600*24*30 );
 	update_option( 'page-'.$page_type.'.php', $return );
-	
+
 	if ( !empty( $params ) && is_array( $params ) ){
 		$return = add_query_arg( $params , $return );
 	}
-	
+
 	return apply_filters('et_get_page_link', $return, $page_type, $params);
 }
 
@@ -797,7 +814,7 @@ function qa_comment_form ( $post, $type = 'question' ) {
                 </div>
             </div>
         </div>
-    </form><!-- END SUBMIT FORM COMMENT -->  
+    </form><!-- END SUBMIT FORM COMMENT -->
 
 <?php
 
@@ -807,8 +824,8 @@ function qa_comment_form ( $post, $type = 'question' ) {
  * echo tos text in form comment, post answer
  * @author Dakachi
 */
-function qa_tos () {
-	printf(__('By posting your answer, you agree to the <a target="_blank" href="%s">privacy policy</a> and <a target="_blank" href="%s">terms of service.</a>', ET_DOMAIN), et_get_page_link('term'), et_get_page_link('term'));
+function qa_tos ($word) {
+	$word == "answer" ? printf(__('By posting your answer, you agree to the <a target="_blank" href="%s">privacy policy</a> and <a target="_blank" href="%s">terms of service.</a>', ET_DOMAIN), et_get_page_link('term'), et_get_page_link('term')) : printf(__('By posting your question, you agree to the <a target="_blank" href="%s">privacy policy</a> and <a target="_blank" href="%s">terms of service.</a>', ET_DOMAIN), et_get_page_link('term'), et_get_page_link('term'));
 }
 
 /**
@@ -822,4 +839,59 @@ function qa_tos () {
 function qa_report_modal(){
 	get_template_part('template/modal' , 'report' );
 }
+/**
+*
+* Print Dropdown Question Category
+* @param null
+* @author thaint
+* @since 1.0
+*
+**/
+function qa_tax_dropdown(){
+	?>
+    <div class="select-categories-wrapper">
+        <div class="select-categories">
+            <?php
+                wp_dropdown_categories(array(
+                    'taxonomy'        => 'question_category',
+                    'class'           => 'select-grey-bg',
+                    'hide_empty'      => false,
+                    'hierarchical'    => true,
+                    'show_option_all' => __("Filter by category",ET_DOMAIN),
+                    'depth'           => 4,
+                    'id'              => 'move_to_category',
+                    'walker'          => new QA_Walker_TaxonomyDropdown(),
+                ));
+            ?>
+        </div>
+    </div>
+	<?php
+}
+class QA_Walker_TaxonomyDropdown extends Walker_CategoryDropdown{
+
+    public function start_el( &$output, $category, $depth = 0, $args = array(), $id = 0 ) {
+        $pad = str_repeat('&nbsp;', $depth * 2);
+        $cat_name = apply_filters('list_cats', $category->name, $category);
+
+        if( !isset($args['value']) ){
+            $args['value'] = ( $category->taxonomy != 'category' ? 'slug' : 'id' );
+        }
+
+        //$value = ($args['value']=='slug' ? $category->slug : $category->term_id );
+        $value = get_term_link( $category, 'question_category' );
+
+        $output .= "\t<option class=\"level-$depth\" value=\"".$value."\"";
+
+        if ( $value === (string) $args['selected'] ){
+            $output .= ' selected="selected"';
+        }
+        $output .= '>';
+        $output .= $pad.$cat_name;
+        if ( $args['show_count'] )
+            $output .= '&nbsp;&nbsp;('. $category->count .')';
+
+        $output .= "</option>\n";
+    }
+}
+
 ?>

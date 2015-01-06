@@ -574,7 +574,7 @@ window.AE = window.AE || {};
 			console.log('change');
 			var $target = $(e.currentTarget);
 			name = $target.attr('name'),
-			val = $target.val(),
+			val  = $target.val(),
 			view = this;
 
 			this.model.save(name, val, {

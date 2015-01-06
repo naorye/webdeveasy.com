@@ -233,14 +233,15 @@ function qa_get_badge_point() {
 */
 function qa_privileges() {
 	return  array(
-		//'create_post'			=> __("Ask a question or contribute an answer", ET_DOMAIN),
-		'vote_up'				=> __("Vote up a question/answer", ET_DOMAIN),
-		'add_comment'			=> __("Leave comments on other people's posts", ET_DOMAIN),
-		'vote_down'				=> __("Vote down a question/answer", ET_DOMAIN),
-		//'edit_qa' 				=> __("Edits to any question/answer", ET_DOMAIN),
-		'create_tag'			=> __("Add new tags to the site", ET_DOMAIN),
-		'edit_question' 		=> __("Edit any question", ET_DOMAIN),
-		'edit_answer'			=> __("Edit any answer", ET_DOMAIN)
+		//'create_post'  => __("Ask a question or contribute an answer", ET_DOMAIN),
+		'vote_up'        => __("Vote up a question/answer", ET_DOMAIN),
+		'add_comment'    => __("Leave comments on other people's posts", ET_DOMAIN),
+		'vote_down'      => __("Vote down a question/answer", ET_DOMAIN),
+		//'edit_qa'      => __("Edits to any question/answer", ET_DOMAIN),
+		'create_tag'     => __("Add new tags to the site", ET_DOMAIN),
+		'edit_question'  => __("Edit any question", ET_DOMAIN),
+		'edit_answer'    => __("Edit any answer", ET_DOMAIN),
+		'approve_answer' => __("Approve any answer", ET_DOMAIN)
 		 
 	);
 }
@@ -264,10 +265,11 @@ function qa_get_user_point ($user_id) {
  * @package qaengine
 */
 function qa_user_badge( $user_id, $echo = true, $mobile = false ) {
+	
 	$user_point	=	qa_get_user_point( $user_id );
 	$levels		=	get_option( 'qa_level', array() );
-	
 	$badge		=	'';
+
 	if(!empty($levels)){
 		foreach($levels as $key => $level) {
 			if( $level->qa_badge_point <= $user_point ) {

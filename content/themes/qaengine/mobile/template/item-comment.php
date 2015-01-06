@@ -15,7 +15,7 @@
         </div>
         <div class="col-md-9 col-xs-9">
             <div class="content-cmt-in-cmt">
-            <?php echo $qa_comment->content_filter ?>
+            <?php echo  $qa_comment->content_filter ?>
             <span class="time-cmt-in-cmt"><?php echo $qa_comment->human_date ?>. <!-- <a href="javascript:void(0)">Edit&nbsp;&nbsp;<i class="fa fa-pencil"></i></a> --></span>
             </div>
         </div>

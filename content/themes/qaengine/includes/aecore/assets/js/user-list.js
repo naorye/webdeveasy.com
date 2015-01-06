@@ -12,7 +12,8 @@
 			'click .load-more': 'loadMore',
 			'change input.user-search': 'search',
 			'change select.et-input': 'search',
-			'submit .et-member-search form': 'submit'
+			'submit .et-member-search form': 'submit',
+			'change input.point' : 'changePoints'
 		},
 
 		initialize: function() {

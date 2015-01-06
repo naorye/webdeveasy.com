@@ -15,7 +15,7 @@ global $wp_query;
                     <h2><?php _e("Blog",ET_DOMAIN) ?></h2>
                     <form id="search-bar" action="<?php echo home_url() ?>">
                         <i class="fa fa-search"></i>
-                        <input type="text" name="s" value="<?php echo get_query_var( 's' ) ?>" id="" placeholder="<?php _e("Search at blog",ET_DOMAIN) ?>">
+                        <input type="text" name="s" value="<?php echo get_search_query(); ?>" id="" placeholder="<?php _e("Search at blog",ET_DOMAIN) ?>">
                     </form>
                 </div>
             </div>      

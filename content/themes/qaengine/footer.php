@@ -23,7 +23,7 @@
 	<!-- MODAL INSERT NEW QUESTION -->
 
 	<!-- MODAL UPLOAD IMAGE -->
-	<?php qa_upload_images_modal() ?>
+	<?php get_template_part( 'template/modal', 'upload-images' ); ?>
 	<!-- MODAL UPLOAD IMAGE -->
 	
 	<!-- TAG TEMPLATE -->

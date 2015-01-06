@@ -39,11 +39,19 @@
                         <?php qa_user_badge($answer->post_author, true, true) ?>
                     </div>
                     <div class="content-question">
+                        <?php if($answer->post_status == "pending"){ ?>
+                        <span class="pending-ans"><?php _e("Pending Answer", ET_DOMAIN) ?></span>
+                        <?php } ?>                        
                         <div class="details">
                         	<?php the_content(); ?>
                         </div>
                         <div class="info-tag-time">
-                        	<span class="time-categories"><?php printf(__("Answered %s.", ET_DOMAIN), $et_post_date) ?>.</span>
+                        	<span class="time-categories">
+                                <?php 
+                                    $author = '<a href="'.get_author_posts_url( $answer->post_author ).'">'.$answer->author_name.'</a>';
+                                    printf(__("Answered by %s %s.", ET_DOMAIN), $author, $et_post_date)
+                                ?>.
+                            </span>
                         </div>
                         <div class="vote-wrapper">
 
@@ -64,6 +72,12 @@
                             <?php } elseif($current_user->ID == $question->post_author) {?>
                             <a href="javascript:void(0)" data-name="accept-answer" class="action answer-active-label pending-answers">
                                 <?php _e("Accept", ET_DOMAIN) ?>
+                            </a>
+                            <?php } ?>
+
+                            <?php if($answer->post_status == "pending" && current_user_can( 'manage_options' )) {?>
+                            <a href="javascript:void(0)" data-name="approve" class="action answer-active-label pending-answers">
+                                <?php _e("Approve", ET_DOMAIN) ?>
                             </a>
                             <?php } ?>
                             

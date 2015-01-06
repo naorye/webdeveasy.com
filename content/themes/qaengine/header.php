@@ -13,7 +13,7 @@
         <title><?php wp_title( '|', true, 'right' ); ?></title>
 	    
 		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-		<meta name="description" content="<?php echo get_option("blogdescription"); ?>">
+		
 		<?php
 			$favicon = $options->mobile_icon['thumbnail'][0];
 		?>
@@ -53,19 +53,19 @@
 						</a>
 					</div><!-- logo -->
 					<div class="col-md-8 col-xs-8">
+						<?php if(has_nav_menu('et_header')){ ?>
                         <div class="header-menu">
                             <ul>
                                 <?php 
-                                    if(has_nav_menu('et_header')){
-                                        wp_nav_menu(array(
-                                                'theme_location' => 'et_header',
-                                                'items_wrap' => '%3$s',
-                                                'container' => ''
-                                            ));					
-                                    }
+                                    wp_nav_menu(array(
+										'theme_location' => 'et_header',
+										'items_wrap'     => '%3$s',
+										'container'      => ''
+                                    ));					
                                 ?>
                             </ul>
-                        </div><!-- menu -->						
+                        </div><!-- menu -->		
+                        <?php } ?>				
                         <div class="header-search-wrapper">
                         	<section class="buttonset">
                                 <button id="showLeftPush"><i class="fa fa-question"></i></button>

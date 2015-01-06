@@ -1,16 +1,16 @@
-<!DOCTYPE html> 
-<html <?php language_attributes(); ?>> 
-<head> 
-	<title><?php echo get_option("blogname") ; ?>  | <?php _e("MOBILE VERSION", ET_DOMAIN) ?></title> 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 	
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+	<title><?php echo get_option("blogname") ; ?>  | <?php _e("MOBILE VERSION", ET_DOMAIN) ?></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
     <?php
         //loads comment reply JS on single posts and pages
-        if ( is_single()) wp_enqueue_script( 'comment-reply' ); 
-    ?>    
+        if ( is_single()) wp_enqueue_script( 'comment-reply' );
+    ?>
     <?php wp_head(); ?>
-</head> 
-<body <?php body_class(); ?>> 
+</head>
+<body <?php body_class(); ?>>
 
 <!-- HEADDER -->
 <header>
@@ -26,10 +26,10 @@
         		<?php
         			$site_logo	=	ae_get_option('site_logo');
         		?>
-        		<img src="<?php echo $site_logo['large'][0] ?>" />
+        		<img src="<?php echo $site_logo['large'][0] ? $site_logo['large'][0] : get_template_directory_uri().'/img/logo.png' ?>" />
         	</a>
         </div>
-    </div>   
+    </div>
 </header>
 <!-- HEADDER / END -->
 
@@ -41,7 +41,7 @@
 <section class="menu-push">
     <div class="container">
         <div class="row">
-            <?php 
+            <?php
                 if(is_user_logged_in()){
                     global $current_user;
             ?>
@@ -67,7 +67,7 @@
                 <li>
                     <a href="<?php echo wp_logout_url(home_url()); ?>"><?php _e("Sign Out", ET_DOMAIN) ?></a>
                 </li>
-            </ul> 
+            </ul>
 
             <?php } else { ?>
 
@@ -100,8 +100,8 @@
                     foreach ($terms as $term) {
                 ?>
                 <li><a href="<?php echo get_term_link( $term, 'question_category' ); ?>"><?php echo $term->name; ?></a></li>
-                <?php 
-                    } 
+                <?php
+                    }
                 ?>
             </ul>
         </div>

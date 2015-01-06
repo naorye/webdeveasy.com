@@ -21,10 +21,13 @@
 	border:none;
 	outline:none;
 	margin:0 5px;
+	text-align: center;
 }
 .buttonset #showLeftPush i, .buttonset #showRightPush i{
 	color:#fff;
 	font-size: 16px;
+	margin: 0 auto;
+	text-align: center;
 }
 .buttonset #showRightPush{
 	background:#19bb9b;

@@ -33,7 +33,7 @@
                 ?>
         
                 <div class="copyright">
-                    &copy;<?php echo date('Y') ?> EngineThemes <br>
+                    &copy;<?php echo date('Y') ?> <?php echo ae_get_option( 'copyright' ); ?> <br>
                     <a href="<?php echo et_get_page_link("term"); ?>"><?php _e("Term & Privacy", ET_DOMAIN) ?></a>
                 </div>
             </div><!-- END LEFT-SIDEBAR -->

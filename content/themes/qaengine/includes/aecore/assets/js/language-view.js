@@ -23,8 +23,8 @@
 	*/
 	Views.LanguageList	=	Backbone.View.extend({
 
-		template : _.template(	'<li><a class="actives" href="et-change-language" rel="<%= lang_name %>">' +
-								'<%= lang_name %></a></li>'
+		template : _.template(	'<li><a class="actives" href="et-change-language" rel="{{= lang_name }}">' +
+								'{{= lang_name }}</a></li>'
 							),
 		events : {
 			// catch event add lang button and open add new language form

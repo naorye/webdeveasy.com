@@ -51,6 +51,10 @@
                                     the_post();
                                     get_template_part( 'mobile/template/question', 'loop' );
                                 }
+                            } else {
+                                echo '<li>';
+                                echo '<h3 class="no-questions">'.__('There is no questions in this catetgory!.', ET_DOMAIN).'</h3>';
+                                echo '</li>';
                             }
                             wp_reset_query();
                         ?>

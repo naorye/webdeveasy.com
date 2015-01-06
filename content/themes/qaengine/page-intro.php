@@ -4,6 +4,7 @@
  * version 1.0
  * @author: enginethemes
  **/
+$disabled_register = is_multisite() ? get_site_option('registration') : get_option('users_can_register');
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>	
@@ -60,8 +61,7 @@
                                     if(ae_get_option('intro_slide_text')){
                                         $string = ae_get_option('intro_slide_text');
                                         $string = implode("",explode("\\",$string));
-                                        echo stripslashes(trim($string));
-                                        //echo stripslashes( ae_get_option('intro_slide_text') );                                        
+                                        echo stripslashes(trim($string));                                     
                                     }
                                 ?>
                             	<!-- Not just another
@@ -85,7 +85,7 @@
                             <a class="hiddenanchor" id="toregister"></a>
                             <a class="hiddenanchor" id="tologin"></a>
                             <div class="group-btn-intro">
-                                <a href="#tologin" class="to_register active"> <?php _e("Sign in",ET_DOMAIN) ?> </a> <span><?php _e("or",ET_DOMAIN) ?></span> <a href="#toregister" class="to_register"><?php _e("Sign up",ET_DOMAIN) ?></a>
+                                <a href="#tologin" class="to_register active"> <?php _e("Sign in",ET_DOMAIN) ?> </a><?php if($disabled_register == 1 || $disabled_register == "user" || $disabled_register == "all" || $disabled_register == "blog" ){ ?> <span><?php _e("or",ET_DOMAIN) ?></span> <a href="#toregister" class="to_register"><?php _e("Sign up",ET_DOMAIN) ?></a><?php } ?>
                             </div>
                             <div id="wrapper">
                                 <div id="login" class="animate">
@@ -140,7 +140,7 @@
                                         </div>
                                     </form>
                                 </div>
-        
+                                <?php if($disabled_register == 1 || $disabled_register == "user" || $disabled_register == "all" || $disabled_register == "blog" ){ ?>
                                 <div id="register" class="animate ">
                                     <form class="sign-up-intro" id="sign_up" method="POST"> 
                                         <div class="row">
@@ -200,9 +200,10 @@
                                         </div>
                                     </form>
                                 </div>
-                                
+                                <?php } ?>
                             </div>
                     	</div>
+                        <?php if($disabled_register == 1 || $disabled_register == "user" || $disabled_register == "all" || $disabled_register == "blog" ){ ?>
                         <div class="sign-in-social">
                             <ul class="social-icon clearfix"> 
                                 <!-- google plus login -->
@@ -220,6 +221,7 @@
 
                              </ul>    
                         </div>
+                        <?php } ?>
                     </div>
                     <!-- END FORM -->
                  </div>

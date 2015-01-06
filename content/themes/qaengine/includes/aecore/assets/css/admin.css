@@ -2387,3 +2387,12 @@ button.disabled:hover, input[type="submit"].disabled:hover, input[type="button"]
 	border-radius: 5px;
 	padding: 10px;
 }
+.user-points {
+	display: inline-block;
+	width: 120px;
+}
+.user-points input {
+	max-width: 50%;
+	text-align: center;
+	width: auto;
+}

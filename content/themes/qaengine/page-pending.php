@@ -13,14 +13,7 @@ get_header();
                 <span><?php _e("All Questions", ET_DOMAIN ); ?></span>
             </div>
             <div class="col-md-6 col-xs-6">
-                <div class="select-categories-wrapper">
-                    <div class="select-categories">
-                        <select class="select-grey-bg" id="move_to_category">
-                            <option><?php _e("Filter by category",ET_DOMAIN) ?></option>
-                            <?php qa_option_categories_redirect() ?>
-                        </select>
-                    </div>
-                </div>
+                <?php qa_tax_dropdown() ?>
             </div>            
         </div><!-- END SELECT-CATEGORY -->
         <?php qa_template_filter_questions(); ?>

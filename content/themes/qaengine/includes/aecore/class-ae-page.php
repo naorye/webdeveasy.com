@@ -64,18 +64,18 @@ class AE_Page extends AE_Base {
 
 		wp_localize_script( 'appengine', 'ae_globals', 
 						array(
-							'ajaxURL'	=> admin_url( 'admin-ajax.php' ),
-							'imgURL'	=> ae_get_url().'/assets/img/',
-							'jsURL'	=> ae_get_url().'/assets/js/',
-							'loadingImg' 		=> '<img class="loading loading-wheel" src="'. ae_get_url() . '/assets/img/loading.gif" alt="'.__('Loading...', ET_DOMAIN).'">',
-							'loading' 		=> __('Loading', ET_DOMAIN),
-							
-							'plupload_config'	=> array(
-								'max_file_size' 		=> '3mb',
-								'url' 					=> admin_url('admin-ajax.php'),
-								'flash_swf_url' 		=> includes_url('js/plupload/plupload.flash.swf'),
-								'silverlight_xap_url'	=> includes_url('js/plupload/plupload.silverlight.xap'),
-								'filters' 				=> array( array( 'title' => __('Image Files',ET_DOMAIN), 'extensions' => 'jpg,jpeg,gif,png' ) )
+							'ajaxURL'         => apply_filters( 'ae_ajax_url', admin_url( 'admin-ajax.php' ) ),
+							'pending_answers' => ae_get_option("pending_answers", 0),
+							'imgURL'          => ae_get_url().'/assets/img/',
+							'jsURL'           => ae_get_url().'/assets/js/',
+							'loadingImg'      => '<img class="loading loading-wheel" src="'. ae_get_url() . '/assets/img/loading.gif" alt="'.__('Loading...', ET_DOMAIN).'">',
+							'loading'         => __('Loading', ET_DOMAIN),
+							'plupload_config' => array(
+								'max_file_size'       => '3mb',
+								'url'                 => admin_url('admin-ajax.php'),
+								'flash_swf_url'       => includes_url('js/plupload/plupload.flash.swf'),
+								'silverlight_xap_url' => includes_url('js/plupload/plupload.silverlight.xap'),
+								'filters'             => array( array( 'title' => __('Image Files',ET_DOMAIN), 'extensions' => 'jpg,jpeg,gif,png' ) )
 							)
 
 						) );
@@ -230,7 +230,12 @@ class AE_Menu extends AE_Page {
 
 		self::$instance	=	$this;
 
-		$meta_data = array('register_status');
+		$meta_data = array(
+			'register_status',
+			'qa_point',
+			'et_question_count',
+			'et_answer_count'
+			);
 
 		$user_action	=	new AE_UserAction( new AE_Users( $meta_data ) );
 		$language		=	new AE_Language();
@@ -246,33 +251,40 @@ class AE_Menu extends AE_Page {
 	/**
 	 * option sync , catch ajax option-sync 
 	*/
-	function action_sync () {
+    function action_sync() {
+        
+		$request = $_REQUEST;
+		$name    = $request['name'];
+		$value   = array();
+        if (isset($request['group']) && $request['group']) parse_str($request['value'], $value);
+        else $value = $request['value'];
+        
+        /**
+         * save option to database
+         */
+        $options = AE_Options::get_instance();
+        $options->$name = $value;
+        $options->save();
+        
+        if ($name == 'blogname' || $name == 'blogdescription' || $name == 'et_license_key') update_option($name, $value);
+        
+        do_action('ae_save_option' , $name, $value);
 
-		$request	=	$_REQUEST;
-		$name		=	$request['name'];
-		$value		=	array();
-		if(isset( $request['group'] ) && $request['group'] )
-			parse_str( $request['value'] , $value);		
-		else $value	=	$request['value'];
-		/**
-		 * save option to database
-		*/
-		$options		=	AE_Options::get_instance();
-		$options->$name	=	$value;
-		$options->save();
 
-		if( $name == 'blogname' || $name == 'blogdescription' || 'et_license_key' ) update_option( $name, $value);
-		/**
-		 * search index id in option array
-		*/
-		$options_arr	=	$options->get_all_current_options();
-		$id	=	array_search( $name, array_keys( $options_arr ) );
-		$response	=	array( 'success' => true , 
-								'data' => array('ID' => $id ) , 
-								'msg' => __("Update option successfully!", ET_DOMAIN) 
-							);
-		wp_send_json( $response );
-	}
+        /**
+         * search index id in option array
+         */
+		$options_arr = $options->get_all_current_options();
+		$id          = array_search($name, array_keys($options_arr));
+		$response    = array(
+			'success' => true,
+			'data'    => array(
+			'ID'      => $id
+			) ,
+			'msg'     => __("Update option successfully!", ET_DOMAIN)
+        );
+        wp_send_json($response);
+    }
 
 	/**
 	 * catch hook update option blog name

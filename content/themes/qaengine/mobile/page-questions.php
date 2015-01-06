@@ -45,7 +45,13 @@
             	<div class="col-md-12">
                 	<ul class="list-question">
                         <?php
-                            $paged = get_query_var( 'page' ) ? get_query_var( 'page' ) : 1;
+                        
+                            if(get_query_var( 'page' )){
+                                $paged = get_query_var( 'page' ) ? get_query_var( 'page' ) : 1;
+                            } else {
+                                $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+                            }
+
                             $query = QA_Questions::get_questions(array(
                                     'post_type' => 'question',
                                     'paged'     => $paged

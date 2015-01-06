@@ -101,29 +101,28 @@
 				}								
 			});
 
-			var form = $(event.currentTarget),
+			var form 	 = $(event.currentTarget),
 				username = form.find('input#username').val(),
 				email	 = form.find('input#email').val(),
 				button   = form.find('input.btn-submit'),
 				password = form.find('input#password1').val(),
+				data     = form.serializeObject(),
 				view 	 = this;
 
 			if(this.register_validator.form()){
-				this.user.register(username, email, password, {
+				this.user.register(data, {
 					beforeSend:function(){
 						view.blockUi.block(button);
 					},
 					success : function (user, status, jqXHR) {
 						view.blockUi.unblock();
 						if(status.success){
-							//bootbox.alert(status.msg);
 							AE.pubsub.trigger('ae:notification', {
 								msg: status.msg,
 								notice_type: 'success',
 							});							
 							window.location.href = status.redirect;
 						} else {
-							//bootbox.alert(status.msg);
 							AE.pubsub.trigger('ae:notification', {
 								msg: status.msg,
 								notice_type: 'error',

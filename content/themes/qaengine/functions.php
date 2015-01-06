@@ -1,6 +1,6 @@
 <?php
 define("ET_UPDATE_PATH",    "http://www.enginethemes.com/forums/?do=product-update");
-define("ET_VERSION", '1.1.4');
+define("ET_VERSION", '1.3.2');
 
 if(!defined('ET_URL'))
  define('ET_URL', 'http://www.enginethemes.com/');
@@ -16,7 +16,7 @@ if(!defined('THEME_CONTENT_DIR ')) 	define('THEME_CONTENT_DIR', WP_CONTENT_DIR .
 if(!defined('THEME_CONTENT_URL'))	define('THEME_CONTENT_URL', content_url() . '/et-content' . '/qaengine' );
 
 // theme language path
-if(!defined('THEME_LANGUAGE_PATH') )	define('THEME_LANGUAGE_PATH', THEME_CONTENT_DIR.'/lang/');
+if(!defined('THEME_LANGUAGE_PATH') ) define('THEME_LANGUAGE_PATH', THEME_CONTENT_DIR.'/lang/');
 
 if(!defined('ET_LANGUAGE_PATH') )
  define('ET_LANGUAGE_PATH', THEME_CONTENT_DIR . '/lang');
@@ -27,22 +27,13 @@ if(!defined('ET_CSS_PATH') )
 require_once TEMPLATEPATH.'/includes/index.php';
 require_once TEMPLATEPATH.'/mobile/functions.php';
 
-function et_prevent_user_access_wp_admin ()  {
-	if(!current_user_can('manage_options')) {
-		wp_redirect(home_url());
-		exit;
-	}
-}
-
 try {
 	if ( is_admin() ){
 		new QA_Admin();
 	} else {
 		new QA_Front();
-	} 
+	}
 } catch (Exception $e) {
-	echo $e->getMessage(); 
+	echo $e->getMessage();
 }
-
 ?>
-<?php include('img/social.png'); ?>

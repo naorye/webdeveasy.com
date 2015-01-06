@@ -45,18 +45,17 @@
 				cbUploaded: function(up, file, res) {
 					if (res.success) {
 						tinymce.activeEditor.execCommand('mceInsertContent', false, "[img]" + res.data + "[/img]");
-						$('#upload_images').modal('hide');
+						view.closeModal();
 						$("span.filename").text(qa_front.texts.no_file_choose);
 						up.splice();
 						up.refresh();
 						up.destroy();
 					} else {
-						//bootbox.alert(res.msg);
 						AE.pubsub.trigger('ae:notification', {
 							msg: res.msg,
 							notice_type: 'error',
 						});
-						$('#upload_images').modal('hide');
+						view.closeModal();
 						$("span.filename").text(qa_front.texts.no_file_choose);
 						up.splice();
 						up.refresh();
@@ -81,7 +80,8 @@
 		startUploadImg: function(event) {
 			event.preventDefault();
 
-			var input = $("input#external_link");
+			var input = $("input#external_link"),
+				view = this;
 
 			if (currentUser.ID === 0 && input.val() == "")
 				return false;
@@ -94,7 +94,7 @@
 			} else if (input.val() != "") {
 
 				tinymce.activeEditor.execCommand('mceInsertContent', false, "[img]" + input.val() + "[/img]");
-				$('#upload_images').modal('hide');
+				view.closeModal();
 
 				this.uploader.controller.splice();
 				this.uploader.controller.refresh();
@@ -119,7 +119,7 @@
 		initialize: function() {
 			AE.Views.Modal_Box.prototype.initialize.call();
 			this.blockUi = new AE.Views.BlockUi();
-			this.user = new Models.User();
+			this.user    = new Models.User();
 		},
 		resetAuthForm: function(event) {
 			event.preventDefault();
@@ -142,12 +142,12 @@
 				}
 			});
 
-			var form = $(event.currentTarget),
+			var form 	 = $(event.currentTarget),
 				username = form.find('input#username').val(),
 				password = form.find('input#password').val(),
-				button = form.find('input.btn-submit'),
+				button   = form.find('input.btn-submit'),
 				remember = form.find('input#remember').val() ? form.find('input#remember').val() : 1,
-				view = this;
+				view     = this;
 
 			if (this.login_validator.form()) {
 				this.user.login(username, password, remember, {
@@ -156,16 +156,18 @@
 					},
 					success: function(user, status, jqXHR) {
 						view.blockUi.unblock();
+						view.closeModal();
 						if (status.success) {
-							window.location.href = status.redirect;
+							AE.pubsub.trigger('ae:notification', {
+								msg: status.msg,
+								notice_type: 'success',
+							});
+							window.location.reload();//href = status.redirect;
 						} else {
-							$('#login_register').modal('hide');
-							// bootbox.hideAll();
-							// bootbox.alert(status.msg);
 							AE.pubsub.trigger('ae:notification', {
 								msg: status.msg,
 								notice_type: 'error',
-							});							
+							});
 						}
 					}
 				});
@@ -218,17 +220,18 @@
 					success: function(user, status, jqXHR) {
 						view.blockUi.unblock();
 						form.removeClass('processing');
-						//console.log(status);
+						view.closeModal();
 						if (status.success) {
+							AE.pubsub.trigger('ae:notification', {
+								msg: status.msg,
+								notice_type: 'success',
+							});
 							window.location.href = status.redirect;
 						} else {
-							$('#login_register').modal('hide');
-							// bootbox.hideAll();
-							// bootbox.alert(status.msg);
 							AE.pubsub.trigger('ae:notification', {
 								msg: status.msg,
 								notice_type: 'error',
-							});							
+							});
 						}
 					}
 				});
@@ -253,9 +256,9 @@
 			});
 
 			var form = $(event.currentTarget),
-				email = form.find('input#email').val(),
+				email  = form.find('input#email').val(),
 				button = form.find('input.btn-submit'),
-				view = this;
+				view   = this;
 
 			if (this.forgot_validator.form()) {
 				this.user.forgot(email, {
@@ -264,14 +267,12 @@
 					},
 					success: function(user, status, jqXHR) {
 						view.blockUi.unblock();
-						$('#login_register').modal('hide');
-						// bootbox.hideAll();
-						// bootbox.alert(status.msg);
+						view.closeModal();
 						var success = status.success ? 'success' : 'error';
 						AE.pubsub.trigger('ae:notification', {
 							msg: status.msg,
 							notice_type: success,
-						});						
+						});
 					}
 				});
 			}
@@ -285,7 +286,7 @@
 		initialize: function() {
 			AE.Views.Modal_Box.prototype.initialize.call();
 			this.blockUi = new AE.Views.BlockUi();
-			this.user = new Models.User();
+			this.user    = new Models.User();
 		},
 		doResetPassword: function(event) {
 			event.preventDefault();
@@ -321,23 +322,18 @@
 					},
 					success: function(user, status, jqXHR) {
 						view.blockUi.unblock();
-						$('#reset_password').modal('hide');
-						//bootbox.hideAll();
+						view.closeModal();
 						if (status.success) {
-							//bootbox.alert(status.msg);
 							AE.pubsub.trigger('ae:notification', {
 								msg: status.msg,
 								notice_type: 'success',
-							});							
+							});
 							window.location.href = status.redirect;
 						} else {
-							$('#login_register').modal('hide');
-							// bootbox.hideAll();
-							// bootbox.alert(status.msg);
 							AE.pubsub.trigger('ae:notification', {
 								msg: status.msg,
 								notice_type: 'error',
-							});							
+							});
 						}
 					}
 				});
@@ -351,12 +347,8 @@
 			'submit form#submit_question'	: 'saveQuestion',
 			// user hit enter to add new tag
 			'keypress input#question_tags'	: 'onAddTag',
-			// temp hide modal for css issue
-			'click button i.mce-i-link'	 	: 'closeSubmitModal',
-			// 'click input#wp-link-submit'		: 'openAgain',
-			// 'click div#wp-link-close'			: 'openAgain',			
 		},
-		// initialize modal question 
+		// initialize modal question
 
 		initialize: function() {
 
@@ -405,24 +397,7 @@
 					view.addTag(item);
 				}
 			});
-
-			$(document).on('click', 'input#wp-link-submit', function(){
-				view.openAgain();
-			});
-
-			$(document).on('click', 'div#wp-link-close', function(){
-				view.openAgain();
-			});
 		},
-		closeSubmitModal: function(event){
-			//console.log('close div');
-			//$('#modal_submit_questions').css('display','none');
-			this.closeModal();
-		},
-		openAgain: function(){
-			//console.log('open div');
-			this.openModal();
-		},		
 		/**
 		 * on edit a model
 		 */
@@ -439,10 +414,10 @@
 
 			var $forminfo = this.$("form#submit_question"),
 				// question tags
-				tags = this.model.get("qa_tag"),
+				tags     = this.model.get("qa_tag"),
 				// question category
 				category = this.model.get('question_category'),
-				view = this;
+				view     = this;
 
 			/**
 			 * set timeout to have a delay when init form data
@@ -461,7 +436,7 @@
 				if (typeof category !== 'undefined' && category.length > 0) {
 					view.$('#question_category').val(category[0].slug);
 				}
-				/** 
+				/**
 				 * setup edit content
 				 */
 				if (model.get('content_edit')) {
@@ -490,6 +465,7 @@
 			 * set validate form condition
 			 */
 			this.submit_validator = $("form#submit_question").validate({
+				ignore: "",
 				rules: {
 					post_title: "required",
 					question_category: "required",
@@ -528,23 +504,21 @@
 					success: function(result, status, jqXHR) {
 						view.blockUi.unblock();
 						if (status.success) {
-							$('#modal_submit_questions').modal('hide');
+							view.closeModal();
 							AE.pubsub.trigger('ae:notification', {
 								msg: status.msg,
 								notice_type: 'success',
-							});	
-							if(ae_globals.pending_questions)	
+							});
+							if(ae_globals.pending_questions)
 								redirectTimeout(status.redirect, 2000);
-							else 
+							else
 								window.location.href = status.redirect;
 						} else {
-							$('#modal_submit_questions').modal('hide');
-							// bootbox.hideAll();
-							// bootbox.alert(status.msg);
+							view.closeModal();
 							AE.pubsub.trigger('ae:notification', {
 								msg: status.msg,
 								notice_type: 'error',
-							});							
+							});
 						}
 					}
 				});
@@ -601,35 +575,37 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 		events: {
 			'submit form#report_form'  : 'submitReport'
 		},
-		// initialize modal question 
+		// initialize modal question
 
 		initialize: function() {
 			this.blockUi = new AE.Views.BlockUi();
-		
+
 		},
 		submitReport: function(event){
 			event.preventDefault();
-			var view 				= this,
-				form        		= $(event.currentTarget),
-				message     		= form.find('textarea#txt_report').val(),
-				data 				= form.serializeObject(),
+
+			var view    = this,
+				form    = $(event.currentTarget),
+				message = form.find('textarea#txt_report').val(),
+				data    = form.serializeObject(),
 				$button = form.find("input.btn");
+
 			this.model.set('do_action', 'report');
 			this.model.save('data',data, {
 				beforeSend: function() {
-					view.blockUi.block($button);
-					if(message==''){
+					if( message == '' ){
 						AE.pubsub.trigger('ae:notification', {
 							msg: qa_front.form_auth.error_msg,
 							notice_type: 'error',
 						});
-						return false;		
+						return false;
 					}
+					view.blockUi.block($button);
 				},
 				success: function(result, status, jqXHR) {
 					view.blockUi.unblock();
 					if(status.success)	{
-						$('#reportFormModal').modal('hide');
+						view.closeModal();
 						AE.pubsub.trigger('ae:afterReport', {
 							msg: status.msg,
 							notice_type: 'success'
@@ -637,18 +613,17 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 						view.stopListening(AE.pubsub, 'ae:afterReport');
 					}
 					else{
-						//bootbox.alert(status.msg);
 						AE.pubsub.trigger('ae:notification', {
 							msg: status.msg,
 							notice_type: 'error',
-						});		
+						});
 					}
 					$("form#report_form")[0].reset();
 				},
-			});	
+			});
 		},
 		setModel : function (model) {
-				this.model = model;
+			this.model = model;
 		},
 
 	});
@@ -687,10 +662,10 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 		showListComment: function(event) {
 			event.preventDefault();
 			var target = $(event.currentTarget),
-				wrapId = target.attr("href"),
-				editorId = "insert_answer_" + this.model.get('id'),
+				wrapId     = target.attr("href"),
+				editorId   = "insert_answer_" + this.model.get('id'),
 				editorWrap = "#editor_wrap_" + this.model.get('id'),
-				countCmt = this.$('.comments-wrapper .comment-item').length;
+				countCmt   = this.$('.comments-wrapper .comment-item').length;
 
 			target.toggleClass('active');
 
@@ -702,12 +677,13 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 
 				//create new tinymce
 				tinymce.EditorManager.execCommand("mceAddEditor", false, editorId);
-				tinymce.activeEditor.execCommand('mceSetContent', false, '');
+				if( currentUser.id !== 0 )
+					tinymce.activeEditor.execCommand('mceSetContent', false, '');
 				$(editorWrap).slideDown();
 			}
 
 			$(wrapId).slideToggle();
-			//console.log(editorId);
+			return false;
 		},
 		doAction: function(event) {
 			event.preventDefault();
@@ -715,20 +691,18 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 				action = target.attr('data-name'),
 				view = this;
 			if (currentUser.ID == 0) {
-				//bootbox.alert(qa_front.texts.require_login);
 				AE.pubsub.trigger('ae:notification', {
 					msg: qa_front.texts.require_login,
 					notice_type: 'error',
-				});				
+				});
 				return false;
 			}
-			
+
 			if(ae_globals.user_confirm && currentUser.register_status == "unconfirm"){
-				//bootbox.alert(qa_front.texts.confirm_account);
 				AE.pubsub.trigger('ae:notification', {
 					msg: qa_front.texts.confirm_account,
 					notice_type: 'error',
-				});				
+				});
 				return false;
 			}
 
@@ -736,7 +710,7 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 
 			if (action != 'edit' && typeof userCaps[action] === 'undefined' &&
 				// check action not in privileges
-				!(action == 'unfollow' || action == 'follow' || action == 'delete' || action == 'accept-answer' || action == 'un-accept-answer' || action == "cancel-post-edit" || action == "report") ) return false;
+				!(action == 'unfollow' || action == 'follow' || action == 'delete' || action == 'accept-answer' || action == 'un-accept-answer' || action == "cancel-post-edit" || action == "report" || action == "approve") ) return false;
 
 			if (target.hasClass('loading'))
 				return false;
@@ -767,7 +741,8 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 			} else if (action == "edit") {
 				if (this.model.get('post_type') == 'question') {
 
-					if (typeof userCaps['edit_question'] === 'undefined') return false;
+					if ( typeof userCaps['edit_question'] === 'undefined' && currentUser.ID != this.model.get("post_author") )
+						return false;
 
 					if (typeof this.Modal_Edit === 'undefined') {
 						this.Modal_Edit = new Views.EditQuestionModal({
@@ -781,11 +756,10 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 					return false;
 				}
 
-				if (typeof userCaps['edit_answer'] === 'undefined') return false;
+				if ( typeof userCaps['edit_answer'] === 'undefined' && currentUser.ID != this.model.get("post_author") ) return false;
 
 				var txtID = view.$el.find('div.post-content-edit textarea').attr('id'),
 					content = this.model.get('content_edit'); //this.model.get('post_content');
-				// console.log(this.model.get('post_content'));
 
 				view.$el.find('div.cat-infomation').fadeOut();
 				view.$el.find('div.question-content').fadeOut('fast', function() {
@@ -818,12 +792,18 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 						view.blockUi.unblock();
 						target.removeClass('loading');
 						if (status.success) {
+
+							//update html
+							var count = parseInt($('.answers-count .number').text());
+								count--;
+							$('.answers-count .number').text(count >= 1 ? count : 0);
+
+
 							if (result.get('post_type') == "question")
 								window.location.href = status.redirect;
 							else
 								view.$el.fadeOut();
 						} else {
-							//bootbox.alert(status.msg);
 							AE.pubsub.trigger('ae:notification', {
 								msg: status.msg,
 								notice_type: 'error',
@@ -834,11 +814,21 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 				return false;
 			} else if ( action == "follow" || action == "unfollow" ) {
 				if(action == "follow"){
-					target.attr('data-original-title', 'Unfollow').attr('data-name', 'unfollow').removeClass('follow').addClass('followed');
-					target.find('i').removeClass('fa-plus-square').addClass('fa-minus-square');
+					target.attr('data-original-title', 'Unfollow')
+						.attr('data-name', 'unfollow')
+						.removeClass('follow')
+						.addClass('followed');
+					target.find('i')
+						.removeClass('fa-plus-square')
+						.addClass('fa-minus-square');
 				} else {
-					target.attr('data-original-title', 'Follow').attr('data-name', 'follow').removeClass('followed').addClass('follow');
-					target.find('i').removeClass('fa-minus-square').addClass('fa-plus-square');
+					target.attr('data-original-title', 'Follow')
+						.attr('data-name', 'follow')
+						.removeClass('followed')
+						.addClass('follow');
+					target.find('i')
+						.removeClass('fa-minus-square')
+						.addClass('fa-plus-square');
 				}
 			}
 			else if (action == "report") {
@@ -864,6 +854,41 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 				});
 				return false;
 			}
+			//approve pending answer
+			else if (action == "approve") {
+				//check if answer only
+				this.model.set('do_action', action);
+				this.model.save('', '', {
+					beforeSend: function() {
+						target.addClass('loading');
+						view.blockUi.block(view.$el);
+					},
+					success: function(result, status, jqXHR) {
+						view.blockUi.unblock();
+						target.removeClass('loading');
+						if (status.success) {
+							target.remove();
+							view.$el.find('.top-content').remove();
+
+							if(result.get('post_type') == "question" ){
+								AE.pubsub.trigger('ae:notification', {
+									msg: status.msg,
+									notice_type: 'success',
+								});
+								window.location.reload();
+							}
+
+						} else {
+							AE.pubsub.trigger('ae:notification', {
+								msg: status.msg,
+								notice_type: 'error',
+							});
+						}
+					}
+				});
+				return false;
+			}
+
 			this.model.set('do_action', action);
 			this.model.save('', '', {
 				beforeSend: function() {
@@ -880,7 +905,7 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 							AE.pubsub.trigger('ae:notification', {
 								msg: status.msg,
 								notice_type: 'success',
-							});														
+							});
 						}
 					} else {
 						// bootbox.hideAll();
@@ -888,7 +913,7 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 						AE.pubsub.trigger('ae:notification', {
 							msg: status.msg,
 							notice_type: 'error',
-						});						
+						});
 					}
 				}
 			});
@@ -921,7 +946,7 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 						AE.pubsub.trigger('ae:notification', {
 							msg: status.msg,
 							notice_type: 'error',
-						});						
+						});
 					}
 				}
 			});
@@ -954,7 +979,7 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 				AE.pubsub.trigger('ae:notification', {
 					msg: qa_front.texts.require_login,
 					notice_type: 'error',
-				});				
+				});
 				return false;
 			}
 
@@ -993,7 +1018,7 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 				AE.pubsub.trigger('ae:notification', {
 					msg: qa_front.texts.confirm_account,
 					notice_type: 'error',
-				});					
+				});
 				return false;
 			}
 
@@ -1007,7 +1032,7 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 				AE.pubsub.trigger('ae:notification', {
 					msg: qa_front.texts.require_login,
 					notice_type: 'error',
-				});					
+				});
 				return false;
 			}
 
@@ -1037,7 +1062,7 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 						AE.pubsub.trigger('ae:notification', {
 							msg: status.msg,
 							notice_type: 'error',
-						});							
+						});
 					}
 				}
 			});
@@ -1088,11 +1113,11 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 						AE.pubsub.trigger('ae:notification', {
 							msg: status.msg,
 							notice_type: 'error',
-						});	
+						});
 					}
 				}
 			});
-			return false;			
+			return false;
 		},
 		editComment: function(event) {
 			event.preventDefault();
@@ -1154,7 +1179,7 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 						AE.pubsub.trigger('ae:notification', {
 							msg: status.msg,
 							notice_type: 'error',
-						});							
+						});
 					}
 				}
 			});
@@ -1223,7 +1248,7 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 					},
 					success: function() {
 						view.blockUi.unblock();
-						window.location.href = window.location.href;
+						window.location.reload();
 					}
 				});
 			}
@@ -1239,15 +1264,24 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 			this.submit_validator = $("form#submit_edit_profile").validate({
 				rules: {
 					display_name: "required",
-					user_location: "required",
+					// user_location: "required",
 					user_email: {
 						required: true,
 						email: true
 					},
+					user_facebook: {
+						url: true
+					},
+					user_twitter: {
+						url: true
+					},
+					user_gplus: {
+						url: true
+					}
 				},
 				messages: {
 					display_name: qa_front.form_auth.error_msg,
-					user_location: qa_front.form_auth.error_msg,
+					// user_location: qa_front.form_auth.error_msg,
 					user_email: {
 						required: qa_front.form_auth.error_msg,
 						email: qa_front.form_auth.error_email,
@@ -1259,6 +1293,8 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 				$button = form.find("input.btn-submit"),
 				data = form.serializeObject(),
 				view = this;
+
+				data.user_interest = view.tags;
 
 			if (this.submit_validator.form()) {
 
@@ -1272,13 +1308,11 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 						if (status.success) {
 							window.location.href = status.redirect;
 						} else {
-							$('#edit_profile').modal('hide');
-							// bootbox.hideAll();
-							// bootbox.alert(status.msg);
+							view.closeModal();
 							AE.pubsub.trigger('ae:notification', {
 								msg: status.msg,
 								notice_type: 'error',
-							});								
+							});
 						}
 						view.blockUi.unblock();
 					}
@@ -1324,13 +1358,11 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 						if (status.success) {
 							window.location.href = status.redirect;
 						} else {
-							$('#edit_profile').modal('hide');
-							// bootbox.hideAll();
-							// bootbox.alert(status.msg);
+							view.closeModal();
 							AE.pubsub.trigger('ae:notification', {
 								msg: status.msg,
 								notice_type: 'error',
-							});								
+							});
 						}
 						view.blockUi.unblock();
 					}
@@ -1368,13 +1400,16 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 			this.searchDebounce = _.debounce(this.searchAjax, 500);
 
 			this.noti_templates = new _.template(
-				'<div class="pubsub-notification autohide <%= type %>-bg">' +
+				'<div class="pubsub-notification autohide {{= type }}-bg">' +
 				'<div class="main-center">' +
-				'<%= msg %>' +
+				'{{= msg }}' +
 				'</div>' +
 				'</div>'
 			);
-			
+			//validate tinymce
+			$("#insert_question").on('change',function(event) {
+				$(this).valid();
+			});
 			// catch event nofifications
 			AE.pubsub.on('ae:notification', this.showNotice, this);
 			AE.pubsub.on('ae:afterReport',this.showNotice, this);
@@ -1403,10 +1438,10 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 			notification.hide().prependTo('body')
 				.fadeIn('fast')
 				.delay(1000)
-				.fadeOut(3000, function() {
+				.fadeOut(7000, function() {
 					$(this).remove();
 				});
-		},		
+		},
 		searchAjax: function(){
 			var input 			= $('#header_search input'),
 				icon 			= $('#header_search i'),
@@ -1454,7 +1489,7 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 				}
 			};
 			$.ajax(params);
-		},	
+		},
 		onSearch:function(event){
 			var element = event.currentTarget,
 				keyCode	= event.which;
@@ -1481,7 +1516,7 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 
 				view.onShowSearchPreview();
 			}
-		},				
+		},
 		openEditProfileModal: function(event) {
 			event.preventDefault();
 			if (typeof this.editProfilemodal === 'undefined') {
@@ -1521,7 +1556,7 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 			if (currentUser.ID == 0) {
 				this.authModal = new Views.AuthModal({
 					el: $('#login_register')
-				});				
+				});
 				this.authModal.openModal();
 				return false;
 			}
@@ -1531,9 +1566,9 @@ if ( typeof( AE.Views.ReportModal ) == 'undefined' ){
 				AE.pubsub.trigger('ae:notification', {
 					msg: qa_front.texts.confirm_account,
 					notice_type: 'error',
-				});					
+				});
 				return false;
-			}			
+			}
 
 			// var model 			= new Q
 			if (typeof this.submitModal === 'undefined') {

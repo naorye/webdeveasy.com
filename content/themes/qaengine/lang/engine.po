@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Q&AEngine v1.0\n"
 "Report-Msgid-Bugs-To: http://www.enginethemes.com/\n"
-"POT-Creation-Date: 2014-07-11 11:56+0700\n"
-"PO-Revision-Date: 2014-07-11 11:56+0700\n"
+"POT-Creation-Date: 2014-12-01 09:29+0700\n"
+"PO-Revision-Date: 2014-12-01 09:29+0700\n"
 "Last-Translator: dakachi <david87dang@gmail.com>\n"
 "Language-Team: Engine Themes <contact@enginethemes.com>\n"
 "Language: en_US\n"
@@ -11,1887 +11,2137 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
-"X-Generator: Poedit 1.6.6\n"
+"X-Generator: Poedit 1.6.10\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _e;__;_n\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-SearchPath-0: E:\\www\\wp\\wp-content\\themes\\qaengine\n"
+"X-Poedit-SearchPath-0: F:\\www\\wp\\wp-content\\themes\\qaengine\n"
 
-#: E:\www\wp\wp-content\themes\qaengine/404.php:16
-#: E:\www\wp\wp-content\themes\qaengine/mobile/404.php:15
+#: F:\www\wp\wp-content\themes\qaengine/404.php:16
+#: F:\www\wp\wp-content\themes\qaengine/mobile/404.php:15
 msgid "Ops! Lost your way?"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/404.php:19
-#: E:\www\wp\wp-content\themes\qaengine/mobile/404.php:18
+#: F:\www\wp\wp-content\themes\qaengine/404.php:19
+#: F:\www\wp\wp-content\themes\qaengine/mobile/404.php:18
 msgid "Sorry, but the page you were looking for is not here."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/404.php:21
-#: E:\www\wp\wp-content\themes\qaengine/mobile/404.php:20
+#: F:\www\wp\wp-content\themes\qaengine/404.php:21
+#: F:\www\wp\wp-content\themes\qaengine/mobile/404.php:20
 msgid "Back to home page"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/archive-question.php:15
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:354
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:110
-#: E:\www\wp\wp-content\themes\qaengine/page-pending.php:13
-#: E:\www\wp\wp-content\themes\qaengine/page-questions.php:13
-#: E:\www\wp\wp-content\themes\qaengine/taxonomy.php:15
+#: F:\www\wp\wp-content\themes\qaengine/archive-question.php:20
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:354
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:141
+#: F:\www\wp\wp-content\themes\qaengine/page-pending.php:13
+#: F:\www\wp\wp-content\themes\qaengine/page-questions.php:17
+#: F:\www\wp\wp-content\themes\qaengine/taxonomy.php:15
 msgid "All Questions"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/archive-question.php:21
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:131
-#: E:\www\wp\wp-content\themes\qaengine/page-pending.php:19
-#: E:\www\wp\wp-content\themes\qaengine/page-questions.php:19
-#: E:\www\wp\wp-content\themes\qaengine/page-search.php:22
-#: E:\www\wp\wp-content\themes\qaengine/taxonomy.php:21
-msgid "Filter by category"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/archive-question.php:40
+#: F:\www\wp\wp-content\themes\qaengine/archive-question.php:38
 msgid "No questions has been created yet."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/author.php:18
-msgid "'s Profile"
+#: F:\www\wp\wp-content\themes\qaengine/author.php:20
+#, php-format
+msgid "%s's Profile"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/author.php:27
-#: E:\www\wp\wp-content\themes\qaengine/single-question.php:57
-#: E:\www\wp\wp-content\themes\qaengine/template-js/item-comment.php:9
-#: E:\www\wp\wp-content\themes\qaengine/template/item-answer.php:16
-#: E:\www\wp\wp-content\themes\qaengine/template/item-comment.php:15
+#: F:\www\wp\wp-content\themes\qaengine/author.php:31
+#: F:\www\wp\wp-content\themes\qaengine/single-question.php:53
+#: F:\www\wp\wp-content\themes\qaengine/template-js/item-comment.php:14
+#: F:\www\wp\wp-content\themes\qaengine/template/item-answer.php:27
+#: F:\www\wp\wp-content\themes\qaengine/template/item-comment.php:20
 msgid "Edit"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/author.php:30
+#: F:\www\wp\wp-content\themes\qaengine/author.php:36
 msgid "Logout"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/author.php:43
-#: E:\www\wp\wp-content\themes\qaengine/mobile/author.php:31
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-users.php:100
-#: E:\www\wp\wp-content\themes\qaengine/page-users.php:97
+#: F:\www\wp\wp-content\themes\qaengine/author.php:54
+#: F:\www\wp\wp-content\themes\qaengine/mobile/author.php:31
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-users.php:100
+#: F:\www\wp\wp-content\themes\qaengine/page-users.php:97
 msgid "Earth"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/author.php:44
+#: F:\www\wp\wp-content\themes\qaengine/author.php:58
+#: F:\www\wp\wp-content\themes\qaengine/mobile/author.php:34
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-users.php:101
 msgid "Email is hidden."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/author.php:57
-#: E:\www\wp\wp-content\themes\qaengine/mobile/author.php:42
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-users.php:104
+#: F:\www\wp\wp-content\themes\qaengine/author.php:90
+#: F:\www\wp\wp-content\themes\qaengine/mobile/author.php:42
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-users.php:104
 msgid "points"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/author.php:62
-#: E:\www\wp\wp-content\themes\qaengine/author.php:79
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:348
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:360
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:150
-#: E:\www\wp\wp-content\themes\qaengine/mobile/author.php:63
+#: F:\www\wp\wp-content\themes\qaengine/author.php:95
+#: F:\www\wp\wp-content\themes\qaengine/author.php:115
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:348
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:360
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:300
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:414
+#: F:\www\wp\wp-content\themes\qaengine/mobile/author.php:67
 msgid "Questions"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/author.php:68
-#: E:\www\wp\wp-content\themes\qaengine/author.php:82
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:837
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:849
-#: E:\www\wp\wp-content\themes\qaengine/mobile/author.php:66
-#: E:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:140
-#: E:\www\wp\wp-content\themes\qaengine/single-answer.php:157
-#: E:\www\wp\wp-content\themes\qaengine/single-question.php:173
+#: F:\www\wp\wp-content\themes\qaengine/author.php:101
+#: F:\www\wp\wp-content\themes\qaengine/author.php:118
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:889
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:901
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:417
+#: F:\www\wp\wp-content\themes\qaengine/mobile/author.php:70
+#: F:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:146
+#: F:\www\wp\wp-content\themes\qaengine/single-answer.php:157
 msgid "Answers"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/author.php:86
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/template/user-item.php:32
-#: E:\www\wp\wp-content\themes\qaengine/mobile/author.php:69
-msgid "Posts"
+#: F:\www\wp\wp-content\themes\qaengine/author.php:122
+#: F:\www\wp\wp-content\themes\qaengine/mobile/author.php:74
+msgid "Following"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/category.php:14
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:379
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:388
-#: E:\www\wp\wp-content\themes\qaengine/mobile/archive-question.php:17
-#: E:\www\wp\wp-content\themes\qaengine/mobile/taxonomy.php:17
-msgid "Category"
+#: F:\www\wp\wp-content\themes\qaengine/author.php:161
+#: F:\www\wp\wp-content\themes\qaengine/mobile/author.php:128
+msgid "There is no questions yet."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/category.php:17
-#: E:\www\wp\wp-content\themes\qaengine/index.php:18
-#: E:\www\wp\wp-content\themes\qaengine/page-term.php:19
-#: E:\www\wp\wp-content\themes\qaengine/page.php:19
-#: E:\www\wp\wp-content\themes\qaengine/search.php:18
-#: E:\www\wp\wp-content\themes\qaengine/single.php:18
+#: F:\www\wp\wp-content\themes\qaengine/category.php:15
+#: F:\www\wp\wp-content\themes\qaengine/index.php:15
+#: F:\www\wp\wp-content\themes\qaengine/mobile/index.php:18
+#: F:\www\wp\wp-content\themes\qaengine/search.php:15
+#: F:\www\wp\wp-content\themes\qaengine/single.php:15
+msgid "Blog"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/category.php:18
+#: F:\www\wp\wp-content\themes\qaengine/index.php:18
+#: F:\www\wp\wp-content\themes\qaengine/page-social-connect.php:21
+#: F:\www\wp\wp-content\themes\qaengine/page-term.php:19
+#: F:\www\wp\wp-content\themes\qaengine/page.php:19
+#: F:\www\wp\wp-content\themes\qaengine/search.php:18
+#: F:\www\wp\wp-content\themes\qaengine/single.php:18
 msgid "Search at blog"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/comments.php:13
+#: F:\www\wp\wp-content\themes\qaengine/comments.php:14
 msgid "Be the first to post a comment."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/comments.php:13
+#: F:\www\wp\wp-content\themes\qaengine/comments.php:14
 msgid "1 Comment on this article"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/comments.php:13
+#: F:\www\wp\wp-content\themes\qaengine/comments.php:14
 msgid "% Comments on this article"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/comments.php:21
+#: F:\www\wp\wp-content\themes\qaengine/comments.php:18
+msgid "Comment closed!"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/comments.php:27
 msgid "Reply "
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/comments.php:35
+#: F:\www\wp\wp-content\themes\qaengine/comments.php:41
 msgid "Add a comment"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/header.php:75
-#: E:\www\wp\wp-content\themes\qaengine/mobile/functions.php:100
+#: F:\www\wp\wp-content\themes\qaengine/header.php:79
+#: F:\www\wp\wp-content\themes\qaengine/mobile/functions.php:107
 msgid "Enter Keywords"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/header.php:96
+#: F:\www\wp\wp-content\themes\qaengine/header.php:100
 msgid "User Profile"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/header.php:101
+#: F:\www\wp\wp-content\themes\qaengine/header.php:105
 msgid "User Settings"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/header.php:107
+#: F:\www\wp\wp-content\themes\qaengine/header.php:111
 msgid "Log out"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/header.php:115
+#: F:\www\wp\wp-content\themes\qaengine/header.php:119
 msgid "Login or Register"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:125
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:185
 msgid "General"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:133
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:143
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:162
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:193
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:203
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:222
 msgid "Website Title"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:136
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:196
 msgid "Enter your website title."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:152
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:212
 msgid "Website Description"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:155
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:215
 msgid "Enter your website description"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:170
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:180
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:230
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:240
 msgid "Copyright"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:173
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:233
 msgid "This copyright information will appear in the footer."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:188
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:198
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:248
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:258
 msgid "Google Analytics Script"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:191
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:251
 msgid ""
 "Google analytics is a service offered by Google that generates detailed "
 "statistics about the visits to a website."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:206
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:266
 msgid "Email Confirmation"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:209
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:269
 msgid ""
 "Enabling this will require users to confirm their email addresses after "
 "registration."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:216
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:276
 msgid "User Confirm"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:229
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:289
+msgid "Social"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:297
+msgid "Twitter API"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:300
+msgid "Enabling this will allow users to login via Twitter."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:307
+msgid "Twitter API "
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:314
+msgid "Twitter key "
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:316
+msgid "Twitter Consumer Key"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:322
+msgid "Twitter secret "
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:324
+msgid "Twitter Consumer Secret"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:331
+msgid "Facebook API"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:334
+msgid "Enabling this will allow users to login via Facebook."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:341
+msgid "Facebook API "
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:348
+msgid "Facebook key "
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:350
+msgid "Facebook Application ID"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:357
+msgid "Google API"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:360
+msgid "Enabling this will allow users to login via Google."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:367
+msgid "Google API "
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:374
+msgid "Google key "
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:376
+msgid "Client ID"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:389
 msgid "Content"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:237
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:397
+msgid "Filter Bad Words ( Questions / Answers )"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:400
+msgid "Each word seperate by comma (,)"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:407
+msgid "Enter Keywords Here"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:415
 msgid "Intro Text"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:240
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:418
 msgid "This text will appear in the intro page."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:247
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:425
 msgid "Intro Slide Texts"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:254
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:432
 msgid "Intro Bottom Texts"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:263
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:441
+msgid "Custom Slugs"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:444
+msgid ""
+"Add custom slugs for question & category here. (You need to save permalink "
+"structure to apply this change.)"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:451
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:452
+msgid "Question Slug"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:459
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:460
+msgid "Category Slug"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:467
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:468
+msgid "Tag Slug"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:477
+msgid "Editor Upload Images"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:480
+msgid "Turn on / off Feature Images Upload in Editor."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:487
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1052
+msgid "Upload Images"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:495
 msgid "Login To View Content"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:266
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:498
 msgid "If you enable this option, users have to login to see content."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:273
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:505
 msgid "Login"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:282
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:514
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:524
 msgid "Pending Questions"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:285
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:517
 msgid ""
 "If you enable this option, the new posted questions have to be approved to "
 "be displayed."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:292
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:170
-msgid "Pending"
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:533
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:543
+msgid "Pending Answers"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:301
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:536
+msgid ""
+"If you enable this option, the new posted answers have to be approved to be "
+"displayed."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:552
 msgid "Email Notification For Followed Questions"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:304
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:555
 msgid ""
 "If you enable this option, whenever there’s a new answer for the followed "
 "questions, the system will automatically send emails to the following users."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:311
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:562
 msgid "Send Mail Following"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:325
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:571
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:581
+msgid "Live Notifications"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:574
+msgid "Turn on / off live notifications feature."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:595
 msgid "Branding"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:334
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:604
 msgid "Site logo"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:338
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:608
 msgid ""
 "Your logo should be in PNG, GIF or JPG format, within 150x50px and less than "
 "1500Kb."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:345
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:615
 msgid "Site Logo"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:358
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:369
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:628
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:639
 msgid "Mobile Icon"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:362
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:632
 msgid ""
 "This icon will be used as a launcher icon for iPhone and Android smartphones "
 "and also as the website favicon. The image dimensions should be 57x57px."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:387
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:652
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:663
+msgid "Intro Page Background"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:656
+msgid ""
+"This image will be used as a background image in Intro Page. The image "
+"dimensions should be 1400x700px or more and size less than 1000KB."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:681
 msgid "Mailing"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:396
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:690
 msgid "Authentication Mail Template"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:405
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:699
 msgid "Mail description here"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:406
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:700
 msgid ""
 "Email templates for authentication process. You can use placeholders to "
 "include some specific content."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:407
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:701
 msgid "user's details you want to send mail"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:408
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:702
 msgid "member dashboard url "
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:409
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:703
 msgid "question title, link and details"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:410
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:704
 msgid "activate link is require for user to renew their pass"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:411
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:705
 msgid " site info, admin email"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:421
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:715
 msgid "Register Mail Template"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:430
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:487
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:604
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:622
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:724
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:781
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:905
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:923
 msgid "Register Mail"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:440
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:734
 msgid "Confirmation Mail Template"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:449
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:468
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:743
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:762
 msgid "Confirmation Mail"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:459
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:753
 msgid "Confirmed Mail Template"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:478
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:772
 msgid "Forgotpass Mail Template"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:496
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:790
 msgid "Resetpass Mail Template"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:505
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:799
 msgid "Resetpassword Mail"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:514
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:808
+msgid "Pending Questions Mail Template"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:817
+msgid "Pending Questions Mail"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:826
 msgid "New Answer Mail Template"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:523
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:835
 msgid "New Answer Mail"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:585
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:844
+msgid "Report Mail Template"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:853
+msgid "Report Mail"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:862
+msgid "Best Answer Mail Template"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:871
+msgid "Best Answer Mail"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:886
 msgid "Language"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:594
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:895
 msgid "Website Language"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:598
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:899
 msgid "Select the language you want to use for your website."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:612
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:913
 msgid "Translator"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:616
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:917
 msgid "Translate a language"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:636
-#: E:\www\wp\wp-content\themes\qaengine/template-js/item-answer.php:52
-#: E:\www\wp\wp-content\themes\qaengine/template-js/item-comment.php:21
-#: E:\www\wp\wp-content\themes\qaengine/template/item-answer.php:49
-#: E:\www\wp\wp-content\themes\qaengine/template/item-comment.php:31
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:937
+#: F:\www\wp\wp-content\themes\qaengine/template-js/item-answer.php:57
+#: F:\www\wp\wp-content\themes\qaengine/template-js/item-comment.php:26
+#: F:\www\wp\wp-content\themes\qaengine/template/item-answer.php:74
+#: F:\www\wp\wp-content\themes\qaengine/template/item-comment.php:36
 msgid "Update"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:645
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:654
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:946
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:955
 msgid "License Key"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:683
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-overview.php:42
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-overview.php:53
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-overview.php:54
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-overview.php:55
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:984
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-overview.php:42
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-overview.php:53
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-overview.php:54
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-overview.php:55
 msgid "Overview"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:684
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:985
 msgid "OVERVIEW"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:688
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:989
 #, php-format
 msgid "%s overview"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:710
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1011
 msgid "Settings"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:711
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1012
 msgid "SETTINGS"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:715
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1016
 msgid "Manage how your Q&A Engine looks and feels"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:735
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:154
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1036
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:304
 msgid "Members"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:736
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1037
 msgid "MEMBERS"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:740
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1041
 msgid "Overview of registered members"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:754
-#: E:\www\wp\wp-content\themes\qaengine/page-users.php:45
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1055
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/users-container.php:99
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/template/user-item.php:17
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:411
+#: F:\www\wp\wp-content\themes\qaengine/page-users.php:45
 msgid "Points"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:763
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1064
 msgid "Positive Point"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:766
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1067
 msgid "Set up points that users can gain"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:774
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:777
-#: E:\www\wp\wp-content\themes\qaengine/page-badges.php:33
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1075
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1078
+#: F:\www\wp\wp-content\themes\qaengine/page-badges.php:33
 msgid "create a question"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:782
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:785
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1083
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1086
 msgid "answer a question"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:790
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:793
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:42
-#: E:\www\wp\wp-content\themes\qaengine/page-badges.php:44
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1091
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1094
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:42
+#: F:\www\wp\wp-content\themes\qaengine/page-badges.php:44
 msgid "question is voted up"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:798
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:801
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:46
-#: E:\www\wp\wp-content\themes\qaengine/page-badges.php:55
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1099
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1102
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:46
+#: F:\www\wp\wp-content\themes\qaengine/page-badges.php:55
 msgid "answer is voted up"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:806
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:809
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1107
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1110
 msgid "answer is marked 'accepted' "
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:825
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1126
 msgid "Negative Point"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:828
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1129
 msgid "Set up points that user can lose"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:835
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:838
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1136
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1139
 msgid "your question is voted down"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:843
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:846
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1144
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1147
 msgid "your answer is voted down"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:852
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:855
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1153
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1156
 msgid "you vote down an answer or question"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:878
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:887
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1179
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1188
 msgid "Privileges"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:890
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1191
 msgid "Set up point users have to achieve to have specific privileges"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:901
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1202
 msgid "Level"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:924
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1225
 msgid "User Badges"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:925
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1226
 msgid "USER BADGES"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/admin.php:929
+#: F:\www\wp\wp-content\themes\qaengine/includes/admin.php:1230
 msgid "Manage what your members can do."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-languages.php:118
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-languages.php:311
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-languages.php:118
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-languages.php:311
 msgid "Invalid file name!"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-languages.php:129
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-languages.php:129
 msgid "Adding new language successfully."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-languages.php:325
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-languages.php:325
 msgid "There was no changes in your translation."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-languages.php:399
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-languages.php:399
 msgid "Translation saved! "
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-languages.php:458
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-languages.php:489
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-languages.php:458
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-languages.php:489
 msgid "Type the translation in your language"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-languages.php:503
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-languages.php:503
 msgid "Loading successfully!"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-overview.php:46
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-overview.php:46
 msgid "3 Months Overview"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-overview.php:49
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-overview.php:49
 msgid "2 weeks Overview"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-overview.php:53
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-overview.php:54
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-overview.php:55
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-overview.php:53
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-overview.php:54
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-overview.php:55
 msgid "Signup"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:70
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:71
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-report.php:17
 msgid "Loading..."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:71
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:72
 msgid "Loading"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:78
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:78
 msgid "Image Files"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:97
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:97
 msgid "Administration"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:97
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:97
 msgid "You are an admin. Here you administrate."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:221
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:222
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:221
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:222
 msgid "Engine Settings"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:272
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:206
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:284
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:206
 msgid "Update option successfully!"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:296
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:704
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:308
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:710
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:121
 msgid "There is an error occurred"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:302
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:775
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:710
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:314
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:880
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:716
 msgid "Missing image ID"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:311
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:770
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:724
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:323
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:875
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:730
 msgid "Security error!"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:339
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:351
 msgid "Branding image has been uploaded successfully"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:344
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:356
 msgid "Error when updating settings."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:352
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:782
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:773
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:364
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:887
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:779
 msgid "Uploaded file not found"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:374
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-page.php:386
 msgid "Site Dashboard"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-post.php:164
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-post.php:164
 msgid "Post not found!"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-post.php:265
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:282
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-post.php:265
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:284
 msgid "Invalid method"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:46
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:46
 msgid "Input invalid"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:55
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/template/user-item.php:37
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:994
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:55
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/template/user-item.php:51
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:995
 #, php-format
 msgid "Join on %s"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:103
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:103
 msgid "Username only lowercase letters (a-z) and numbers are allowed."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:164
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:164
 msgid "This email is already used. Please enter a new email."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:211
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:211
 msgid "You cannot change other user password"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:215
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:215
 msgid "Retype password is not equal."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:222
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:222
 msgid "The password entered do not match."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:326
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:328
 msgid "Get users successfull"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:329
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:331
 msgid "No user found by your query"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:342
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/class-ae-users.php:344
 msgid "Update user successful!"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/field-image.php:49
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:460
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/field-image.php:49
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-upload-images.php:21
 msgid "Browse"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/field-language-list.php:68
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/field-language-list.php:68
 msgid "Add a new language"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/field-language-list.php:70
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/field-language-list.php:70
 msgid "Enter language name"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/field-language-list.php:79
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/field-language-list.php:79
 msgid "Language name"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/field-language-list.php:80
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/field-language-list.php:80
 msgid "Enter the language's name"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/field-language-list.php:81
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/field-language-list.php:81
 msgid "Add language"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/field-language-list.php:82
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:471
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:785
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:748
-#: E:\www\wp\wp-content\themes\qaengine/mobile/functions.php:56
-#: E:\www\wp\wp-content\themes\qaengine/mobile/functions.php:99
-#: E:\www\wp\wp-content\themes\qaengine/mobile/functions.php:123
-#: E:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:214
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template-js/item-answer.php:66
-#: E:\www\wp\wp-content\themes\qaengine/template-js/item-answer.php:55
-#: E:\www\wp\wp-content\themes\qaengine/template-js/item-answer.php:112
-#: E:\www\wp\wp-content\themes\qaengine/template-js/item-comment.php:24
-#: E:\www\wp\wp-content\themes\qaengine/template/item-answer.php:52
-#: E:\www\wp\wp-content\themes\qaengine/template/item-comment.php:34
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/field-language-list.php:82
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:813
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1057
+#: F:\www\wp\wp-content\themes\qaengine/mobile/author.php:84
+#: F:\www\wp\wp-content\themes\qaengine/mobile/functions.php:56
+#: F:\www\wp\wp-content\themes\qaengine/mobile/functions.php:106
+#: F:\www\wp\wp-content\themes\qaengine/mobile/functions.php:130
+#: F:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:224
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template-js/item-answer.php:68
+#: F:\www\wp\wp-content\themes\qaengine/template-js/item-answer.php:60
+#: F:\www\wp\wp-content\themes\qaengine/template-js/item-answer.php:117
+#: F:\www\wp\wp-content\themes\qaengine/template-js/item-comment.php:29
+#: F:\www\wp\wp-content\themes\qaengine/template/item-answer.php:78
+#: F:\www\wp\wp-content\themes\qaengine/template/item-comment.php:39
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-upload-images.php:33
 msgid "Cancel"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/field-translate.php:48
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/field-translate.php:48
 msgid "Choose a Language"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/field-translate.php:56
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/field-translate.php:56
 msgid "Save"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/field-translate.php:60
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/field-translate.php:60
 msgid ""
 "The system will automatically save your translation after every 20 strings."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/users-container.php:47
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/users-container.php:47
 msgid "All"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/users-container.php:54
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/users-container.php:54
 msgid "Search users..."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/users-container.php:62
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/users-container.php:62
 msgid "All Users"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/users-container.php:77
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/users-container.php:77
 msgid "More Users"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/users-container.php:104
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:192
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/fields/users-container.php:107
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/template/user-item.php:28
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:298
 msgid "Confirm this user"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/functions.php:188
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/functions.php:194
 #, php-format
 msgid "Not enough space to upload. %1$s KB needed."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/functions.php:190
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/functions.php:196
 #, php-format
 msgid "This file is too big. Files must be less than %1$s KB in size."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/functions.php:192
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/functions.php:198
 msgid "You have used your space quota. Please delete files before uploading."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/aecore/template/user-item.php:33
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/template/user-item.php:40
+msgid "Posts"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/aecore/template/user-item.php:43
 msgid "Comments"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:26
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:27
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:26
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:27
 msgid "Pack"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:28
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:12
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:350
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:839
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:28
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:12
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:350
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:891
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:554
 msgid "Add New"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:29
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:29
 msgid "Add New Pack"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:30
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:30
 msgid "Edit Pack"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:31
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:31
 msgid "New Pack"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:32
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:32
 msgid "All Packs"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:33
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:33
 msgid "View Pack"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:34
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:34
 msgid "Search Packs"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:35
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:35
 msgid "No Pack found"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:36
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:36
 msgid "NoPacks found in Trash"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:38
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:38
 msgid "Packs"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:114
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:153
-#: E:\www\wp\wp-content\themes\qaengine/includes/section-badges.php:59
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:114
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:153
+#: F:\www\wp\wp-content\themes\qaengine/includes/section-badges.php:59
 #, php-format
 msgid "%d points"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:143
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:143
 msgid "content here"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:168
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:168
 msgid "Sync success."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:237
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:237
 msgid "Vote up a question/answer"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:238
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:238
 msgid "Leave comments on other people's posts"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:239
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:239
 msgid "Vote down a question/answer"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:241
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:241
 msgid "Add new tags to the site"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:242
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:242
 msgid "Edit any question"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:243
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:243
 msgid "Edit any answer"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/badges.php:287
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:244
+msgid "Approve any answer"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/badges.php:289
 msgid "Default"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:10
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:11
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:10
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:11
 msgid "change log"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:13
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:13
 msgid "Add New log"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:14
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:14
 msgid "Edit log"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:15
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:15
 msgid "New change log"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:16
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:16
 msgid "All change logs"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:17
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:17
 msgid "View change log"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:18
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:18
 msgid "Search change logs"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:19
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:19
 msgid "No change log found"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:20
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:20
 msgid "Nochange logs found in Trash"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:22
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:22
 msgid "change logs"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:180
-msgid "q_vote_up"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:181
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:181
 #, php-format
 msgid "Your question \"%s\" was voted up, earned %d points"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:186
-msgid "a_vote_up"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:187
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:187
 #, php-format
 msgid "Your answer on question \"%s\" was voted up, earned %d points"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:214
-msgid "q_vote_down"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:215
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:215
 #, php-format
 msgid "Your question \"%s\" was voted down, earned %d points"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:220
-msgid "a_vote_down"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:221
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:221
 #, php-format
 msgid "Your answer on question \"%s\" was voted down, earned %d points"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:247
-msgid "q_unvote"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:248
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:248
 #, php-format
 msgid "Your question \"%s\" was unvoted, return %d points"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:252
-msgid "a_unvote"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:253
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:253
 #, php-format
 msgid "Your answer on question \"%s\" was unvoted, return %d points"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:279
-msgid "a_marked"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:280
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:280
 #, php-format
 msgid "Your answer on question \"%s\" was marked best answer, gain %d points"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:306
-msgid "a_unmarked"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:307
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:307
 #, php-format
 msgid "Your best answer on question \"%s\" was undo, gain %d points"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:333
-msgid "post_answer"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:334
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:334
 #, php-format
 msgid "You answered on question \"%s\""
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:338
-msgid "post_question"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:339
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:339
 #, php-format
 msgid "Your posted a question \"%s\" "
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:366
-msgid "edit_question"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:367
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:367
 #, php-format
 msgid "You question on question \"%s\" was edited"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:371
-msgid "edit_answer"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:372
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:372
 #, php-format
 msgid "Your answer on question \"%s was edited\""
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:412
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:407
+msgid "This is default text."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:413
 #, php-format
 msgid "Your answer on question %s was voted up."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:414
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:415
 #, php-format
 msgid "You voted up an answer on question %s."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:422
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:423
 #, php-format
 msgid "Your answer on question %s was voted down."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:424
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:425
 #, php-format
 msgid "Your voted down an answer on question %s."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:433
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:434
 #, php-format
 msgid "Your question %s was voted up."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:435
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:436
 #, php-format
 msgid "You voted up question %s."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:444
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:445
 #, php-format
 msgid "Your question %s was voted down."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:446
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:447
 #, php-format
 msgid "You voted down question %s."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:452
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:453
 #, php-format
 msgid "You asked %s."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:459
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:460
 #, php-format
 msgid "Your question %s was edited."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:461
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:462
 #, php-format
 msgid "You edited question %s."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:468
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:469
 #, php-format
 msgid "You answered question %s."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:476
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:477
 #, php-format
 msgid "Your answer on question %s was edited."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:478
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:479
 #, php-format
 msgid "You edited answer on question %s."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:485
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:486
 #, php-format
 msgid "Your question %s was unvoted."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:487
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:488
 #, php-format
 msgid "You unvoted question %s."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:495
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:496
 #, php-format
 msgid "Your answer on question %s was unvoted."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:497
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:498
 #, php-format
 msgid "Your unvoted an answer on question %s."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:504
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:505
 #, php-format
 msgid "Your answer on question %s was marked as the accepted answer."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:506
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:507
 #, php-format
 msgid "You marked question %s was answered."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:513
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:514
 #, php-format
 msgid "Your best answer on question %s was unaccepted."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/changelog.php:515
+#: F:\www\wp\wp-content\themes\qaengine/includes/changelog.php:516
 #, php-format
 msgid "You changed the best answer on question %s."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/customizer.php:25
+#: F:\www\wp\wp-content\themes\qaengine/includes/customizer.php:25
 msgid "QA Options"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/customizer.php:28
+#: F:\www\wp\wp-content\themes\qaengine/includes/customizer.php:28
 msgid "Allows you to customize some example settings for QAEngine."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/customizer.php:83
+#: F:\www\wp\wp-content\themes\qaengine/includes/customizer.php:83
 msgid "Link Color"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/customizer.php:94
+#: F:\www\wp\wp-content\themes\qaengine/includes/customizer.php:94
 msgid "Main Action Color"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/customizer.php:105
+#: F:\www\wp\wp-content\themes\qaengine/includes/customizer.php:105
 msgid "Sidebar Background Color"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/customizer.php:116
+#: F:\www\wp\wp-content\themes\qaengine/includes/customizer.php:116
 msgid "Header Background Color"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/customizer.php:127
+#: F:\www\wp\wp-content\themes\qaengine/includes/customizer.php:127
 msgid "Header Menus Background Color"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:164
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:177
 msgid "You need to verify your account to view the content."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:172
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:188
 msgid "Your account has been confirmed successfully!"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:439
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:474
 msgid "Congratulations! Your account has been confirmed successfully."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:517
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:553
 msgid "You must log in to post question."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:522
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:556
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:658
+msgid "Post title should not contain any HTML Tag."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:561
 msgid "You don't have enough point to add a comment."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:531
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:573
 msgid "An error occur when created comment."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:536
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:578
 msgid "Comment has been created successfully."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:550
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:592
 msgid "An error occur when created answer."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:556
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:595
+msgid ""
+"Your answer has been created successfully and need to be approved by Admin "
+"before displayed!"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:595
 msgid "Answer has been created successfully."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:575
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:618
 msgid ""
 "Your question has been created successfully. It'll appear right after being "
 "approved by admin."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:575
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:618
 msgid "Question has been created successfully."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:581
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:624
 msgid "An error occur when created question."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:610
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:751
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:654
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:856
 msgid "Invalid action"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:615
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:664
 msgid "You don't have enough point to vote up."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:617
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:666
 msgid "You don't have enough point to vote down."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:633
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:682
 msgid "Only question author can mark answered."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:712
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:748
+msgid "Question has been saved successfully."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:775
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:353
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:278
+msgid "New Question"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:776
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:279
+msgid "There's a new post, why don't you give a look at"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:785
 msgid "You've just successfully approved a question."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:727
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:794
+msgid "You've just successfully approved an answer."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:811
 msgid "Login required"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:733
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:847
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:817
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:992
 msgid "Error occurred"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:736
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:820
 msgid "You have started following this question."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:738
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:822
 msgid "You have stopped following this question."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:786
-msgid "Image file size is too big.Size must be less than < 1MB."
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:837
+msgid "Invalid post"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:801
-msgid "The file was uploaded successfully"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:821
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:832
-msgid "You must logged in to perform this action"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:822
-msgid "Missing argument"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:829
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:844
 msgid "You have reported successfully"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:851
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:850
+msgid "Error when reported!"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:891
+msgid "Image file size is too big.Size must be less than < 1MB."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:906
+msgid "The file was uploaded successfully"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:996
 msgid "Comment deleted successfully!"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:859
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:1004
 msgid "Answer deleted successfully!"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/front.php:865
+#: F:\www\wp\wp-content\themes\qaengine/includes/front.php:1010
 msgid "Question deleted successfully!"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:265
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:265
 msgid "Member not found"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:536
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:538
 msgid "Your account has been deleted successfully."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:578
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:584
 msgid "Your profile has been updated!"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:587
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:593
 msgid "Please enter all required information to reset your password."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:590
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:596
 msgid "Confirmed password does not matched"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:597
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:603
 msgid "Old password is not correct."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:601
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:607
 msgid "Your new password cannot be empty."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:612
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:618
 msgid "Your password was changed! Please login again!"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:649
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:687
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:655
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:693
 msgid "Your login information was incorrect. Please try again."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:675
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:681
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:607
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:715
 msgid "You have logged in successfully"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:697
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:703
 msgid "You have logged out"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:717
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:723
 msgid "Missing user data"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:760
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:766
 msgid "User logo has been uploaded successfully!"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:765
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:771
 msgid "Problem occurred while updating user field"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:810
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:811
 msgid ""
 "You have registered an account successfully but are not able to join the "
 "discussions yet. Please confirm your email address first."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:810
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:811
 msgid "You are registered and logged in successfully."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:837
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:838
 msgid "<strong>ERROR</strong>: Enter username or email address."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:841
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:842
 msgid ""
 "<strong>ERROR</strong>: There is no user registered with that email address."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:861
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:862
 msgid "Please check your email inbox to reset password."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:871
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:872
 msgid "This user is not found."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:873
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:874
 msgid "Invalid Key"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:875
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:876
 msgid "Please enter your new password"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:894
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:895
 msgid "Your password has been changed. Please log in again."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:913
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:914
 msgid "You don't have permission"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:918
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:919
 msgid "Required user ID."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:927
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:928
 msgid "User has been confirmed"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:960
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:961
 msgid "No result found"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:1091
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:1092
 msgid "This email address was not found."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:1107
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:1108
 msgid "Username is invalid"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:1156
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:1159
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:1165
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:1157
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:1160
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:1166
 msgid "Invalid key"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:1185
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:1186
 msgid "<strong>ERROR</strong>: Invalid username or email address."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:1199
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:1200
 msgid "Password reset is not allowed for this user"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:1215
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:1216
 msgid "There is a request to reset the password for the following account:"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:1217
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:1218
 #, php-format
 msgid "Username: %s"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:1218
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:1219
 msgid "If this was a mistake, just ignore this email and nothing will happen."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:1219
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:1220
 msgid "To reset your password, visit the following link:"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:1231
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:1232
 #, php-format
 msgid "[%s] Password Reset"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:1237
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:1238
 msgid "The email could not be sent."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/members.php:1237
+#: F:\www\wp\wp-content\themes\qaengine/includes/members.php:1238
 msgid "Possible reason: your host may have disabled the mail() function..."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:68
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:68
 msgid "Missing Author"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:98
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:98
 msgid "Thread not found!"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:349
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:349
 msgid "Question"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:351
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:351
 msgid "Add New Question"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:352
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:352
 msgid "Edit Question"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:353
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:172
-msgid "New Question"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:355
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:355
 msgid "View Question"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:356
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:107
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:356
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:137
 msgid "Search Questions"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:357
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:357
 msgid "No questions found"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:358
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:358
 msgid "No questions found in Trash"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:378
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:379
 msgid "Question Categories"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:380
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:380
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:389
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:44
+#: F:\www\wp\wp-content\themes\qaengine/mobile/archive-question.php:17
+#: F:\www\wp\wp-content\themes\qaengine/mobile/taxonomy.php:17
+msgid "Category"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:381
 msgid "Search Categories"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:381
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:382
 msgid "All Categories"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:382
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:383
 msgid "Parent Category"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:383
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:384
 msgid "Parent Category:"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:384
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:385
 msgid "Edit Category"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:385
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:386
 msgid "Update Category"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:386
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:387
 msgid "Add New Category"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:387
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:388
 msgid "New Category Name"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:400
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:402
 msgid "Search Tags"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:401
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:403
 msgid "Popular Tags"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:402
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:404
 msgid "All Tags"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:405
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:407
 msgid "Edit Tag"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:406
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:408
 msgid "Update Tag"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:407
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:409
 msgid "Add New Tag"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:408
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:410
 msgid "New Tag Name"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:409
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:411
 msgid "Separate tags with commas"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:410
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:412
 msgid "Add or remove tags"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:411
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:413
 msgid "Choose from the most used tags"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:412
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:414
 msgid "No tags found."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:413
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-tags.php:19
-#: E:\www\wp\wp-content\themes\qaengine/page-tags.php:16
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:415
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-tags.php:19
+#: F:\www\wp\wp-content\themes\qaengine/page-tags.php:16
 msgid "Tags"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:459
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:461
 msgid "Required Log In"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:496
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:520
 #, php-format
 msgid "You must have %d points to edit question."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:605
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:643
 msgid "Category must not empty"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:677
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:729
 msgid "Permission denied"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:838
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:890
 msgid "Answer"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:840
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:892
 msgid "Add New Answer"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:841
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:893
 msgid "Edit Answer"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:842
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:894
 msgid "New Answer"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:843
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:895
 msgid "All Answers"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:844
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:896
 msgid "View Answer"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:845
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:897
 msgid "Search Answers"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:846
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:898
 msgid "No answers found"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:847
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:899
 msgid "No answers found in Trash"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:933
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:985
 #, php-format
 msgid "You must have %d points to edit answer."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:997
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:1118
-#: E:\www\wp\wp-content\themes\qaengine/single-answer.php:131
-#: E:\www\wp\wp-content\themes\qaengine/single-question.php:147
-#: E:\www\wp\wp-content\themes\qaengine/template/item-answer.php:91
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:1064
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:1192
+#: F:\www\wp\wp-content\themes\qaengine/single-answer.php:131
+#: F:\www\wp\wp-content\themes\qaengine/single-question.php:158
+#: F:\www\wp\wp-content\themes\qaengine/template/item-answer.php:118
 #, php-format
 msgid "Comment(%d) "
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/questions.php:1012
+#: F:\www\wp\wp-content\themes\qaengine/includes/questions.php:1081
 msgid "Login Required"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/section-badges.php:45
+#: F:\www\wp\wp-content\themes\qaengine/includes/section-badges.php:45
 msgid "User Level"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/section-badges.php:73
+#: F:\www\wp\wp-content\themes\qaengine/includes/section-badges.php:73
 msgid "Are you sure you want to delete this badge?"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/section-badges.php:79
-#: E:\www\wp\wp-content\themes\qaengine/includes/section-badges.php:120
+#: F:\www\wp\wp-content\themes\qaengine/includes/section-badges.php:79
+#: F:\www\wp\wp-content\themes\qaengine/includes/section-badges.php:120
 msgid "Enter a name for your badge"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/section-badges.php:84
-#: E:\www\wp\wp-content\themes\qaengine/includes/section-badges.php:125
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-users.php:42
+#: F:\www\wp\wp-content\themes\qaengine/includes/section-badges.php:84
+#: F:\www\wp\wp-content\themes\qaengine/includes/section-badges.php:125
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-users.php:42
 msgid "Point"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/section-badges.php:88
-#: E:\www\wp\wp-content\themes\qaengine/includes/section-badges.php:129
+#: F:\www\wp\wp-content\themes\qaengine/includes/section-badges.php:88
+#: F:\www\wp\wp-content\themes\qaengine/includes/section-badges.php:129
 msgid "Color"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/section-badges.php:95
+#: F:\www\wp\wp-content\themes\qaengine/includes/section-badges.php:95
 msgid "Add badge"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:97
-#: E:\www\wp\wp-content\themes\qaengine/sidebar-left-tablet.php:7
-#: E:\www\wp\wp-content\themes\qaengine/sidebar-left.php:5
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:110
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:117
+msgid "Username and password does not matched"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:137
+msgid "Login information is missing"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:143
+msgid "Please provide a valid email"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:173
+msgid "Can't not authenticate user"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:175
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:255
+msgid "Can't find Social ID"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:217
+msgid ""
+"This email is already existed. If you are the owner, please enter the right "
+"password"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:246
+msgid "Username is existed, please choose another one"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:304
+msgid "SIGN IN WITH TWITTER"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:305
+msgid ""
+"This seems to be your first time signing in using your Twitter account.If "
+"you already have an account  , please log in using the form below to link it "
+"to your Twitter account. Otherwise, please enter an email address and a "
+"password on the form, and a username on the next page to create an account."
+"You will only do this step ONCE. Next time, you'll get logged in right away."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:306
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:513
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:627
+msgid "Please provide a username to continue"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:371
+msgid "Error Receiving Request Token"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:511
+msgid "SIGN IN WITH FACEBOOK"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:512
+msgid ""
+"This seems to be your first time signing in using your Facebook account.If "
+"you already have an account, please log in using the form below to link it "
+"to your Facebook account. Otherwise, please enter an email address and a "
+"password on the form, and a username on the next page to create an account."
+"You will only do this step ONCE. Next time, you'll get logged in right away."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:625
+msgid "SIGN IN WITH GOOGLE+"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/social_auth.php:626
+msgid ""
+"This seems to be your first time signing in using your Google+ account.If "
+"you already have an account, please log in using the form below to link it "
+"to your Facebook account. Otherwise, please enter an email address and a "
+"password on the form, and a username on the next page to create an account."
+"You will only do this step ONCE. Next time, you'll get logged in right away."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:126
+#: F:\www\wp\wp-content\themes\qaengine/sidebar-left-tablet.php:7
+#: F:\www\wp\wp-content\themes\qaengine/sidebar-left.php:5
 msgid "ASK A QUESTION"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:117
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:157
-#: E:\www\wp\wp-content\themes\qaengine/mobile/functions.php:80
-#: E:\www\wp\wp-content\themes\qaengine/page-tags.php:36
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:149
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:203
+#: F:\www\wp\wp-content\themes\qaengine/mobile/functions.php:82
+#: F:\www\wp\wp-content\themes\qaengine/page-tags.php:36
 msgid "Latest"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:120
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:160
-#: E:\www\wp\wp-content\themes\qaengine/mobile/functions.php:83
-#: E:\www\wp\wp-content\themes\qaengine/single-answer.php:162
-#: E:\www\wp\wp-content\themes\qaengine/single-question.php:178
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:154
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:207
+#: F:\www\wp\wp-content\themes\qaengine/mobile/functions.php:87
+#: F:\www\wp\wp-content\themes\qaengine/single-answer.php:162
+#: F:\www\wp\wp-content\themes\qaengine/single-question.php:201
 msgid "Votes"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:123
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:163
-#: E:\www\wp\wp-content\themes\qaengine/mobile/functions.php:86
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:159
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:210
+#: F:\www\wp\wp-content\themes\qaengine/mobile/functions.php:92
 msgid "Unanswered"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:177
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:167
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:217
+#: F:\www\wp\wp-content\themes\qaengine/template/item-answer.php:56
+msgid "Pending"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:176
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:860
+msgid "Filter by category"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:224
 msgid "Questions Per Page: "
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:283
-#: E:\www\wp\wp-content\themes\qaengine/mobile/functions.php:27
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:338
+#: F:\www\wp\wp-content\themes\qaengine/mobile/functions.php:27
 msgid "Select Category"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:429
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:492
 #, php-format
 msgid "%s today, %s this week, %s this month."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:450
-msgid "Insert Images"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:454
-msgid "Upload an image"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:458
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:745
-msgid "No file chosen."
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:458
-msgid "Please log in to use this function."
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:466
-msgid "Add an image via URL"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:470
-msgid "Insert"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:551
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:578
 #, php-format
 msgid "on %s"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:553
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:580
 msgid "ago"
 msgstr ""
 
 #. translators: min=minute
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:602
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:629
 #, php-format
 msgid "%s min"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:602
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:629
 #, php-format
 msgid "%s mins"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:607
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:634
 #, php-format
 msgid "%s hour"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:607
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:634
 #, php-format
 msgid "%s hours"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:613
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:640
 #, php-format
 msgid "%s day"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:613
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:640
 #, php-format
 msgid "%s days"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:619
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:646
 #, php-format
 msgid "%s week"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:619
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:646
 #, php-format
 msgid "%s weeks"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:625
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:652
 #, php-format
 msgid "%s month"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:625
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:652
 #, php-format
 msgid "%s months"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:631
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:658
 #, php-format
 msgid "%s year"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:631
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:658
 #, php-format
 msgid "%s years"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:649
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:676
 msgid "year"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:650
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:677
 msgid "month"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:651
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:678
 msgid "day"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:652
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:679
 msgid "hour"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:653
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:680
 msgid "minute"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:654
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:681
 msgid "second"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:689
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:716
 msgid "Please fill out the form below "
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:763
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:791
 #, php-format
 msgid "You must have %d points to add comment."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:767
-#: E:\www\wp\wp-content\themes\qaengine/template-js/item-answer.php:94
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:795
+#: F:\www\wp\wp-content\themes\qaengine/template-js/item-answer.php:99
 msgid "Add Comment"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:781
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:747
-#: E:\www\wp\wp-content\themes\qaengine/mobile/functions.php:122
-#: E:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:126
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template-js/item-answer.php:65
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template-js/item-answer.php:68
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template/item-answer.php:105
-#: E:\www\wp\wp-content\themes\qaengine/template-js/item-answer.php:108
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:809
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1056
+#: F:\www\wp\wp-content\themes\qaengine/mobile/functions.php:129
+#: F:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:132
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template-js/item-answer.php:67
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template-js/item-answer.php:70
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template/item-answer.php:119
+#: F:\www\wp\wp-content\themes\qaengine/template-js/item-answer.php:113
 msgid "Add comment"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/template.php:800
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:828
 #, php-format
 msgid ""
 "By posting your answer, you agree to the <a target=\"_blank\" href=\"%s"
@@ -1899,856 +2149,1163 @@ msgid ""
 "</a>"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:173
-msgid "There's a new post, why don't you give a look at"
+#: F:\www\wp\wp-content\themes\qaengine/includes/template.php:828
+#, php-format
+msgid ""
+"By posting your question, you agree to the <a target=\"_blank\" href=\"%s"
+"\">privacy policy</a> and <a target=\"_blank\" href=\"%s\">terms of service."
+"</a>"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:220
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:110
+msgid "marked"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:110
+msgid "unmarked"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:115
+#, php-format
+msgid "[%s] Your answer has been marked as the best."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:149
+#, php-format
+msgid "[%s] New pending question has been created."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:190
+#, php-format
+msgid "[New Answer] Your question %s has a new reply."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:326
 #, php-format
 msgid "Page %s"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:298
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:407
 msgid "Password updated successfully!"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:318
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:427
 #, php-format
 msgid "Congratulations! You have successfully registered to %s."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:349
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:476
 msgid "Menu display on Header"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:350
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:477
 msgid "Menu display on Left Sidebar"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:355
-msgid "Header Sidebar"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:357
-msgid "Display widgets in header sidebar"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:362
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:482
 msgid "Left Sidebar"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:364
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:484
 msgid "Display widgets in left sidebar"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:367
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:487
 msgid "Right Sidebar"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:369
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:489
 msgid "Display widgets in right sidebar"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:374
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:494
+msgid "Header Sidebar"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:496
+msgid "Display widgets in header sidebar"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:501
 msgid "Blog's Left Sidebar"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:376
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:503
 msgid "Display widgets in blog's left sidebar"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:379
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:506
 msgid "Blog's Right Sidebar"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:381
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:508
 msgid "Display widgets in blog's right sidebar"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:514
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:513
+msgid "Single Question Sidebar"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:515
+msgid "Display widgets in single question sidebar"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:519
+msgid "Top Questions Listing Ads Banner Sidebar"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:521
+msgid "Display ad banners widgets in top questions listing sidebar"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:525
+msgid "Bottom Ads Banner Sidebar"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:527
+msgid "Display ad banners widgets in bottom of website"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:531
+msgid "Content Question Ad Banner Sidebar"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:533
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:539
+msgid "Display ad banners widgets in bottom questions listing sidebar"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:537
+msgid "Below Answers Listing Ad Banner Sidebar"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:552
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:564
+msgid "Reports"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:553
+#: F:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:107
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template-js/item-answer.php:50
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template/item-answer.php:96
+#: F:\www\wp\wp-content\themes\qaengine/single-question.php:87
+#: F:\www\wp\wp-content\themes\qaengine/single-question.php:152
+#: F:\www\wp\wp-content\themes\qaengine/template-js/item-answer.php:85
+#: F:\www\wp\wp-content\themes\qaengine/template/item-answer.php:41
+#: F:\www\wp\wp-content\themes\qaengine/template/item-answer.php:111
+msgid "Report"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:555
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:591
+msgid "Add New Report"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:556
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:589
+msgid "Edit Report"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:557
+msgid "New Report"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:558
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:586
+msgid "All Reports"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:559
+msgid "View Report"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:560
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:584
+msgid "Search Reports"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:561
+msgid "No Reports found"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:562
+msgid "No Reports found in Trash"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:585
+msgid "Popular Reports"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:590
+msgid "Update Report"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:592
+msgid "New Report Name"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:593
+msgid "Separate Reports with commas"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:594
+msgid "Add or remove Reports"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:595
+msgid "Choose from the most used Reports"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:596
+msgid "No Reports found."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:597
+msgid "Reports taxonomy"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:615
+msgid "Report Information"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:696
+msgid "There's a new report "
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:809
 msgid "There was a problem with your upload."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:518
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:813
 msgid "Image's size upload must be less than 1MB!"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:732
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1040
 msgid "Please fill out all fields required."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:733
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1041
 msgid "Please enter your user name."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:734
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1042
 msgid "Please enter a valid email address."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:735
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1043
 msgid "Please enter a valid username."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:736
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1044
 msgid "Please enter the same password as above."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:737
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1045
 msgid "Please enter a valid URL."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:738
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1046
 msgid "You must accept the term & privacy."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:741
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1049
 msgid "You must be logged in to perform this action."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:742
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1050
 msgid "You don't have enought points to perform this action."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:743
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1051
 msgid "Create Topic"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:744
-msgid "Upload Images"
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1053
+msgid "Insert Code"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:746
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1054
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-upload-images.php:16
+msgid "No file chosen."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1055
 msgid "Please insert at least one tag."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:749
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1058
 msgid "Sign Up"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:750
-#: E:\www\wp\wp-content\themes\qaengine/mobile/header.php:77
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1059
+#: F:\www\wp\wp-content\themes\qaengine/mobile/header.php:77
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:9
 msgid "Sign In"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:751
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template-js/item-answer.php:34
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template/item-answer.php:66
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1060
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template-js/item-answer.php:36
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template/item-answer.php:74
 msgid "Accept"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:752
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template/item-answer.php:62
-#: E:\www\wp\wp-content\themes\qaengine/template/item-answer.php:32
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1061
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template/item-answer.php:70
+#: F:\www\wp\wp-content\themes\qaengine/template/item-answer.php:51
 msgid "Best answer"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:753
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1062
 msgid "Forgot Password"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:754
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1063
 msgid "You have made some changes which you might want to save."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/theme.php:755
-msgid "You need to verify your account before creating new questions/answers."
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1064
+msgid "You must activate your account first to create questions / answers!."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/update.php:158
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1078
+msgid "Post link"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/theme.php:1091
+msgid "Unable to get post link"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/update.php:158
 msgid "Key is invalid"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:6
-msgid "Drag this widget to any sidebars to display a list of hot questions."
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:7
+msgid ""
+"Drag this widget to single sidebars to display a list of related questions."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:8
-msgid "QA Latest Questions / Hot Question"
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:9
+msgid "QA Related Questions"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:20
-msgid "HOT QUESTIONS"
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:21
+msgid "RELATED QUESTIONS"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:23
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:138
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:178
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:237
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:28
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:157
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:288
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:329
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:394
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:573
 msgid "Title:"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:27
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:34
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:163
 msgid "Number of questions to display:"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:31
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:40
+msgid "Questions base on:"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:47
+msgid "Tag"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:126
+msgid "This widget should be placed in Single Question Sidebar"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:139
+msgid "Drag this widget to any sidebars to display a list of hot questions."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:141
+msgid "QA Latest Questions / Hot Questions"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:153
+msgid "HOT QUESTIONS"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:169
 msgid "Latest questions (sort by date)"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:35
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:175
 msgid "Date range:"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:37
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:179
 msgid "All days"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:38
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:182
 msgid "Last 7 days"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:39
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:185
 msgid "Last 30 days"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:125
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:275
 msgid "Drag this widget to sidebar to display the statistic of website."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:127
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:277
 msgid "QA Statistics"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:135
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:285
 msgid "STATISTICS WIDGET"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:165
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:316
 msgid "Drag this widget to sidebar to display the list of tags."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:167
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:318
 msgid "QA Tags"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:175
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:326
 msgid "Tags Widget"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:182
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:333
 msgid "Number of tag to display:"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:207
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:358
 msgid "See more tags"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:223
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:370
+msgid "Drag this widget to sidebar to display the list of top users."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:376
+msgid "QA Top Users"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:387
+msgid "TOP USERS"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:398
+msgid "Number of users to display:"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:403
+msgid "Latest users (sort by date)"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:408
+msgid "Order By:"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:521
+#, php-format
+msgid "%d Question(s)"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:528
+#, php-format
+msgid "%d Answer(s)"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:533
+#, php-format
+msgid "%d Point(s)"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:559
 msgid "Drag this widget to sidebar to display the list of user's activities."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:225
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:561
 msgid "QA Recent Activities"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/includes/widget.php:241
+#: F:\www\wp\wp-content\themes\qaengine/includes/widget.php:577
 msgid "Number of activities to display:"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/index.php:15
-#: E:\www\wp\wp-content\themes\qaengine/mobile/index.php:18
-#: E:\www\wp\wp-content\themes\qaengine/search.php:15
-#: E:\www\wp\wp-content\themes\qaengine/single.php:15
-msgid "Blog"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/mobile/archive-question.php:23
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-questions.php:23
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-search.php:23
-#: E:\www\wp\wp-content\themes\qaengine/mobile/taxonomy.php:23
+#: F:\www\wp\wp-content\themes\qaengine/mobile/archive-question.php:23
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-questions.php:23
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-search.php:23
+#: F:\www\wp\wp-content\themes\qaengine/mobile/taxonomy.php:23
 msgid "Select Categories"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/functions.php:16
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-question.php:28
+#: F:\www\wp\wp-content\themes\qaengine/mobile/author.php:85
+msgid "Enter keyword"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/mobile/category.php:23
+msgid "Find a blog"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/mobile/category.php:43
+#: F:\www\wp\wp-content\themes\qaengine/mobile/index.php:43
+msgid "No posts yet."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/mobile/functions.php:16
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-question.php:30
 #, php-format
 msgid ""
 "You must have %d points to add tag. Current, you have to select existed tags."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/functions.php:21
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-question.php:16
+#: F:\www\wp\wp-content\themes\qaengine/mobile/functions.php:21
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-question.php:18
 msgid "Your Question"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/functions.php:41
+#: F:\www\wp\wp-content\themes\qaengine/mobile/functions.php:41
 msgid "Your Description"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/functions.php:44
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-question.php:23
+#: F:\www\wp\wp-content\themes\qaengine/mobile/functions.php:44
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-question.php:25
 msgid "Tag(max 5 tags)"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/functions.php:53
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-question.php:10
+#: F:\www\wp\wp-content\themes\qaengine/mobile/functions.php:53
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-question.php:12
 msgid "Ask a Question"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/functions.php:55
+#: F:\www\wp\wp-content\themes\qaengine/mobile/functions.php:55
 msgid "Submit"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/functions.php:121
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template-js/item-answer.php:64
+#: F:\www\wp\wp-content\themes\qaengine/mobile/functions.php:128
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template-js/item-answer.php:66
 msgid "Type your comment"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/header.php:4
+#: F:\www\wp\wp-content\themes\qaengine/mobile/header.php:4
 msgid "MOBILE VERSION"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/header.php:68
+#: F:\www\wp\wp-content\themes\qaengine/mobile/header.php:68
 msgid "Sign Out"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/index.php:43
-msgid "No posts yet."
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:18
-#: E:\www\wp\wp-content\themes\qaengine/page-badges.php:16
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:18
+#: F:\www\wp\wp-content\themes\qaengine/page-badges.php:16
 msgid "Badges"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:37
-#: E:\www\wp\wp-content\themes\qaengine/page-badges.php:21
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:37
+#: F:\www\wp\wp-content\themes\qaengine/page-badges.php:21
 msgid "Points System"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:38
-#: E:\www\wp\wp-content\themes\qaengine/page-badges.php:22
-#: E:\www\wp\wp-content\themes\qaengine/page-badges.php:76
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:38
+#: F:\www\wp\wp-content\themes\qaengine/page-badges.php:22
+#: F:\www\wp\wp-content\themes\qaengine/page-badges.php:76
 msgid "You earn reputation when people vote on your posts"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:50
-#: E:\www\wp\wp-content\themes\qaengine/page-badges.php:66
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:50
+#: F:\www\wp\wp-content\themes\qaengine/page-badges.php:66
 msgid "answer is accepted"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:70
-#: E:\www\wp\wp-content\themes\qaengine/page-badges.php:75
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:70
+#: F:\www\wp\wp-content\themes\qaengine/page-badges.php:75
 msgid "Badges System"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:71
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:71
 msgid ""
 "At the highest levels, you'll have access to special moderation tools. "
 "You'll be able to work alongside our community moderators to keep the site "
 "focused and helpful."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:85
-#: E:\www\wp\wp-content\themes\qaengine/page-badges.php:95
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:85
+#: F:\www\wp\wp-content\themes\qaengine/page-badges.php:95
 msgid "points require"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:88
-#: E:\www\wp\wp-content\themes\qaengine/page-badges.php:99
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:88
+#: F:\www\wp\wp-content\themes\qaengine/page-badges.php:99
 msgid "With you can do:"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:91
-#: E:\www\wp\wp-content\themes\qaengine/page-badges.php:102
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:91
+#: F:\www\wp\wp-content\themes\qaengine/page-badges.php:102
 msgid "Edit other people's questions"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:95
-#: E:\www\wp\wp-content\themes\qaengine/page-badges.php:112
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:95
+#: F:\www\wp\wp-content\themes\qaengine/page-badges.php:112
 msgid "Edit other people's answers"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:99
-#: E:\www\wp\wp-content\themes\qaengine/page-badges.php:116
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:99
+#: F:\www\wp\wp-content\themes\qaengine/page-badges.php:116
 msgid "Vote down (costs 1 point on answers)"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:103
-#: E:\www\wp\wp-content\themes\qaengine/page-badges.php:122
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:103
+#: F:\www\wp\wp-content\themes\qaengine/page-badges.php:122
 msgid "Leave comments"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:107
-#: E:\www\wp\wp-content\themes\qaengine/page-badges.php:126
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-badges.php:107
+#: F:\www\wp\wp-content\themes\qaengine/page-badges.php:126
 msgid "Vote up"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-categories.php:18
-#: E:\www\wp\wp-content\themes\qaengine/page-categories.php:13
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-categories.php:18
+#: F:\www\wp\wp-content\themes\qaengine/page-categories.php:13
 msgid "Categories"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-categories.php:23
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-categories.php:23
 msgid "Find a categories"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-categories.php:39
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-tags.php:40
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-users.php:37
-#: E:\www\wp\wp-content\themes\qaengine/page-categories.php:26
-#: E:\www\wp\wp-content\themes\qaengine/page-tags.php:30
-#: E:\www\wp\wp-content\themes\qaengine/page-users.php:42
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-categories.php:39
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-tags.php:40
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-users.php:37
+#: F:\www\wp\wp-content\themes\qaengine/page-categories.php:26
+#: F:\www\wp\wp-content\themes\qaengine/page-tags.php:30
+#: F:\www\wp\wp-content\themes\qaengine/page-users.php:42
 msgid "Name"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-categories.php:44
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-tags.php:45
-#: E:\www\wp\wp-content\themes\qaengine/page-categories.php:29
-#: E:\www\wp\wp-content\themes\qaengine/page-tags.php:33
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-categories.php:44
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-tags.php:45
+#: F:\www\wp\wp-content\themes\qaengine/page-categories.php:29
+#: F:\www\wp\wp-content\themes\qaengine/page-tags.php:33
 msgid "Popular"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:83
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:120
-#: E:\www\wp\wp-content\themes\qaengine/page-intro.php:85
-#: E:\www\wp\wp-content\themes\qaengine/page-intro.php:133
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:17
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:32
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:86
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:123
+#: F:\www\wp\wp-content\themes\qaengine/page-intro.php:88
+#: F:\www\wp\wp-content\themes\qaengine/page-intro.php:136
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:25
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:86
 msgid "Sign in"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:83
-#: E:\www\wp\wp-content\themes\qaengine/page-intro.php:85
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:86
+#: F:\www\wp\wp-content\themes\qaengine/page-intro.php:88
 msgid "or"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:84
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:180
-#: E:\www\wp\wp-content\themes\qaengine/page-intro.php:85
-#: E:\www\wp\wp-content\themes\qaengine/page-intro.php:193
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:18
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:31
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:87
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:183
+#: F:\www\wp\wp-content\themes\qaengine/page-intro.php:88
+#: F:\www\wp\wp-content\themes\qaengine/page-intro.php:196
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:28
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:85
 msgid "Sign up"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:100
-#: E:\www\wp\wp-content\themes\qaengine/page-intro.php:117
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:103
+#: F:\www\wp\wp-content\themes\qaengine/page-intro.php:120
 msgid "Remember me"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:107
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:156
-#: E:\www\wp\wp-content\themes\qaengine/page-intro.php:104
-#: E:\www\wp\wp-content\themes\qaengine/page-intro.php:169
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:13
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:26
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:110
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:159
+#: F:\www\wp\wp-content\themes\qaengine/page-intro.php:107
+#: F:\www\wp\wp-content\themes\qaengine/page-intro.php:172
+#: F:\www\wp\wp-content\themes\qaengine/page-social-connect.php:42
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:19
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:72
 msgid "Password"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:113
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:116
 msgid "Fogot password ?"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:136
-#: E:\www\wp\wp-content\themes\qaengine/page-intro.php:149
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:24
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:41
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:139
+#: F:\www\wp\wp-content\themes\qaengine/page-intro.php:152
+#: F:\www\wp\wp-content\themes\qaengine/page-social-connect.php:41
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:67
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:56
 msgid "Email"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:144
-#: E:\www\wp\wp-content\themes\qaengine/page-intro.php:157
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:147
+#: F:\www\wp\wp-content\themes\qaengine/page-intro.php:160
 msgid "User Name"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:164
-#: E:\www\wp\wp-content\themes\qaengine/page-intro.php:177
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:167
+#: F:\www\wp\wp-content\themes\qaengine/page-intro.php:180
 msgid "Repeat Password"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:174
-#: E:\www\wp\wp-content\themes\qaengine/page-intro.php:187
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:177
+#: F:\www\wp\wp-content\themes\qaengine/page-intro.php:190
 msgid ""
 "By clicking \"Sign Up\" you indicate that you have read and agree to the"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:174
-#: E:\www\wp\wp-content\themes\qaengine/page-intro.php:187
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-intro.php:177
+#: F:\www\wp\wp-content\themes\qaengine/page-intro.php:190
 msgid "Terms of Service."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-questions.php:17
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-questions.php:17
 msgid "All Question"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-search.php:17
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-search.php:17
 msgid "Search Question"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-tags.php:24
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-tags.php:24
 msgid "Find a tag"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-users.php:16
-#: E:\www\wp\wp-content\themes\qaengine/page-users.php:29
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-users.php:16
+#: F:\www\wp\wp-content\themes\qaengine/page-users.php:29
 msgid "Users"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/page-users.php:21
+#: F:\www\wp\wp-content\themes\qaengine/mobile/page-users.php:21
 msgid "Find a user"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:13
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template/answer-loop.php:7
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template/item-answer.php:7
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template/question-loop.php:5
-#: E:\www\wp\wp-content\themes\qaengine/single-answer.php:14
-#: E:\www\wp\wp-content\themes\qaengine/single-question.php:14
-#: E:\www\wp\wp-content\themes\qaengine/template/answer-loop.php:7
-#: E:\www\wp\wp-content\themes\qaengine/template/pending-question-loop.php:5
-#: E:\www\wp\wp-content\themes\qaengine/template/question-loop.php:5
+#: F:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:13
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template/answer-loop.php:7
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template/item-answer.php:7
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template/question-loop.php:5
+#: F:\www\wp\wp-content\themes\qaengine/single-answer.php:14
+#: F:\www\wp\wp-content\themes\qaengine/single-question.php:14
+#: F:\www\wp\wp-content\themes\qaengine/template/answer-loop.php:7
+#: F:\www\wp\wp-content\themes\qaengine/template/pending-question-loop.php:5
+#: F:\www\wp\wp-content\themes\qaengine/template/question-loop.php:5
 msgid "No Category"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:69
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template/answer-loop.php:52
-#: E:\www\wp\wp-content\themes\qaengine/single-answer.php:115
-#: E:\www\wp\wp-content\themes\qaengine/single-question.php:126
-#: E:\www\wp\wp-content\themes\qaengine/template/answer-loop.php:24
-#: E:\www\wp\wp-content\themes\qaengine/template/pending-question-loop.php:40
-#: E:\www\wp\wp-content\themes\qaengine/template/question-loop.php:40
+#: F:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:73
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template/question-loop.php:53
+#, php-format
+msgid "Asked by %s %s in"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:92
+#: F:\www\wp\wp-content\themes\qaengine/single-answer.php:82
+#: F:\www\wp\wp-content\themes\qaengine/single-question.php:104
+#: F:\www\wp\wp-content\themes\qaengine/template-js/item-answer.php:73
+msgid "Answered"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:103
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template-js/item-answer.php:46
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template/item-answer.php:92
+#: F:\www\wp\wp-content\themes\qaengine/single-answer.php:125
+#: F:\www\wp\wp-content\themes\qaengine/single-question.php:147
+#: F:\www\wp\wp-content\themes\qaengine/template-js/item-answer.php:80
+#: F:\www\wp\wp-content\themes\qaengine/template/item-answer.php:106
+msgid "Share"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:111
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template-js/item-answer.php:53
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template/item-answer.php:99
+msgid "Comment"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:150
+msgid "Vote"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:151
+#: F:\www\wp\wp-content\themes\qaengine/single-answer.php:165
+#: F:\www\wp\wp-content\themes\qaengine/single-question.php:207
+msgid "Oldest"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:218
+#: F:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:223
+#: F:\www\wp\wp-content\themes\qaengine/single-answer.php:189
+#: F:\www\wp\wp-content\themes\qaengine/single-question.php:234
+msgid "Post answer"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:222
+msgid "Type your answer"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/mobile/taxonomy.php:56
+msgid "There is no questions in this catetgory!."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template-js/item-answer.php:21
+msgid "Answered by "
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template/answer-loop.php:52
+#: F:\www\wp\wp-content\themes\qaengine/single-answer.php:115
+#: F:\www\wp\wp-content\themes\qaengine/single-question.php:137
+#: F:\www\wp\wp-content\themes\qaengine/template/answer-loop.php:24
+#: F:\www\wp\wp-content\themes\qaengine/template/pending-question-loop.php:40
+#: F:\www\wp\wp-content\themes\qaengine/template/question-loop.php:41
 #, php-format
 msgid "Asked %s in"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:85
-#: E:\www\wp\wp-content\themes\qaengine/single-answer.php:82
-#: E:\www\wp\wp-content\themes\qaengine/single-question.php:93
-#: E:\www\wp\wp-content\themes\qaengine/template-js/item-answer.php:68
-msgid "Answered"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:95
-#: E:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:97
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template-js/item-answer.php:44
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template/item-answer.php:78
-#: E:\www\wp\wp-content\themes\qaengine/single-answer.php:125
-#: E:\www\wp\wp-content\themes\qaengine/single-question.php:136
-#: E:\www\wp\wp-content\themes\qaengine/template-js/item-answer.php:75
-#: E:\www\wp\wp-content\themes\qaengine/template/item-answer.php:79
-msgid "Share"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:101
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template-js/item-answer.php:48
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template/item-answer.php:82
-#: E:\www\wp\wp-content\themes\qaengine/single-question.php:141
-#: E:\www\wp\wp-content\themes\qaengine/template-js/item-answer.php:80
-#: E:\www\wp\wp-content\themes\qaengine/template/item-answer.php:84
-msgid "Report"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:105
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template-js/item-answer.php:51
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template/item-answer.php:85
-msgid "Comment"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:144
-msgid "Vote"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:145
-#: E:\www\wp\wp-content\themes\qaengine/single-answer.php:165
-#: E:\www\wp\wp-content\themes\qaengine/single-question.php:184
-msgid "Oldest"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:208
-#: E:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:213
-#: E:\www\wp\wp-content\themes\qaengine/single-answer.php:189
-#: E:\www\wp\wp-content\themes\qaengine/single-question.php:203
-msgid "Post answer"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/mobile/single-question.php:212
-msgid "Type your answer"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template-js/item-answer.php:20
-msgid "Answered "
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template/answer-loop.php:61
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template/answer-loop.php:61
 msgid "Accepted"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template/categories-orderby_name.php:55
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template/categories-orderby_name.php:65
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template/tags-orderby_name.php:54
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template/tags-orderby_name.php:64
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template/categories-orderby_name.php:55
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template/categories-orderby_name.php:65
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template/tags-orderby_name.php:54
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template/tags-orderby_name.php:64
 #, php-format
 msgid "Touch here to see more %s tags"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template/item-answer.php:46
-#: E:\www\wp\wp-content\themes\qaengine/template/item-answer.php:69
-#, php-format
-msgid "Answered %s."
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template/item-answer.php:43
+msgid "Pending Answer"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template/post-loop.php:21
-#: E:\www\wp\wp-content\themes\qaengine/single.php:57
-#: E:\www\wp\wp-content\themes\qaengine/template/post-loop.php:34
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template/item-answer.php:52
+#, php-format
+msgid "Answered by %s %s."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template/item-answer.php:80
+#: F:\www\wp\wp-content\themes\qaengine/single-question.php:93
+#: F:\www\wp\wp-content\themes\qaengine/template/item-answer.php:17
+#: F:\www\wp\wp-content\themes\qaengine/template/pending-question-loop.php:58
+msgid "Approve"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/mobile/template/post-loop.php:21
+#: F:\www\wp\wp-content\themes\qaengine/single.php:57
+#: F:\www\wp\wp-content\themes\qaengine/template/post-loop.php:34
 msgid "READ MORE"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/mobile/template/question-loop.php:50
-#, php-format
-msgid "Answered %s in"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/page-badges.php:106
+#: F:\www\wp\wp-content\themes\qaengine/page-badges.php:106
 msgid "Vote to close, reopen, or migrate questions"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/page-categories.php:17
+#: F:\www\wp\wp-content\themes\qaengine/page-categories.php:17
 msgid "Find Categories"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/page-intro.php:124
+#: F:\www\wp\wp-content\themes\qaengine/page-intro.php:127
 msgid "Forgot password ?"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/page-search.php:16
+#: F:\www\wp\wp-content\themes\qaengine/page-search.php:16
 #, php-format
 msgid "Search Questions: <em>%s</em>"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/page-search.php:51
-#: E:\www\wp\wp-content\themes\qaengine/search.php:37
+#: F:\www\wp\wp-content\themes\qaengine/page-search.php:44
+#: F:\www\wp\wp-content\themes\qaengine/search.php:37
 msgid "No results for keyword:"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/page-tags.php:20
+#: F:\www\wp\wp-content\themes\qaengine/page-social-connect.php:52
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:62
+msgid "Username"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/page-tags.php:20
 msgid "Find Tags"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/page-term.php:16
-#: E:\www\wp\wp-content\themes\qaengine/page.php:16
+#: F:\www\wp\wp-content\themes\qaengine/page-term.php:16
+#: F:\www\wp\wp-content\themes\qaengine/page.php:16
 msgid "Page"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/page-users.php:33
+#: F:\www\wp\wp-content\themes\qaengine/page-users.php:33
 msgid "Find Users"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/page-users.php:101
+#: F:\www\wp\wp-content\themes\qaengine/page-users.php:101
 #, php-format
 msgid "%d Points"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/page-users.php:108
+#: F:\www\wp\wp-content\themes\qaengine/page-users.php:108
 msgid "No users found."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/sidebar-left-tablet.php:37
-#: E:\www\wp\wp-content\themes\qaengine/sidebar-left.php:35
+#: F:\www\wp\wp-content\themes\qaengine/sidebar-left-tablet.php:37
+#: F:\www\wp\wp-content\themes\qaengine/sidebar-left.php:35
 msgid "Term & Privacy"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/single-answer.php:48
-#: E:\www\wp\wp-content\themes\qaengine/single-question.php:40
+#: F:\www\wp\wp-content\themes\qaengine/single-answer.php:48
+#: F:\www\wp\wp-content\themes\qaengine/single-question.php:36
 msgid "Home"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/single-answer.php:181
-#: E:\www\wp\wp-content\themes\qaengine/single-question.php:195
+#: F:\www\wp\wp-content\themes\qaengine/single-answer.php:181
+#: F:\www\wp\wp-content\themes\qaengine/single-question.php:226
 msgid "Your Answer"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/single-question.php:64
-#: E:\www\wp\wp-content\themes\qaengine/template-js/item-comment.php:10
-#: E:\www\wp\wp-content\themes\qaengine/template/item-answer.php:23
-#: E:\www\wp\wp-content\themes\qaengine/template/item-comment.php:18
-#: E:\www\wp\wp-content\themes\qaengine/template/pending-question-loop.php:76
+#: F:\www\wp\wp-content\themes\qaengine/single-question.php:60
+#: F:\www\wp\wp-content\themes\qaengine/template-js/item-comment.php:15
+#: F:\www\wp\wp-content\themes\qaengine/template/item-answer.php:34
+#: F:\www\wp\wp-content\themes\qaengine/template/item-comment.php:23
+#: F:\www\wp\wp-content\themes\qaengine/template/pending-question-loop.php:76
 msgid "Delete"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/single-question.php:76
+#: F:\www\wp\wp-content\themes\qaengine/single-question.php:72
 msgid "Follow"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/single-question.php:82
+#: F:\www\wp\wp-content\themes\qaengine/single-question.php:78
 msgid "Unfollow"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/single-question.php:181
+#: F:\www\wp\wp-content\themes\qaengine/single-question.php:195
+msgid "Answer(s)"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/single-question.php:204
 msgid "Active"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/single.php:48
-#: E:\www\wp\wp-content\themes\qaengine/template/post-loop.php:25
+#: F:\www\wp\wp-content\themes\qaengine/single.php:48
+#: F:\www\wp\wp-content\themes\qaengine/template/post-loop.php:25
 msgid "Pages:"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template-js/item-comment.php:9
-msgid " ago."
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/template-js/search-preview.php:16
+#: F:\www\wp\wp-content\themes\qaengine/template-js/search-preview.php:15
 #, php-format
 msgid "View all %s results"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template-js/search-preview.php:18
+#: F:\www\wp\wp-content\themes\qaengine/template-js/search-preview.php:17
 msgid "View all results"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template-js/search-preview.php:20
+#: F:\www\wp\wp-content\themes\qaengine/template-js/search-preview.php:19
 msgid "No results found"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/answer-loop.php:49
+#: F:\www\wp\wp-content\themes\qaengine/template/answer-loop.php:49
 msgid "This answer accepted by"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/answer-loop.php:51
+#: F:\www\wp\wp-content\themes\qaengine/template/answer-loop.php:51
 #, php-format
 msgid "Earned %d points."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/answer-loop.php:62
-#: E:\www\wp\wp-content\themes\qaengine/template/question-loop.php:55
+#: F:\www\wp\wp-content\themes\qaengine/template/answer-loop.php:62
+#: F:\www\wp\wp-content\themes\qaengine/template/question-loop.php:56
 msgid "views"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/answer-loop.php:68
-#: E:\www\wp\wp-content\themes\qaengine/template/question-loop.php:61
+#: F:\www\wp\wp-content\themes\qaengine/template/answer-loop.php:68
+#: F:\www\wp\wp-content\themes\qaengine/template/question-loop.php:62
 msgid "answers"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/answer-loop.php:74
-#: E:\www\wp\wp-content\themes\qaengine/template/question-loop.php:67
+#: F:\www\wp\wp-content\themes\qaengine/template/answer-loop.php:74
+#: F:\www\wp\wp-content\themes\qaengine/template/question-loop.php:68
 msgid "votes"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/item-vote.php:26
+#: F:\www\wp\wp-content\themes\qaengine/template/item-answer.php:96
+#, php-format
+msgid "Answered %s."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/template/item-vote.php:26
 #, php-format
 msgid "You must have %d points to vote up."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/item-vote.php:31
+#: F:\www\wp\wp-content\themes\qaengine/template/item-vote.php:31
 #, php-format
 msgid "You must have %d points to vote down."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/item-vote.php:40
+#: F:\www\wp\wp-content\themes\qaengine/template/item-vote.php:40
 msgid "This is useful."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/item-vote.php:54
+#: F:\www\wp\wp-content\themes\qaengine/template/item-vote.php:54
 msgid "This is not useful"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/item-vote.php:74
+#: F:\www\wp\wp-content\themes\qaengine/template/item-vote.php:74
 msgid "Mark as best answer"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:11
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:14
 msgid "Username or Email"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:15
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:23
 msgid "Forgot password"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:22
-msgid "Username"
-msgstr ""
-
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:28
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:77
 msgid "Retype Password"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:34
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:92
+#, php-format
 msgid ""
 "By clicking \"Sign up\" you indicate that you have read and agree to the <a "
-"target=\"_blank\" href=\""
+"target=\"_blank\" href=\"%s\">privacy policy</a> and <a target=\"_blank\" "
+"href=\"%s\">terms of service.</a>"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:38
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:99
 msgid "Enter your email here"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:40
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-authentication.php:101
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-report.php:17
 msgid "Send"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-forgotpass.php:6
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-forgotpass.php:6
 msgid "Reset Password"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-forgotpass.php:13
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-forgotpass.php:13
 msgid "Enter your new password here"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-forgotpass.php:16
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-forgotpass.php:16
 msgid "Reset"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:6
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:6
 msgid "Edit Profile"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:28
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:32
 msgid "Upload New Avatar"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:30
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:55
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:34
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:77
 msgid "Change Password"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:31
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:35
 msgid "Change Profile"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:37
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:41
 msgid "Full name"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:39
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:44
 msgid "Location"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:43
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:47
+msgid "Facebook"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:50
+msgid "Twitter"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:53
+msgid "Google+"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:58
 msgid "Make this email public."
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:45
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:62
+msgid "Description"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:67
 msgid "Update Profile"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:49
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:71
 msgid "Old Password"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:51
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:73
 msgid "New Password"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:53
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-profile.php:75
 msgid "Repeat New Password"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-question.php:24
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-question.php:26
 msgid "Press enter to add new tag"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/modal-question.php:31
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-question.php:33
 msgid "SUBMIT QUESTION"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/pending-question-loop.php:58
-msgid "Approve"
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-report.php:11
+msgid "Report "
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/pending-question-loop.php:67
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-report.php:15
+msgid "Your message"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-report.php:16
+msgid "Got something to say? Type your message here."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-upload-images.php:6
+msgid "Insert Images"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-upload-images.php:10
+msgid "Upload an image"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-upload-images.php:16
+msgid "Please log in to use this function."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-upload-images.php:18
+msgid "Admin has disabled this function."
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-upload-images.php:27
+msgid "Add an image via URL"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/template/modal-upload-images.php:31
+msgid "Insert"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/template/pending-question-loop.php:67
 msgid "Reject"
 msgstr ""
 
-#: E:\www\wp\wp-content\themes\qaengine/template/tags-orderby_name.php:38
+#: F:\www\wp\wp-content\themes\qaengine/template/question-loop.php:7
+msgid "Pending Question"
+msgstr ""
+
+#: F:\www\wp\wp-content\themes\qaengine/template/tags-orderby_name.php:38
 msgid "Digit"
 msgstr ""

@@ -91,32 +91,35 @@ class AE_UsersContainer {
 		<script type="text/template" id="user-item-template">
 				<div class="et-mem-container">
 					<div class="et-mem-avatar">
-						<%= avatar %>
+						{{= avatar }}
 					</div>
 					<!-- action change user role -->
 					<div class="et-act">
+						<span class="user-points">
+							<input type="text" value="{{= qa_point }}" class="regular-input" name="qa_point" /> <?php _e('Points', ET_DOMAIN) ?>
+						</span>
 						<select name="role" class="role-change regular-input">
 							<?php foreach ($role_names as $role_name => $role_label) {
-									echo '<option <% if( role == "'.$role_name.'") { %> selected="selected" <% } %> value="'. $role_name .'" >'. $role_label .'</option>';
+									echo '<option <# if( role == "'.$role_name.'") { #> selected="selected" <# } #> value="'. $role_name .'" >'. $role_label .'</option>';
 							} ?>						
 						</select>
-						<% if(register_status == "unconfirm") { %>
+						<# if(register_status == "unconfirm") { #>
 						<a class="action et-act-confirm" data-act="confirm" href="javascript:void(0)" title="<?php _e( 'Confirm this user', ET_DOMAIN ) ?>"><span class="icon" data-icon="3"></span></a>
-						<% } %>						
+						<# } #>						
 					</div>
 					<div class="et-mem-detail">
 						<div class="et-mem-top">
-							<span class="name"><%= display_name %></span>
-							<span class="thread icon" data-icon="w"><%= post_count %></span>
-							<span class="comment icon" data-icon="q"><%= comment_count %></span>							
+							<span class="name">{{= display_name }}</span>
+							<span class="thread icon" data-icon="w">{{= et_question_count }}</span>
+							<span class="comment icon" data-icon="q">{{= et_answer_count }}</span>							
 						</div>
 						<div class="et-mem-bottom">
-							<span class="date"><%= join_date %></span>
-							<% if(location) { %>
-							<span class="loc icon" data-icon="@"><%= location %></span>
-							<% } else { %>
+							<span class="date">{{= join_date }}</span>
+							<# if(location) { #>
+							<span class="loc icon" data-icon="@">{{= location }}</span>
+							<# } else { #>
 								<span class="loc icon" data-icon="G"></span>
-							<% } %>
+							<# } #>
 						</div>
 					</div>
 				</div>

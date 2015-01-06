@@ -3,7 +3,7 @@
 class QA_Front extends QA_Engine{
 
 	/**
-	 * Init 
+	 * Init
 	 */
 	public function __construct(){
 		parent::__construct();
@@ -12,7 +12,7 @@ class QA_Front extends QA_Engine{
 		// set timeout for send mail to user's following question
 		$time_send_mail = apply_filters( 'qa_time_send_mail' , 120 );
 
-		if(get_option( 'qa_send_following_mail' )){
+		if(ae_get_option( 'qa_send_following_mail' )){
 			wp_schedule_single_event( time() + $time_send_mail, 'qa_send_following_mail' );
 		} else {
 			wp_clear_scheduled_hook( 'qa_send_following_mail' );
@@ -26,10 +26,10 @@ class QA_Front extends QA_Engine{
 		$this->add_action( 'init'					, 'frontend_init');
 		$this->add_action( 'wp_footer'				, 'scripts_in_footer', 100);
 		$this->add_action( 'pre_get_posts'			, 'custom_query' );
-		$this->add_filter( 'comment_post_redirect'	, 'qa_comment_redirect' );		
+		$this->add_filter( 'comment_post_redirect'	, 'qa_comment_redirect' );
 	}
 	function qa_comment_redirect( $location )
-	{	
+	{
 		global $post;
 	    return get_permalink( $post->ID );
 	}
@@ -52,7 +52,7 @@ class QA_Front extends QA_Engine{
 		}
 
 		if(is_author()){
-			if( !isset($_GET['type']) )
+			if( !isset($_GET['type'])  || $_GET['type'] == "following")
 				$query->set("post_type","question");
 			else
 				$query->set("post_type",$_GET['type']);
@@ -86,7 +86,7 @@ class QA_Front extends QA_Engine{
 	public static function _post_vote_join($join){
 		global $wpdb;
 		$join .= " LEFT JOIN {$wpdb->postmeta} as order_vote ON order_vote.post_id = {$wpdb->posts}.ID AND ( order_vote.meta_key = 'et_vote_count' ) ";
-		$join .= " LEFT JOIN {$wpdb->postmeta} as order_best ON order_best.post_id = {$wpdb->posts}.ID AND ( order_best.meta_key = 'et_is_best_answer' ) ";			
+		$join .= " LEFT JOIN {$wpdb->postmeta} as order_best ON order_best.post_id = {$wpdb->posts}.ID AND ( order_best.meta_key = 'et_is_best_answer' ) ";
 		return $join;
 	}
 
@@ -98,7 +98,7 @@ class QA_Front extends QA_Engine{
 
 	public static function _post_unanswer_join($join){
 		global $wpdb;
-		$join .= " LEFT JOIN {$wpdb->postmeta} as answer_count ON answer_count.post_id = {$wpdb->posts}.ID AND answer_count.meta_key = 'et_answers_count'";	
+		$join .= " LEFT JOIN {$wpdb->postmeta} as answer_count ON answer_count.post_id = {$wpdb->posts}.ID AND answer_count.meta_key = 'et_answers_count'";
 		return $join;
 	}
 
@@ -106,7 +106,7 @@ class QA_Front extends QA_Engine{
 		global $wpdb;
 		$orderby = " CAST(answer_count.meta_value AS SIGNED) ASC, {$wpdb->posts}.post_date DESC";
 		return $orderby;
-	}		
+	}
 	public function frontend_init($wp_rewrite){
 		global $wp_rewrite;
 		// modify the "search questions" link
@@ -120,7 +120,7 @@ class QA_Front extends QA_Engine{
 		$rules = get_option( 'rewrite_rules' );
 		if ( !isset($rules[$search_slug . '/([^/]+)/?$']) ){
 			$wp_rewrite->flush_rules();
-		}		
+		}
 	}
 	public function query_vars($vars){
 		$vars[] = 'keyword';
@@ -130,6 +130,13 @@ class QA_Front extends QA_Engine{
 	public function scripts_in_footer(){
 		global $current_user;
 		?>
+		<script type="text/javascript">
+            _.templateSettings = {
+                evaluate: /\<\#(.+?)\#\>/g,
+                interpolate: /\{\{=(.+?)\}\}/g,
+                escape: /\{\{-(.+?)\}\}/g
+            };
+        </script>
 		<script type="text/javascript" id="frontend_scripts">
 			(function ($) {
 				$(document).ready(function(){
@@ -139,7 +146,7 @@ class QA_Front extends QA_Engine{
 					if(typeof QAEngine.Views.Front != 'undefined') {
 						QAEngine.App = new QAEngine.Views.Front();
 					}
-					
+
 					if(typeof QAEngine.Views.Intro != 'undefined') {
 						QAEngine.Intro = new QAEngine.Views.Intro();
 					}
@@ -150,12 +157,12 @@ class QA_Front extends QA_Engine{
 
 					if(typeof QAEngine.Views.Single_Question != 'undefined') {
 						QAEngine.Single_Question = new QAEngine.Views.Single_Question();
-					}					
-					
+					}
+
 					<?php if( is_page_template( 'page-pending.php' ) ) { ?>
 					if(typeof QAEngine.Views.PendingQuestions != 'undefined') {
 						QAEngine.PendingQuestions = new QAEngine.Views.PendingQuestions();
-					}						
+					}
 					<?php } ?>
 
 					/*======= Open Reset Password Form ======= */
@@ -166,23 +173,21 @@ class QA_Front extends QA_Engine{
 
 					/*======= Open Reset Password Form ======= */
 					<?php if( isset($_GET['confirm']) && $_GET['confirm'] == 0 ){ ?>
-						//bootbox.alert("<?php _e("You need to verify your account to view the content.",ET_DOMAIN)  ?>");
 						AE.pubsub.trigger('ae:notification', {
 							msg: "<?php _e("You need to verify your account to view the content.",ET_DOMAIN)  ?>",
 							notice_type: 'error',
-						});							
+						});
 					<?php } ?>
 
 					/*======= Open Confirmation Message Modal ======= */
-					<?php 
+					<?php
 						global $qa_confirm;
-						if( $qa_confirm ){ 
+						if( $qa_confirm ){
 					?>
 						AE.pubsub.trigger('ae:notification', {
 							msg: "<?php _e("Your account has been confirmed successfully!",ET_DOMAIN)  ?>",
-							notice_type: 'error',
-						});					
-						//bootbox.alert("<?php _e("Your account has been confirmed successfully!",ET_DOMAIN)  ?>");
+							notice_type: 'success',
+						});
 					<?php } ?>
 
 					<?php } ?>
@@ -190,18 +195,18 @@ class QA_Front extends QA_Engine{
 			})(jQuery);
 		</script>
 		<script type="text/javascript" id="current_user">
-		 	currentUser = <?php 
+		 	currentUser = <?php
 		 	if ($current_user->ID)
-		 		echo json_encode(QA_Member::convert($current_user)); 
-		 	else 
-		 		echo json_encode(array('id' => 0, 'ID' => 0)); 
+		 		echo json_encode(QA_Member::convert($current_user));
+		 	else
+		 		echo json_encode(array('id' => 0, 'ID' => 0));
 		 	?>
 		</script>
 		<?php
 		echo '<!-- GOOGLE ANALYTICS CODE -->';
         $google = ae_get_option('google_analytics');
         $google = implode("",explode("\\",$google));
-        echo stripslashes(trim($google));		
+        echo stripslashes(trim($google));
 		echo '<!-- END GOOGLE ANALYTICS CODE -->';
 	}
 
@@ -227,43 +232,46 @@ class QA_Front extends QA_Engine{
 		if(et_load_mobile()){
 			return;
 		} else {
-			$this->add_existed_script('heartbeat');
+
+			if( ae_get_option('qa_live_notifications') ){
+				$this->add_existed_script('heartbeat');
+			}
+
 			$this->add_script('waypoints', 			TEMPLATEURL . '/js/libs/waypoints.min.js', array('jquery'));
 			$this->add_script('waypoints-sticky', 	TEMPLATEURL . '/js/libs/waypoints-sticky.js', array('jquery', 'waypoints'));
-			$this->add_script('bootbox', 			TEMPLATEURL . '/js/libs/bootbox.min.js', array('bootstrap'));
 			$this->add_script('chosen', 			TEMPLATEURL . '/js/libs/chosen.jquery.min.js', array('jquery'));
 			$this->add_script('classie', 			TEMPLATEURL . '/js/libs/classie.js', array('jquery'));
 			$this->add_script('site-script', 		TEMPLATEURL . '/js/scripts.js', 'jquery');
 			$this->add_script('site-front', 		TEMPLATEURL . '/js/front.js', array('jquery', 'underscore', 'backbone', 'site-functions'));
 
-			//localize scripts		
+			//localize scripts
 			wp_localize_script( 'site-front', 'qa_front', qa_static_texts() );
 
 			if( is_singular( 'question' ) || is_singular( 'answer' ) ){
 				$this->add_script('qa-shcore', TEMPLATEURL . '/js/libs/syntaxhighlighter/shCore.js', array('jquery'));
 				$this->add_script('qa-brush-js', TEMPLATEURL . '/js/libs/syntaxhighlighter/shBrushJScript.js', array('jquery', 'qa-shcore'));
 				$this->add_script('qa-brush-php', TEMPLATEURL . '/js/libs/syntaxhighlighter/shBrushPhp.js', array('jquery', 'qa-shcore'));
-				$this->add_script('qa-brush-css', TEMPLATEURL . '/js/libs/syntaxhighlighter/shBrushCss.js', array('jquery', 'qa-shcore'));				
+				$this->add_script('qa-brush-css', TEMPLATEURL . '/js/libs/syntaxhighlighter/shBrushCss.js', array('jquery', 'qa-shcore'));
 				$this->add_script('single-question', 	TEMPLATEURL . '/js/single-question.js', array('jquery', 'underscore', 'backbone', 'site-functions','site-front'));
 			}
 
 			if(is_page_template( 'page-intro.php' )){
-				$this->add_script('intro', 		TEMPLATEURL . '/js/intro.js', array('jquery', 'underscore', 'backbone', 'site-functions', 'site-front'));			
+				$this->add_script('intro', 		TEMPLATEURL . '/js/intro.js', array('jquery', 'underscore', 'backbone', 'site-functions', 'site-front'));
 			}
-			
+
 			if(is_author()){
 				$this->add_existed_script('plupload_all');
-				$this->add_script('profile', 		TEMPLATEURL . '/js/profile.js', array('jquery', 'underscore', 'backbone', 'site-functions', 'site-front'));			
+				$this->add_script('profile', 		TEMPLATEURL . '/js/profile.js', array('jquery', 'underscore', 'backbone', 'site-functions', 'site-front'));
 			}
 			if( is_page_template( 'page-pending.php' ) ){
-				$this->add_script('pending', 		TEMPLATEURL . '/js/pending.js', array('jquery', 'underscore', 'backbone', 'site-functions', 'site-front'));	
+				$this->add_script('pending', 		TEMPLATEURL . '/js/pending.js', array('jquery', 'underscore', 'backbone', 'site-functions', 'site-front'));
 			}
 		}
 	}
 
 	public function on_add_styles(){
 		parent::on_add_styles();
-		
+
 		$this->add_style( 'bootstrap'		, TEMPLATEURL.'/css/libs/bootstrap.min.css' );
 		$this->add_style( 'font-awesome'	, TEMPLATEURL.'/css/libs/font-awesome.min.css' );
 
@@ -272,8 +280,8 @@ class QA_Front extends QA_Engine{
 		} else {
 			$this->add_style( 'main-style'		, TEMPLATEURL.'/css/main.css',array('bootstrap') );
 			$this->add_style( 'editor-style'	, TEMPLATEURL.'/css/editor.css' );
-			$this->add_style( 'push-menu'		, TEMPLATEURL.'/css/libs/push-menu.css' );	
-			$this->add_style( 'chosen'			, TEMPLATEURL.'/css/libs/chosen.css' );	
+			$this->add_style( 'push-menu'		, TEMPLATEURL.'/css/libs/push-menu.css' );
+			$this->add_style( 'chosen'			, TEMPLATEURL.'/css/libs/chosen.css' );
 			$this->add_style( 'custom-style'	, TEMPLATEURL.'/css/custom.css' );
 
 			if(is_singular( 'question' ))
@@ -287,16 +295,18 @@ class QA_Front extends QA_Engine{
 
 	/**
 	 * Add new plugin for TinyMCE
-	 */	
+	 */
 	public function tinymce_add_plugins($plugin_array){
-	    $qaimage 	= TEMPLATEURL . '/js/plugins/feimage/editor_plugin_src.js';
-	    $autoresize = TEMPLATEURL . '/js/plugins/autoresize/editor_plugin.js';
-	    $qacode 	= TEMPLATEURL . '/js/plugins/fecode/editor_plugin.js';
-	    
-	    $plugin_array['qaimage'] 	= $qaimage;
-	    $plugin_array['qacode'] 	= $qacode;
-	    $plugin_array['autoresize'] = $autoresize;
-	    
+		$qaimage    = TEMPLATEURL . '/js/plugins/feimage/editor_plugin_src.js';
+		$autoresize = TEMPLATEURL . '/js/plugins/autoresize/editor_plugin.js';
+		$autolink   = TEMPLATEURL . '/js/plugins/autolink/plugin.min.js';
+		$qacode     = TEMPLATEURL . '/js/plugins/fecode/editor_plugin.js';
+
+		$plugin_array['qaimage']    = $qaimage;
+		$plugin_array['qacode']     = $qacode;
+		$plugin_array['autoresize'] = $autoresize;
+		$plugin_array['autolink']   = $autolink;
+
 	    return $plugin_array;
 	}
 }
@@ -315,9 +325,9 @@ class QA_FrontPost extends AE_Base{
 		/**
 		*
 		* - PREVENT USERS ACCESS TO PENDING PAGE EXCEPT ADMIN
-		* - 
+		* -
 		* - @package QAEngine
-		* - @version 1.0		
+		* - @version 1.0
 		*
 		**/
 		if( is_page_template( 'page-pending.php' ) && !current_user_can( 'manage_options' ) ){
@@ -327,11 +337,11 @@ class QA_FrontPost extends AE_Base{
 		/**
 		*
 		* - PREVENT USERS ACCESS TO CONTENT PAGE IF OPTION IS ACTIVE
-		* - 
+		* -
 		* - @package QAEngine
-		* - @version 1.0		
+		* - @version 1.0
 		*
-		**/	
+		**/
 		if( ae_get_option("login_view_content") ){
 			//var_dump(!is_page_template( 'page-intro.php' ) && !is_user_logged_in());
 			if( !is_page()  && !is_singular( 'post' ) && !is_user_logged_in() ){
@@ -343,11 +353,11 @@ class QA_FrontPost extends AE_Base{
 		/**
 		*
 		* - REDIRECT USERS TO QUESTIONS LIST PAGE IF ALREADY LOGGED IN
-		* - 
+		* -
 		* - @package QAEngine
-		* - @version 1.0		
+		* - @version 1.0
 		*
-		**/	
+		**/
 
 		if(is_page_template( 'page-intro.php' )){
 			if(is_user_logged_in()){
@@ -359,23 +369,23 @@ class QA_FrontPost extends AE_Base{
 		/**
 		*
 		* - REDIRECT TO SEARCH PAGE
-		* - 
+		* -
 		* - @package QAEngine
-		* - @version 1.0		
+		* - @version 1.0
 		*
-		**/		
+		**/
 		if ( isset($_REQUEST['keyword']) ){
 			$keyword = str_replace('.php', ' php', $_REQUEST['keyword']);
 			$link = qa_search_link( esc_attr( $keyword ) );
 			wp_redirect( $link );
 			exit;
-		}		
+		}
 		/**
 		*
 		* - COUNT QUESTION VIEW
-		* - 
+		* -
 		* - @package QAEngine
-		* - @version 1.0		
+		* - @version 1.0
 		*
 		**/
 	    if( is_singular( 'question' )) {
@@ -392,19 +402,19 @@ class QA_FrontPost extends AE_Base{
 	            $key    =   "et_post_".$post->ID."_viewed";
 
 	            if(!isset($_COOKIE[$key]) ||  $_COOKIE[$key] != 'on') {
-	                QA_Questions::update_field($post->ID, 'et_view_count', $views + 1 ) ;   
+	                QA_Questions::update_field($post->ID, 'et_view_count', $views + 1 ) ;
 	                setcookie($key, 'on', time()+3600, "/");
-	            }       
+	            }
 	        }
 	    }
 		/**
 		*
 		* - INSERT A QUESTION
-		* - @param string $post_title 
+		* - @param string $post_title
 		* - @param string $post_content
 		* - @param string $question_category
 		* - @package QAEngine
-		* - @version 1.0		
+		* - @version 1.0
 		*
 		**/
 		if ( isset($_POST['qa_nonce']) && wp_verify_nonce( $_POST['qa_nonce'], 'insert_question' ) ){
@@ -420,18 +430,18 @@ class QA_FrontPost extends AE_Base{
 			do_action( 'qa_insert_question', $result );
 
 			if(!is_wp_error( $result )){
-				wp_redirect( get_permalink( $result ) );	
+				wp_redirect( get_permalink( $result ) );
 				exit;
 			}
 		}
 		/**
 		*
 		* - INSERT A COMMENT TO QUESTION
-		* - @param int $post_id 
+		* - @param int $post_id
 		* - @param array $author_data
 		* - @param array $comment_data
 		* - @package QAEngine
-		* - @version 1.0		
+		* - @version 1.0
 		*
 		**/
 		if ( isset($_POST['qa_nonce']) && wp_verify_nonce( $_POST['qa_nonce'], 'insert_comment') ){
@@ -444,7 +454,7 @@ class QA_FrontPost extends AE_Base{
 			do_action( 'qa_insert_comment', $result );
 
 			if(!is_wp_error( $result )){
-				wp_redirect( et_get_last_page( $_POST['comment_post_ID'] ) );	
+				wp_redirect( et_get_last_page( $_POST['comment_post_ID'] ) );
 				exit;
 			}
 		}
@@ -455,11 +465,11 @@ class QA_FrontPost extends AE_Base{
 			$user = get_users(array( 'meta_key' => 'key_confirm', 'meta_value' => $_GET['key'] ));
 			global $qa_confirm;
 			$qa_confirm = update_user_meta( $user[0]->ID, 'register_status', '' );
-			
+
 			$user_email		=	$user[0]->user_email;
 
 			$message		=	ae_get_option('confirmed_mail_template');
-			
+
 			$message	=	et_filter_authentication_placeholder ( $message, $user[0]->ID );
 			$subject	=	__("Congratulations! Your account has been confirmed successfully.",ET_DOMAIN);
 
@@ -468,8 +478,8 @@ class QA_FrontPost extends AE_Base{
 			$headers .= "From: ".get_option('blogname')." < ".get_option('admin_email') ."> \r\n";
 
 			if($qa_confirm && $user_email)
-				wp_mail($user_email, $subject , $message, $headers) ;			
-		}		  
+				wp_mail($user_email, $subject , $message, $headers) ;
+		}
 	}
 }
 
@@ -500,7 +510,7 @@ class QA_Ajax extends AE_Base{
 				'msg' 		=> 'failed'
 			);
 		}
-		wp_send_json( $resp );		
+		wp_send_json( $resp );
 	}
 
 	public function sync_post(){
@@ -508,7 +518,7 @@ class QA_Ajax extends AE_Base{
 
 		switch ($method) {
 
-			case 'report': 
+			case 'report':
 				$resp = $this->report();
 				break;
 
@@ -535,12 +545,15 @@ class QA_Ajax extends AE_Base{
 
 	public function create(){
 		try{
-			
+
 			$args = $_POST['content'];
 			global $current_user;
 
 			if( !is_user_logged_in() )
 				throw new Exception(__("You must log in to post question.", ET_DOMAIN));
+
+			if( isset($args['post_title']) && $args['post_title'] != strip_tags($args['post_title']) )
+				throw new Exception(__("Post title should not contain any HTML Tag.", ET_DOMAIN));
 
 			if( isset($args['qa_nonce']) && wp_verify_nonce( $args['qa_nonce'], 'insert_comment' )) {
 
@@ -550,7 +563,7 @@ class QA_Ajax extends AE_Base{
 				$args['comment_content']      = $args['post_content'];
 				$args['comment_author']       = $current_user->user_login;
 				$args['comment_author_email'] = $current_user->user_email;
-				
+
 				$result 	= QA_Comments::insert($args);
 				$comment  	= QA_Comments::convert(get_comment($result));
 
@@ -558,14 +571,14 @@ class QA_Ajax extends AE_Base{
 					$resp = array(
 						'success' 	=> false,
 						'msg' 		=> __('An error occur when created comment.',ET_DOMAIN)
-					);				
+					);
 				} else {
 					$resp = array(
 						'success' 	=> true,
 						'msg' 		=> __('Comment has been created successfully.',ET_DOMAIN),
 						'data'		=> $comment
-					);				
-				}		
+					);
+				}
 
 			} elseif (isset($args['qa_nonce']) && wp_verify_nonce( $args['qa_nonce'], 'insert_answer' )){
 
@@ -577,50 +590,51 @@ class QA_Ajax extends AE_Base{
 					$resp = array(
 						'success' 	=> false,
 						'msg' 		=> __('An error occur when created answer.',ET_DOMAIN)
-					);				
+					);
 				} else {
+					$msg = ae_get_option('pending_answers') && !(current_user_can( 'manage_options' ) || qa_user_can( 'approve_answer' )) ? __('Your answer has been created successfully and need to be approved by Admin before displayed!', ET_DOMAIN) : __('Answer has been created successfully.', ET_DOMAIN);
 					$resp = array(
 						'success' 	=> true,
 						'redirect'	=> get_permalink($answer->post_parent),
-						'msg' 		=> __('Answer has been created successfully.',ET_DOMAIN),
+						'msg' 		=> $msg,
 						'data'		=> $answer
-					);				
+					);
 				}
 
 			} elseif (isset($args['qa_nonce']) && wp_verify_nonce( $args['qa_nonce'], 'insert_question' )){
-				
+
 				$cats = array(
 					'qa_tag' 			=> isset($args['tags']) ? $args['tags'] : array(),
 					'question_category' => $args['question_category']
 				);
 
-				$status = ae_get_option("pending_questions") ? "pending" : "publish";
+				$status = ae_get_option("pending_questions") && !current_user_can( 'manage_options' ) ? "pending" : "publish";
 
-				$result = QA_Questions::insert_question($args['post_title'], $args['post_content'], $cats, $status);
+				$result = QA_Questions::insert_question($args['post_title'], esc_attr( $args['post_content'] ), $cats, $status);
 						  QA_Questions::update_field($result, "et_vote_count", 0);
 						  QA_Questions::update_field($result, "et_answers_count", 0);
 				$post 	= QA_Questions::convert(get_post($result));
 
-				$msg 	= ae_get_option("pending_questions") ? __('Your question has been created successfully. It\'ll appear right after being approved by admin.',ET_DOMAIN) : __('Question has been created successfully.',ET_DOMAIN);
-				$redirect = ae_get_option("pending_questions") ? home_url() : get_permalink( $result );
+				$msg 	= ae_get_option("pending_questions") && !current_user_can( 'manage_options' ) ? __('Your question has been created successfully. It\'ll appear right after being approved by admin.',ET_DOMAIN) : __('Question has been created successfully.',ET_DOMAIN);
+				$redirect = ae_get_option("pending_questions") && !current_user_can( 'manage_options' ) ? home_url() : get_permalink( $result );
 
 				if(is_wp_error( $result )){
 					$resp = array(
 						'success' 	=> false,
 						'msg' 		=> __('An error occur when created question.',ET_DOMAIN)
-					);				
+					);
 				} else {
 					$resp = array(
 						'success' 	=> true,
 						'redirect'	=> $redirect,
 						'msg' 		=> $msg,
 						'data'		=> $post
-					);			
+					);
 				}
 
 			}else {
 				throw new Exception("Error Processing Request", 1);
-				
+
 			}
 
 		} catch (Exception $e) {
@@ -629,15 +643,21 @@ class QA_Ajax extends AE_Base{
 				'msg' 		=> $e->getMessage()
 			);
 		}
-		return $resp;					
+		return $resp;
 	}
 
 	public function update_post(){
 		try {
 			global $current_user;
+
 			if(!isset($_POST['do_action'])) {
 				throw new Exception(__("Invalid action", ET_DOMAIN));
 			}
+
+			if( isset($_POST['content']['post_title']) && $_POST['content']['post_title'] != strip_tags($_POST['content']['post_title']) ){
+				throw new Exception(__("Post title should not contain any HTML Tag.", ET_DOMAIN));
+			}
+
 			$action	=	$_POST['do_action'];
 			switch ( $action ) {
 				case 'vote_down':
@@ -650,7 +670,7 @@ class QA_Ajax extends AE_Base{
 					$resp = array(
 						'success' 	=> true,
 						'data' 		=> $post
-					);	
+					);
 					break;
 
 				case 'accept-answer':
@@ -662,6 +682,9 @@ class QA_Ajax extends AE_Base{
 						throw new Exception(__("Only question author can mark answered.", ET_DOMAIN));
 
 					QA_Questions::mark_answer( $_POST['post_parent'], $answerID );
+
+					do_action( 'qa_accept_answer', $answerID, $action );
+
 					$resp = array(
 						'success' 	=> true
 					);
@@ -682,14 +705,15 @@ class QA_Ajax extends AE_Base{
 					break;
 				case 'savePost':
 
-					$data = array();
-					$data['ID'] 	 = $_POST['ID'];
+					$data                 = array();
+					$data['ID']           = $_POST['ID'];
 					$data['post_content'] = $_POST['post_content'];
+					$data['post_author']  = $_POST['post_author'];
 
-					$success = QA_Questions::update($data);
-					$post    = QA_Questions::convert(get_post( $_POST['ID'] ));
+					$success = QA_Answers::update($data);
+					$post    = QA_Answers::convert(get_post( $_POST['ID'] ));
 
-					if( $success &&  !is_wp_error( $success ) ) {				
+					if( $success &&  !is_wp_error( $success ) ) {
 
 						$resp = array(
 							'success' 	=> true,
@@ -702,23 +726,27 @@ class QA_Ajax extends AE_Base{
 							'msg'		=> $success->get_error_message()
 						);
 					}
-						
+
 					break;
 
 				case 'saveQuestion':
 
-					$data 			= $_POST['content'];
-					$data['ID'] 	= $_POST['ID'];
-					$data['qa_tag'] = isset($data['tags']) ? $data['tags'] : array() ;
+					$data                = $_POST['content'];
+					$data['ID']          = $_POST['ID'];
+					$data['qa_tag']      = isset($data['tags']) ? $data['tags'] : array() ;
+					$data['post_author'] = $_POST['post_author'];
 					unset($data['tags']);
 
 					$success = QA_Questions::update($data);
+
 					$post    = QA_Questions::convert(get_post( $_POST['ID'] ));
+
 					if( $success &&  !is_wp_error( $success ) ) {
 						$resp = array(
-							'success' 	=> true,
-							'data' 		=> $post,
-							'redirect'	=> get_permalink( $_POST['ID'] )
+							'success'  => true,
+							'data'     => $post,
+							'msg'      => __('Question has been saved successfully.', ET_DOMAIN),
+							'redirect' => get_permalink( $_POST['ID'] )
 						);
 					}else {
 						$resp = array(
@@ -727,30 +755,47 @@ class QA_Ajax extends AE_Base{
 							'msg'		=> $success->get_error_message()
 						);
 					}
-					
+
 					break;
 				case 'approve':
 
-					$id = $_POST['ID'];
+					$id      = $_POST['ID'];
 					$success = QA_Questions::change_status($id, "publish");
 					$post    = QA_Questions::convert(get_post( $id ));
-					if( $success &&  !is_wp_error( $success ) ) {
-						
-						// set transient for new question
-						set_transient( 'qa_notify_' . mt_rand( 100000, 999999 ), array(
-							'title'   =>		__( 'New Question', ET_DOMAIN ),
-							'content' =>	 	__( 'There\'s a new post, why don\'t you give a look at', ET_DOMAIN ) . 
-							' <a href ="' . get_permalink( $id ) . '">' . get_the_title( $id ) . '</a>',
-							'type'    =>		'update',
-							'user'    =>	md5( $current_user->user_login )
-						), 20 );
+					$point   = qa_get_badge_point();
+					//store question id to data for send mail
+					QA_Engine::qa_questions_new_answer($id);
 
-						$resp = array(
-							'success' 	=> true,
-							'data' 		=> $post,
-							'msg'		=> __("You've just successfully approved a question.", ET_DOMAIN),
-							'redirect'	=> get_permalink( $id )
-						);
+					if( $success &&  !is_wp_error( $success ) ) {
+						if($post->post_type == "question"){
+							//add points to user
+							if( !empty( $point->create_question ) ) qa_update_user_point( $post->post_author, $point->create_question );
+							// set transient for new question
+							set_transient( 'qa_notify_' . mt_rand( 100000, 999999 ), array(
+								'title'   =>		__( 'New Question', ET_DOMAIN ),
+								'content' =>	 	__( "There's a new post, why don't you give a look at", ET_DOMAIN ) .
+								' <a href ="' . get_permalink( $id ) . '">' . get_the_title( $id ) . '</a>',
+								'type'    =>		'update',
+								'user'    =>	md5( $current_user->user_login )
+							), 20 );
+
+							$resp = array(
+								'success' 	=> true,
+								'data' 		=> $post,
+								'msg'		=> __("You've just successfully approved a question.", ET_DOMAIN),
+								'redirect'	=> get_permalink( $id )
+							);
+						} else if($post->post_type == "answer"){
+							//add point to user
+							if( !empty( $point->post_answer ) ) qa_update_user_point( $post->post_author, $point->post_answer );
+							$resp = array(
+								'success' 	=> true,
+								'data' 		=> $post,
+								'msg'		=> __("You've just successfully approved an answer.", ET_DOMAIN),
+								'redirect'	=> get_permalink( $id )
+							);
+						}
+
 					} else {
 						$resp = array(
 							'success' 	=> false,
@@ -776,7 +821,7 @@ class QA_Ajax extends AE_Base{
 					} else {
 						$msg = __( 'You have stopped following this question.', ET_DOMAIN );
 					}
-					
+
 					$resp = array(
 						'success' 	=> true,
 						'msg' => $msg,
@@ -844,9 +889,9 @@ class QA_Ajax extends AE_Base{
 
 			if($_FILES[$fileID]['size'] > 1024*1024){
 				throw new Exception( __('Image file size is too big.Size must be less than < 1MB.',ET_DOMAIN) );
-			}			
+			}
 
-			// handle file upload				
+			// handle file upload
 			$attach_id = et_process_file_upload( $_FILES[$fileID], 0 , 0, array());
 
 			if ( is_wp_error($attach_id) ){
@@ -867,9 +912,9 @@ class QA_Ajax extends AE_Base{
 				'success'	=> false,
 				'msg'		=> $e->getMessage()
 			);
-		}	
-		wp_send_json( $res );		
-	}	
+		}
+		wp_send_json( $res );
+	}
 
 	/**
 	 * Report a question or answer
@@ -931,7 +976,7 @@ class QA_Ajax extends AE_Base{
 				update_post_meta( $id, 'et_users_report', $users_report );
 				update_post_meta( $result, '_link_report', $link );
 			}
-			do_action('et_after_reported', $id, $report_data);			
+			do_action('et_after_reported', $id, $report_data);
 		} else {
 			$result = false;
 		}
@@ -962,7 +1007,7 @@ class QA_Ajax extends AE_Base{
 
 				} else {
 
-					$msg = __( "Question deleted successfully!", ET_DOMAIN );
+					$msg  = __( "Question deleted successfully!", ET_DOMAIN );
 					$post = get_post($_POST['ID']);
 					QA_Questions::delete($_POST['ID']);
 				}
@@ -973,27 +1018,27 @@ class QA_Ajax extends AE_Base{
 				'msg' 		=> $msg,
 				'redirect'		=> get_post_type_archive_link( 'question' ),
 				'data' 		=> $post
-			);	
+			);
 
 		} catch (Exception $e) {
 			$resp = array(
 				'success' => false,
 				'msg' => $e->getMessage()
-			);			
+			);
 		}
 		return $resp;
 	}
 
 	/**
 	 * AJAX search questions by keyword (next version)
-	 * 
+	 *
 	 */
 	public function search_questions(){
 		try {
-			$query =  QA_Questions::search($_POST['content']);
-			$data = array();
+			$query = QA_Questions::search($_POST['content']);
+			$data  = array();
 			foreach ($query->posts as $post) {
-				$question = QA_Questions::convert($post);
+				$question            = QA_Questions::convert($post);
 				$question->et_avatar = QA_Member::get_avatar_urls($post->post_author, 30);
 				$question->permalink = get_permalink( $post->ID );
 

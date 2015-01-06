@@ -49,7 +49,7 @@ get_header();
                                             'after'       => '</div>',
                                             'link_before' => '<span>',
                                             'link_after'  => '</span>',
-                                        ) );                        
+                                        ) );
                                     } else {
                                         the_excerpt();
                                 ?>
@@ -60,11 +60,11 @@ get_header();
                             </div>
                         </div>
                     </div>
-                </div>                
+                </div>
                 <div class="clearfix"></div>
                 <?php comments_template(); ?>
             </div>
-        </div>     
+        </div>
     </div>
     <?php get_sidebar( 'right' ); ?>
 <?php get_footer() ?>

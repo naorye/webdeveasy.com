@@ -71,19 +71,26 @@ function qa_mobile_submit_questions_form(){
 *
 **/
 function qa_mobile_filter_search_questions(){
+	$current_url = "http".(isset($_SERVER['HTTPS']) ? 's' : '')."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 	?>
 	<div class="container">
 	    <div class="row">
 	    	<div class="col-md-12">
 	        	<ul class="menu-middle-bar">
 	                <li class="<?php echo !isset($_GET['sort']) ? 'active' : ''; ?>">
-	                    <a href=""><?php _e("Latest",ET_DOMAIN) ?></a>
+	                    <a href="<?php echo remove_query_arg( array('sort') ,$current_url); ?>">
+	                    	<?php _e("Latest",ET_DOMAIN) ?>
+	                    </a>
 	                </li>
-	                <li>
-	                    <a class="<?php echo isset($_GET['sort']) && $_GET['sort'] == 'vote' ? 'active' : ''; ?>" href="<?php echo add_query_arg(array('sort' => 'vote')); ?>"><?php _e("Votes",ET_DOMAIN) ?></a>
+	                <li class="<?php echo isset($_GET['sort']) && $_GET['sort'] == 'vote' ? 'active' : ''; ?>" >
+	                    <a href="<?php echo add_query_arg(array('sort' => 'vote')); ?>">
+	                    	<?php _e("Votes",ET_DOMAIN) ?>
+	                    </a>
 	                </li>
-	                <li>
-	                    <a class="<?php echo isset($_GET['sort']) && $_GET['sort'] == 'unanswer' ? 'active' : ''; ?>" href="<?php echo add_query_arg(array('sort' => 'unanswer')); ?>"><?php _e("Unanswered",ET_DOMAIN) ?></a>
+	                <li class="<?php echo isset($_GET['sort']) && $_GET['sort'] == 'unanswer' ? 'active' : ''; ?>">
+	                    <a href="<?php echo add_query_arg(array('sort' => 'unanswer')); ?>">
+	                    	<?php _e("Unanswered",ET_DOMAIN) ?>
+	                    </a>
 	                </li>
 	            </ul>
 	        </div>

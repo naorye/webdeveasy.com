@@ -137,6 +137,7 @@ add_action('wp_insert_post', 'qa_point_insert_post', 10, 3);
 function qa_point_insert_post($post_id, $post, $update) {
 	// return if is update post
 	if($update)  return ;
+    if($post->post_status != "publish") return;
     /**
      * update point for user if post new post
     */
@@ -182,7 +183,53 @@ function qa_point_insert_post($post_id, $post, $update) {
 
     return ;
 }
+/**
+ * catch event when user delete question
+ *
+ */
+add_action('wp_trash_post', 'qa_point_trash_post');
+function qa_point_trash_post($post_id) {
+    global $post, $user_ID;
+    /**
+     * get site qa badge point system
+     */
+    $point = qa_get_badge_point();
+    $post  = get_post($post_id);
 
+    if($post->post_type == 'question') {
+        if( !empty( $point->create_question ) ) {
+            /**
+             * update user point
+             */
+            qa_update_user_point( $post->post_author, -(int)$point->create_question );
+            /**
+             * do action qa point insert question
+             * @param $post the post be unvoted
+             * @param -(int)$point
+             */
+            do_action('qa_point_trash_post', $post, -(int)$point->create_question );
+        }
+        
+    }
+
+    if($post->post_type == 'answer') {
+        if( !empty( $point->post_answer ) ) {
+            /**
+             * update user point
+             */
+            $best_point = get_post_meta($post->ID, 'et_best_answer_point', true);
+            qa_update_user_point( $post->post_author, -( (int)$point->post_answer + (int)$best_point ) );
+            /**
+             * do action qa point insert answer
+             * @param $post the post be unvoted
+             * @param $point
+             */
+            do_action('qa_point_trash_post', $post, -( (int)$point->post_answer + (int)$best_point ) );
+        }
+    }
+
+    return $post_id;
+}
 /**
  * catch action when user sign up, init point for user it should be one.
  * @package qaengine

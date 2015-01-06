@@ -30,7 +30,6 @@
 			this.model = new Models.Options();
 			this.form = this.$el.parents('form');
 			this.model.set('name', this.form.attr('data-name'));
-
 			this.blockUi = new Views.BlockUi();
 		},
 		/**
@@ -40,9 +39,12 @@
 			e.preventDefault();
 			var $target = $(e.currentTarget),
 				view = this;
-
 			this.$('input').val(1);
-
+			/**
+			 * try to set name of model
+			*/
+			this.model.set('name', this.form.attr('data-name'));
+			// update model
 			if (typeof this.model.get('name') !== 'undefined') {
 				this.model.set('value', this.form.serialize());
 				this.model.set('group', 1);
@@ -50,7 +52,6 @@
 				this.model.set('name', this.$('input').attr('name'))
 				this.model.set('value', 1);
 			}
-
 			this.model.save('', '', {
 				success: function() {
 					view.blockUi.unblock();
@@ -69,9 +70,12 @@
 			e.preventDefault();
 			var $target = $(e.currentTarget),
 				view = this;
-
 			this.$('input').val(0);
-
+			/**
+			 * try to set name of model
+			*/
+			this.model.set('name', this.form.attr('data-name'));
+			// update model
 			if (typeof this.model.get('name') !== 'undefined') {
 				this.model.set('value', this.form.serialize());
 				this.model.set('group', 1);
@@ -79,7 +83,6 @@
 				this.model.set('name', this.$('input').attr('name'))
 				this.model.set('value', 0);
 			}
-
 			this.model.save('', '', {
 				success: function() {
 					view.blockUi.unblock();
@@ -91,7 +94,6 @@
 				}
 			});
 		}
-
 	});
 
 	/**

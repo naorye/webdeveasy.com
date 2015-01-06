@@ -11,18 +11,18 @@ the_post();
 $question        = QA_Questions::convert($post);
 $et_post_date    = et_the_time(strtotime($question->post_date));
 $category        = !empty($question->question_category[0]) ? $question->question_category[0]->name : __('No Category',ET_DOMAIN);
-$category_link   = !empty($question->question_category[0]) ? get_term_link( $question->question_category[0]->term_id, 'question_category' ) : '#';  
-$qa_question    =   $question; 
+$category_link   = !empty($question->question_category[0]) ? get_term_link( $question->question_category[0]->term_id, 'question_category' ) : '#';
+$qa_question    =   $question;
 
 $vote_up_class  =  'action vote vote-up ' ;
 $vote_up_class  .= ($question->voted_up) ? 'active' : '';
-$vote_up_class  .= ($question->voted_down) ? 'disabled' : ''; 
+$vote_up_class  .= ($question->voted_down) ? 'disabled' : '';
 
 $vote_down_class = 'action vote vote-down ';
 $vote_down_class .= ($question->voted_down) ? 'active' : '';
-$vote_down_class .= ($question->voted_up) ? 'disabled' : ''; 
+$vote_down_class .= ($question->voted_up) ? 'disabled' : '';
 
-$parent_comments    = get_comments( array( 
+$parent_comments    = get_comments( array(
     'post_id'       => $post->ID,
     'parent'        => 0,
     'status'        => 'approve',
@@ -32,7 +32,7 @@ $parent_comments    = get_comments( array(
 ) );
 ?>
 <!-- CONTAINER -->
-<div class="wrapper-mobile">   
+<div class="wrapper-mobile">
     <!-- CONTENT QUESTION -->
     <section class="list-question-wrapper" id="question_content">
     	<div class="container">
@@ -45,7 +45,8 @@ $parent_comments    = get_comments( array(
                             </a>
                         </div>
                         <div class="info-user">
-                            <span title="1" class="user-badge">Newbie</span>
+                            <!-- <span title="1" class="user-badge">Newbie</span> -->
+                            <?php qa_user_badge($question->post_author, true, true) ?>
                         </div>
                         <div class="content-question">
                             <h2 class="title-question">
@@ -58,7 +59,7 @@ $parent_comments    = get_comments( array(
                             	<ul class="list-tag">
                                     <?php
                                         foreach ($question->qa_tag as $tag) {
-                                    ?>                                     
+                                    ?>
                                 	<li>
                                         <a href="<?php echo get_term_link($tag->term_id, 'qa_tag'); ?> ">
                                             <?php echo $tag->name; ?>
@@ -66,7 +67,13 @@ $parent_comments    = get_comments( array(
                                     </li>
                                     <?php } ?>
                                 </ul>
-                            	<span class="time-categories"><?php printf( __( 'Asked %s in', ET_DOMAIN ),$et_post_date); ?> <a href="<?php echo $category_link ?>"><?php echo $category ?></a>.</span>
+                            	<span class="time-categories">
+                                    <?php
+                                        $author = '<a href="'.get_author_posts_url( $question->post_author ).'">'.$question->author_name.'</a>';
+                                        printf( __( 'Asked by %s %s in', ET_DOMAIN ), $author, $et_post_date );
+                                    ?>
+                                     <a href="<?php echo $category_link ?>"><?php echo $category ?></a>.
+                                </span>
                             </div>
                             <div class="vote-wrapper">
 
@@ -79,7 +86,7 @@ $parent_comments    = get_comments( array(
                                 <a href="javascript:void(0)" data-name="vote_down" class="<?php echo $vote_down_class ?>">
                                     <i class="fa fa-angle-down"></i>
                                 </a>
-                                
+
                                 <?php if($qa_question->et_best_answer) {?>
                                 <a href="javascript:void(0)" class="answer-active-label has-best-answer">
                                     <i class="fa fa-check"></i><?php _e("Answered", ET_DOMAIN) ?>
@@ -92,10 +99,9 @@ $parent_comments    = get_comments( array(
                     <div class="share">
                         <ul class="list-share">
                             <li>
-                                <!-- <a href="javascript:void(0)"><?php _e("Share", ET_DOMAIN) ?><i class="fa fa-share"></i></a> -->
                                 <a class="share-social" href="javascript:void(0)" rel="popover" data-container="body" data-content='<?php echo qa_template_share($question->ID); ?>' data-html="true">
                                     <?php _e("Share",ET_DOMAIN) ?> <i class="fa fa-share"></i>
-                                </a>                                
+                                </a>
                             </li>
                             <!-- <li class="collapse">
                                 <a href="javascript:void(0)"><?php _e("Report", ET_DOMAIN) ?><i class="fa fa-flag"></i></a>
@@ -111,7 +117,7 @@ $parent_comments    = get_comments( array(
                     <!-- COMMENT IN COMMENT -->
                     <div class="cmt-in-cmt-wrapper">
                         <ul class="mobile-comments-list">
-                            <?php                        
+                            <?php
                                 /**
                                  * render comment loop
                                 */
@@ -125,13 +131,13 @@ $parent_comments    = get_comments( array(
                         <?php qa_mobile_comment_form($post) ?>
                         <a href="javascript:void(0)" class="add-cmt-in-cmt"><?php _e("Add comment", ET_DOMAIN) ?></a>
                     </div>
-                    <!-- COMMENT IN COMMENT / END -->                    
+                    <!-- COMMENT IN COMMENT / END -->
                 </div>
             </div>
         </div>
     </section>
     <!-- CONTENT QUESTION / END -->
-    
+
     <!-- LABEL -->
     <section class="label-vote-wrapper">
     	<div class="container">
@@ -163,6 +169,10 @@ $parent_comments    = get_comments( array(
                 'paged'         => $paged,
             );
 
+        //if current user is admin show pending answers
+        if( is_user_logged_in() && current_user_can( 'manage_options' ) )
+            $reply_args['post_status'] = array('publish','pending');
+
         if( isset($_GET['sort']) && $_GET['sort'] == "oldest" ){
             $reply_args['order'] = 'ASC';
         } else {
@@ -177,7 +187,7 @@ $parent_comments    = get_comments( array(
                 $answersData[] = QA_Answers::convert($post);
                 get_template_part( 'mobile/template/item', 'answer' );
             }
-        } 
+        }
         wp_reset_query();
     ?>
     </div>
@@ -196,7 +206,7 @@ $parent_comments    = get_comments( array(
                 'next_text' => '>',
                 'type'      => 'list'
             ) );
-        ?>         
+        ?>
     </section>
     <!-- PAGINATIONS ANSWER / END -->
     <?php if(is_user_logged_in()){ ?>
@@ -208,7 +218,7 @@ $parent_comments    = get_comments( array(
         			<a href="javascript:void(0)" class="btn-post-answers"><?php _e("Post answer", ET_DOMAIN) ?></a>
                     <form class="form-post-answers" id="insert_answer" action="">
                         <input type="hidden" name="qa_nonce" value="<?php echo wp_create_nonce( 'insert_answer' );?>" />
-                        <input type="hidden" name="post_parent" value="<?php echo $question->ID ?>" />                        
+                        <input type="hidden" name="post_parent" value="<?php echo $question->ID ?>" />
                     	<textarea name="post_content" id="post_content" rows="5"  placeholder="<?php _e("Type your answer", ET_DOMAIN) ?>"></textarea>
                         <input type="submit" class="btn-submit" name="submit" id="" value="<?php _e("Post answer", ET_DOMAIN) ?>">
                         <a href="javascript:void(0)" id="close_reply_form" class="close-form-post-answers"><?php _e("Cancel", ET_DOMAIN) ?></a>
@@ -220,7 +230,7 @@ $parent_comments    = get_comments( array(
     <div class="clearfix" style="height:20px;"></div>
     <!-- POST ANSWER / END -->
     <?php } ?>
-    
+
 </div>
 <!-- CONTAINER / END -->
 <script type="text/javascript">

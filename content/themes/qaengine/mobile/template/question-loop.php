@@ -47,7 +47,13 @@
                 </li>
                 <?php } ?>
             </ul>
-            <span class="time-categories"><?php printf( __( 'Asked %s in', ET_DOMAIN ),$et_post_date); ?> <a href="<?php echo $category_link ?>"><?php echo $category ?></a>.</span>
+            <span class="time-categories">
+                <?php 
+                    $author = '<a href="'.get_author_posts_url( $question->post_author ).'">'.$question->author_name.'</a>';
+                    printf( __( 'Asked by %s %s in', ET_DOMAIN ), $author, $et_post_date);
+                ?>  
+                <a href="<?php echo $category_link ?>"><?php echo $category ?></a>.
+            </span>
         </div>
     </div>
 </li>

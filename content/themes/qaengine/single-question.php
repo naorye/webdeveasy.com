@@ -13,10 +13,6 @@ $question        = QA_Questions::convert($post);
 $et_post_date    = et_the_time(strtotime($question->post_date));
 $category        = !empty($question->question_category[0]) ? $question->question_category[0]->name : __('No Category',ET_DOMAIN);
 $category_link   = !empty($question->question_category[0]) ? get_term_link( $question->question_category[0]->term_id, 'question_category' ) : '#';
-// echo '<pre>';
-// print_r($question->et_users_follow);
-// echo '---'.$question->et_last_author;
-// echo '</pre>';
 /**
  * global qa_question
 */
@@ -52,7 +48,7 @@ $parent_comments       = get_comments( array(
 
                 <!-- admin control -->
                 <ul class="post-controls">
-                    <?php if(qa_user_can('edit_question')) { ?>
+                    <?php if($current_user->ID == $qa_question->post_author || qa_user_can('edit_question')) { ?>
                     <li>
                         <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="<?php _e("Edit", ET_DOMAIN) ?>" data-name="edit" class="post-edit action">
                             <i class="fa fa-pencil"></i>
@@ -86,10 +82,16 @@ $parent_comments       = get_comments( array(
                     <?php } ?>  
                     <!-- // Follow Action --> 
                     <!-- report Action -->  
-                    <?php if(is_user_logged_in() && !$question->reported){ ?>
+                    <?php if(is_user_logged_in() && !$question->reported && $question->post_status != "pending"){ ?>
                      <li>
                         <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="<?php _e("Report", ET_DOMAIN) ?>" data-name="report" class="action report" >
                             <i class="fa fa-exclamation-triangle"></i>
+                        </a>
+                    </li> 
+                    <?php } else if( current_user_can( 'manage_options' ) ) { ?>
+                    <li>
+                        <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="<?php _e("Approve", ET_DOMAIN) ?>" data-name="approve" class="action approve" >
+                            <i class="fa fa-check"></i>
                         </a>
                     </li> 
                     <?php } ?>
@@ -119,7 +121,7 @@ $parent_comments       = get_comments( array(
 
                 <div class="question-content">
                     <?php echo the_content() ?>
-                </div>
+                </div> 
 
                 <div class="row">
                     <div class="col-md-8 col-xs-8 question-cat">
@@ -162,6 +164,7 @@ $parent_comments       = get_comments( array(
                 </div>
 
                 <div class="clearfix"></div>
+
                 <div class="comments-container <?php if(count($parent_comments) == 0) echo 'collapse'; ?>" id="container_<?php echo $post->ID ?>">
                     <div class="comments-wrapper">
                         <?php      
@@ -176,10 +179,21 @@ $parent_comments       = get_comments( array(
                 </div><!-- END COMMENTS CONTAINER -->             
             </div>
         </div><!-- END QUESTION-MAIN-CONTENT -->
+
+        <?php if( is_active_sidebar( 'qa-content-question-banner-sidebar' ) ){ ?>
+        <div class="row">
+            <div class="col-md-12 ads-wrapper">
+                <?php dynamic_sidebar( 'qa-content-question-banner-sidebar' ); ?>
+            </div>
+        </div><!-- END WIDGET BANNER -->   
+        <?php } ?>
+
         <div class="row answers-filter" id="answers_filter">
             <div class="max-col-md-8">
                 <div class="col-md-6 col-xs-6">
-                    <span class="answers-count"><span class="number"><?php echo et_count_answer($question->ID) ?></span> <?php _e("Answers",ET_DOMAIN) ?></span>
+                    <span class="answers-count"><span class="number">
+                        <?php echo $question->et_answers_count ?></span> <?php _e("Answer(s)",ET_DOMAIN) ?>
+                    </span>
                 </div>
                 <div class="col-md-6 col-xs-6 sort-questions">
                     <ul>
@@ -199,6 +213,14 @@ $parent_comments       = get_comments( array(
         
         <?php qa_answers_loop(); ?>
 
+        <?php if(is_active_sidebar( 'qa-btm-single-question-banner-sidebar' )){ ?>
+        <div class="row">
+            <div class="col-md-12 ads-wrapper answers-ad-wrapper">
+                <?php dynamic_sidebar( 'qa-btm-single-question-banner-sidebar' ); ?>
+            </div>
+        </div>
+        <?php } ?>
+
         <div class="row form-reply">
             <div class="col-md-12">
                 <h3><?php _e("Your Answer",ET_DOMAIN) ?></h3>
@@ -213,15 +235,20 @@ $parent_comments       = get_comments( array(
                             </button>
                         </div>
                         <div class="col-md-10 term-texts">
-                            <?php qa_tos(); ?>
+                            <?php qa_tos("answer"); ?>
                         </div>
                     </div>
                 </form>
             </div>
         </div><!-- END FORM REPLY -->
+
+        <div class="clearfix"></div>
+
+        <?php do_action( 'qa_btm_quetions_listing' ); ?>
+
     </div>
     <?php get_sidebar( 'right' ); ?>
     <script type="text/javascript">
-        currentQuestion = <?php echo json_encode( $question, JSON_HEX_QUOT ) ?>;
+        currentQuestion = <?php echo defined('JSON_HEX_QUOT') ? json_encode( $question, JSON_HEX_QUOT ) : json_encode( $question ) ?>;
     </script>
 <?php get_footer() ?>

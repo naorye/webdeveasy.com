@@ -9,36 +9,54 @@
 <div class="col-md-9 col-xs-9 q-right-content">
 	<!-- control tool for admin, moderate -->
     <ul class="post-controls">
-        <?php 
-        // user can control option or have qa cap edit question/answer
-        if(current_user_can( 'manage_options' ) || qa_user_can('edit_answer')) { ?>
+        <?php
+        //answer status is pending & current user is admin
+        if( $qa_answer->post_status == "pending" && ( current_user_can( 'manage_options' ) || qa_user_can('approve_answer') )  ) {
+        ?>
         <li>
-            <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="<?php _e("Edit", ET_DOMAIN) ?>" data-name="edit" class="post-edit action">
+            <a href="javascript:void(0);" data-toggle="tooltip" data-original-title="<?php _e("Approve", ET_DOMAIN) ?>" data-name="approve" class="post-edit action">
+                <i class="fa fa-check"></i>
+            </a>
+        </li>
+        <?php
+        }
+        // user can control option or have qa cap edit question/answer
+        if($current_user->ID == $qa_answer->post_author || current_user_can( 'manage_options' ) || qa_user_can('edit_answer')) {
+        ?>
+        <li>
+            <a href="javascript:void(0);" data-toggle="tooltip" data-original-title="<?php _e("Edit", ET_DOMAIN) ?>" data-name="edit" class="post-edit action">
                 <i class="fa fa-pencil"></i>
             </a>
         </li>
         <?php } ?>
         <?php if( $current_user->ID == $qa_answer->post_author || current_user_can( 'manage_options' ) ){ ?>
         <li>
-            <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="<?php _e("Delete", ET_DOMAIN) ?>" data-name="delete" class="post-delete action" >
+            <a href="javascript:void(0);" data-toggle="tooltip" data-original-title="<?php _e("Delete", ET_DOMAIN) ?>" data-name="delete" class="post-delete action" >
                 <i class="fa fa-trash-o"></i>
             </a>
         </li>
         <?php } ?>
          <?php if(is_user_logged_in() && !$qa_answer->reported){ ?>
         <li>
-         <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="<?php _e("Report", ET_DOMAIN) ?>" data-name="report" class="action report" >
+         <a href="javascript:void(0);" data-toggle="tooltip" data-original-title="<?php _e("Report", ET_DOMAIN) ?>" data-name="report" class="action report" >
               <i class="fa fa-exclamation-triangle"></i>
         </a>
         </li> 
          <?php } ?>
     </ul>	 
     <!--// control tool for admin, moderate --> 
-    <?php if($qa_question->et_best_answer == $qa_answer->ID){ ?>
     <div class="top-content">
-        <span class="answered best-answer"><i class="fa fa-check"></i> <?php _e("Best answer", ET_DOMAIN) ?></span>
+        <?php if($qa_question->et_best_answer == $qa_answer->ID){ ?>
+        <span class="answered best-answer">
+            <i class="fa fa-check"></i> <?php _e("Best answer", ET_DOMAIN) ?>
+        </span>
+        <?php } ?>
+        <?php if($qa_answer->post_status == "pending"){ ?>
+        <span class="answered best-answer">
+            <?php _e("Pending", ET_DOMAIN) ?>
+        </span>        
+        <?php } ?>
     </div>
-    <?php } ?>
     <div class="clearfix"></div>
 
     <div class="question-content">
@@ -56,7 +74,9 @@
                     <button id="submit_reply" class="btn-submit"><?php _e("Update",ET_DOMAIN) ?></button>
                 </div>
                 <div class="col-md-2 col-xs-2">
-                    <a href="javascript:void(0)" data-name="cancel-post-edit" class="action cancel-edit-post"><?php _e("Cancel",ET_DOMAIN) ?></a>
+                    <a href="javascript:void(0);" data-name="cancel-post-edit" class="action cancel-edit-post">
+                        <?php _e("Cancel",ET_DOMAIN) ?>
+                    </a>
                 </div>                                        
             </div>                                    
         </form>
@@ -82,7 +102,7 @@
         	<!-- share comment , report -->
             <ul>
                 <li>
-                    <a class="share-social" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-container="body" data-content='<?php echo qa_template_share($qa_answer->ID); ?>' data-html="true">
+                    <a class="share-social" href="javascript:void(0);" data-toggle="popover" data-placement="top" data-container="body" data-content='<?php echo qa_template_share($qa_answer->ID); ?>' data-html="true">
                         <?php _e("Share",ET_DOMAIN) ?> <i class="fa fa-share"></i>
                     </a>
                 </li>

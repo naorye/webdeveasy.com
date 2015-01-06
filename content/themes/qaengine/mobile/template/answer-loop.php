@@ -35,7 +35,7 @@
     </div>
     <div class="content-question">
         <h2 class="title-question">
-            <a href="<?php the_permalink(); ?>"><?php the_title() ?></a>
+            <a href="<?php echo get_permalink($question->ID); ?>"><?php the_title() ?></a>
         </h2>
         <div class="info-tag-time">
             <ul class="list-tag">

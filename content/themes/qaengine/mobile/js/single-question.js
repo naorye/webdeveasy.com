@@ -64,6 +64,11 @@
 			if(textarea.val() == '')
 				return;
 
+			if(ae_globals.user_confirm && currentUser.register_status == "unconfirm"){
+				alert( qa_front.texts.confirm_account );				
+				return false;
+			}
+
 			answer = new Models.Post();
 			answer.set('content',data);
 			answer.save('','',{
@@ -78,8 +83,14 @@
 							model: result
 						});
 						textarea.val('').focusout();
-						$("#answers_main_list").append(viewPost.render(result));
-						$("span.answers-count span.number").text(answers+1);
+
+						if(ae_globals.pending_answers !== 1){
+							$("#answers_main_list").append(viewPost.render(result));
+							$("span.answers-count span.number").text(answers+1);
+						} else {
+							alert(status.msg);
+						}
+
 					}
 				}
 			});			

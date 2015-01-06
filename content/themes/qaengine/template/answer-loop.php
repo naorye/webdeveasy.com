@@ -10,7 +10,7 @@
 <li <?php post_class( 'answer-item question-item' ); ?> data-id="<?php echo $post->ID ?>">
     <div class="col-md-8 q-left-content">
         <div class="q-ltop-content title-answer-style">
-            <a href="<?php the_permalink(); ?>" class="question-title">
+            <a href="<?php echo get_permalink($question->ID); ?>" class="question-title">
                 <?php the_title() ?>
             </a>
         </div>

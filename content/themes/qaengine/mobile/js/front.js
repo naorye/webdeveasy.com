@@ -34,7 +34,7 @@
 			var target = $(event.currentTarget);
 			this.$("form.create-comment").slideUp();
 			this.$("a.add-cmt-in-cmt").show();
-		},		
+		},
 		doAction: function(event){
 			event.preventDefault();
 			//console.log('doAction');
@@ -49,13 +49,13 @@
 				return false;
 			}
 
-			if( typeof userCaps[action] === 'undefined' && 
+			if( typeof userCaps[action] === 'undefined' &&
 				// check action not in privileges
-				!( action == 'accept-answer' || action == 'un-accept-answer') ) {
+				!( action == 'accept-answer' || action == 'un-accept-answer' || action == 'approve') ) {
 				alert( qa_front.texts.enought_points );
 				return false;
 			}
-			
+
 			if(target.hasClass('loading'))
 				return false;
 
@@ -90,7 +90,26 @@
 						.html('<i class="fa fa-check"></i>'+qa_front.texts.best_ans_txt)
 						.attr('data-name', 'un-accept-answer');
 				}
-			  /* ========== ON EDIT POST ========== */				
+			  /* ========== ON EDIT POST ========== */
+			} else if( action == "approve" ){
+				this.model.set('do_action', action);
+				this.model.save('', '', {
+					beforeSend: function() {
+						target.addClass('loading');
+						view.blockUi.block(view.$el);
+					},
+					success: function(result, status, jqXHR) {
+						view.blockUi.unblock();
+						target.removeClass('loading');
+						if (status.success) {
+							target.remove();
+							view.$el.find('.pending-ans').remove();
+						} else {
+							alert(status.msg);
+						}
+					}
+				});
+				return false;
 			}
 
 			this.model.set('do_action', action);
@@ -108,13 +127,13 @@
 					}
 				}
 			});
-		},		
+		},
 		showPostControls: function(event){
 			this.$el.find('ul.post-controls').fadeIn('slow');
 		},
 		hidePostControls: function(event){
 			this.$el.find('ul.post-controls').fadeOut('slow');
-		},		
+		},
 		showCommentsList: function(event){
 			event.preventDefault();
 			var target 	 = $(event.currentTarget),
@@ -128,7 +147,7 @@
 				this.$("form.create-comment").slideDown('slow').find("textarea").focus();
 			}
 
-			return false;			
+			return false;
 		},
 		insertComment: function(event){
 			event.preventDefault();
@@ -168,8 +187,8 @@
 						alert(status.msg);
 					}
 				}
-			});	
-		},		
+			});
+		},
 	});
 
 	Views.CommentItem  	 	 = Views.PostListItem.extend({
@@ -180,7 +199,7 @@
 			// 'click a.edit-comment'		: 'editComment',
 			// 'click a.cancel-comment'	: 'cancelComment',
 			// 'submit form.edit-comment'  : 'updateComment',
-		},		
+		},
 		initialize: function(){
 			Views.PostListItem.prototype.initialize.call();
 			this.model.set('id',this.model.get('comment_ID'));
@@ -195,13 +214,13 @@
 			var view 	= this,
 				txtID 	= view.$el.find('div.cm-content-edit textarea').attr('id'),
 				content = this.model.get('comment_content');
-				
+
 
 			view.$el.find('div.cm-content-wrap').fadeOut('fast', function() {
-				tinymce.EditorManager.execCommand("mceAddEditor", false, txtID);  
-				tinymce.activeEditor.execCommand('mcesetContent', false, content);			
+				tinymce.EditorManager.execCommand("mceAddEditor", false, txtID);
+				tinymce.activeEditor.execCommand('mcesetContent', false, content);
 				view.$el.find('div.cm-content-edit').fadeIn('fast', function() {
-					tinymce.activeEditor.execCommand('mceAutoResize');	
+					tinymce.activeEditor.execCommand('mceAutoResize');
 				});
 			});
 		},
@@ -211,7 +230,7 @@
 			var view 	= this,
 				txtID 	= view.$el.find('div.cm-content-edit textarea').attr('id');
 
-			view.$el.find('div.cm-content-edit').fadeOut('fast', function() {			
+			view.$el.find('div.cm-content-edit').fadeOut('fast', function() {
 				view.$el.find('div.cm-content-wrap').fadeIn();
 				tinymce.EditorManager.get(txtID).remove();
 			});
@@ -229,7 +248,7 @@
 
 			this.model.set('comment_content', new_content);
 			this.model.set('do_action', 'saveComment');
-			
+
 			this.model.save('', '', {
 				beforeSend:function(){
 					view.blockUi.block($target);
@@ -237,8 +256,8 @@
 				success : function (result, status, jqXHR) {
 					view.blockUi.unblock();
 					if(status.success){
-						view.$el.find('div.cm-content-edit').fadeOut('fast', function() {		
-							view.$el.find('div.cm-content-wrap .cm-wrap').html(result.get('content'));	
+						view.$el.find('div.cm-content-edit').fadeOut('fast', function() {
+							view.$el.find('div.cm-content-wrap .cm-wrap').html(result.get('content'));
 							view.$el.find('div.cm-content-wrap').fadeIn();
 							tinymce.EditorManager.get(txtID).remove();
 						});
@@ -247,11 +266,11 @@
 					}
 				}
 			});
-		}		
+		}
 	});
 
 	Views.TagItem 			 = Backbone.View.extend({
-		
+
 		'tagName'	: 'li',
 		'className' : 'tag-item',
 		events 		: {
@@ -283,7 +302,7 @@
 			'submit form#sign_in' 		 		: 'doLogin',
 			'submit form#sign_up' 		 		: 'doRegister',
 			'submit form#submit_question' 		: 'saveQuestion',
-			'keypress input#question_tags'		: 'onAddTag'				
+			'keypress input#question_tags'		: 'onAddTag'
 		},
 		initialize: function(){
 			var view = this;
@@ -300,7 +319,7 @@
 
 			$('ul.mobile-tags-list').hideMaxListItems({
 				'moreText':'Touch here to show more tags',
-				'lessText':'Touch here to show less tags',				
+				'lessText':'Touch here to show less tags',
 				'max':4
 			});
 
@@ -309,15 +328,15 @@
 			*/
 			view.tags	= {};
 
-			$('#question_tags').typeahead({	
+			$('#question_tags').typeahead({
 				minLength: 0,
 				items : 99,
-				source: function (query, process) 
-						{	
+				source: function (query, process)
+						{
 							if(view.tags.length > 0 ) return view.tags;
 
-							return $.getJSON( 
-									ae_globals.ajaxURL, 
+							return $.getJSON(
+									ae_globals.ajaxURL,
 									{ action : 'qa_get_tags'},
 									function (data) {
 										console.log(data);
@@ -330,7 +349,7 @@
 					//console.log(item);
 					view.addTag(item);
 				}
-			});						
+			});
 		},
 		saveQuestion: function(event){
 			event.preventDefault();
@@ -348,9 +367,14 @@
 					post_title			: qa_front.form_auth.error_msg,
 					question_category	: qa_front.form_auth.error_msg,
 					post_content		: qa_front.form_auth.error_msg,
-				}												
+				}
 			});
-			
+
+			if(ae_globals.user_confirm && currentUser.register_status == "unconfirm"){
+				alert( qa_front.texts.confirm_account );
+				return false;
+			}
+
 			if(currentUser.ID == 0){
 				alert(qa_front.texts.require_login);
 				window.location.href = ae_globals.introURL;
@@ -367,9 +391,9 @@
 			// 	$("input#question_tags").attr('placeholder', 'Please insert at least one tag.').css('border', '1px solid red');
 			// }
 
-			if(	this.submit_validator.form() 
-				&& textarea.val() != "" 
-				/*&& this.tag_list.find('li').length > 0*/ ){ 
+			if(	this.submit_validator.form()
+				&& textarea.val() != ""
+				/*&& this.tag_list.find('li').length > 0*/ ){
 
 				this.model.set('content',data);
 				this.model.save('do_action','saveQuestion',{
@@ -378,18 +402,18 @@
 						//alert('chay');
 					},
 					success : function (result, status, jqXHR) {
-						view.blockUi.unblock(); 
+						view.blockUi.unblock();
 						if(status.success){
-							window.location.href = status.redirect;
+							//window.location.href = status.redirect;
 						} else {
 							alert(status.msg);
 						}
 					}
 				});
-			}			
-		},		
+			}
+		},
 		/**
-		 * add tag to modal, render tagItem base on in put tag 
+		 * add tag to modal, render tagItem base on in put tag
 		*/
 		addTag: function(tag){
 
@@ -404,21 +428,21 @@
 			if ( duplicates.length == 0 && tag != '' && count.length < 5 ){
 				var data = { 'name' : tag };
 				var tagView = new Views.TagItem( { model : new Backbone.Model(data) } );
-				this.tag_list.append( tagView.render().$el );	
+				this.tag_list.append( tagView.render().$el );
 				$('input#question_tags').val('').css('border', 'none');
 			}
 		},
 
 		/**
-		 * catch event user enter in tax input, call function addTag to render tag item 
-		*/		
+		 * catch event user enter in tax input, call function addTag to render tag item
+		*/
 		onAddTag: function(event){
 
 			var val = $(event.currentTarget).val(),
 				code = event.keyCode || event.which;
 
 			//alert(code);
-			if ( code == 13 ){ 
+			if ( code == 13 ){
 				/**
 				 * check current user cap can add_tag or not
 				*/
@@ -439,7 +463,7 @@
 				this.addTag(val.trim());
 			}
 			return code != 13;
-		},		
+		},
 		doLogin: function(event){
 			event.preventDefault();
 
@@ -451,7 +475,7 @@
 				messages: {
 					username	: qa_front.form_auth.error_msg,
 					password 	: qa_front.form_auth.error_msg,
-				}							
+				}
 			});
 
 			var form 	 = $(event.currentTarget),
@@ -504,18 +528,19 @@
 						required: qa_front.form_auth.error_msg,
 						equalTo: qa_front.form_auth.error_repass,
 					}
-				}								
+				}
 			});
 
 			var form = $(event.currentTarget),
 				username = form.find('input#username').val(),
-				email	 = form.find('input#email').val(),
+				email    = form.find('input#email').val(),
 				button   = form.find('input.btn-submit'),
 				password = form.find('input#password1').val(),
-				view 	 = this;
+				data     = form.serializeObject(),
+				view     = this;
 
 			if(this.register_validator.form()){
-				this.user.register(username, email, password, {
+				this.user.register(data, {
 					beforeSend:function(){
 						view.blockUi.block(button);
 					},
@@ -527,15 +552,15 @@
 							alert(status.msg);
 						}
 					}
-				});				
+				});
 			}
 
-		},		
+		},
 		moveToCategory: function(event){
 			event.preventDefault();
 			var target = $(event.currentTarget);
 			if(target.val())
-				window.location.href = target.val();			
+				window.location.href = target.val();
 		},
 		sortPostNumber: function(event){
 			event.preventDefault();
@@ -543,5 +568,5 @@
 			if(target.val())
 				window.location.href = target.val();
 		}
-	});	
+	});
 })(QAEngine.Views, QAEngine.Models, jQuery, Backbone);

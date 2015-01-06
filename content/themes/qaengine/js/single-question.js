@@ -21,8 +21,8 @@
 						model: model
 					});
 				}
-					
-			});	
+
+			});
 			$('.comment-item').each(function(index){
 				var element = $(this);
 				if ( typeof commentsData !== "undefined" ) {
@@ -32,15 +32,15 @@
 						model: model
 					});
 				}
-					
-			});		
+
+			});
 
 			// if( currentUser ) {
 			// 	this.currentUser = QAEngine.App.currentUser;
 			// }
 			this.initBoostrapJS();
 			//render code
-			SyntaxHighlighter.all();		
+			SyntaxHighlighter.all();
 		},
 
 		initBoostrapJS : function() {
@@ -57,23 +57,22 @@
 
 			var form = $(event.currentTarget),
 				$button = form.find("button.btn-submit"),
-				data = form.serializeObject(),
+				data    = form.serializeObject(),
 				answers = parseInt($("span.answers-count span.number").text()),
-				view = this;
-				
+				view    = this;
+
 			if(currentUser.ID == 0){
 				this.authModal = new Views.AuthModal({
 					el: $('#login_register')
-				});				
+				});
 				this.authModal.openModal();
 			}
-			
+
 			if(ae_globals.user_confirm && currentUser.register_status == "unconfirm"){
-				//bootbox.alert(qa_front.texts.confirm_account);
 				AE.pubsub.trigger('ae:notification', {
 					msg: qa_front.texts.confirm_account,
 					notice_type: 'error',
-				});				
+				});
 				return false;
 			}
 
@@ -89,24 +88,40 @@
 				success : function (result, status, jqXHR) {
 					view.blockUi.unblock();
 					if(status.success){
+
 						viewPost = new Views.PostListItem({
 							id: result.get('ID'),
 							model: result
 						});
-						tinymce.activeEditor.setContent('');
-						$("#answers_main_list").append(viewPost.render(result));
-						SyntaxHighlighter.highlight();
-						$("span.answers-count span.number").text(answers+1);
 
-						// add status followed after insert answer
-						//if(view.question.followed){
+						//reset tinymce to blank
+						tinymce.activeEditor.setContent('');
+						var caps = QAEngine.App.currentUser.get('cap');
+						if(ae_globals.pending_answers !== 1 || caps['approve_answer'] == true){
+
+							$("#answers_main_list").append(viewPost.render(result));
+							SyntaxHighlighter.highlight();
+							$('.share-social').popover({ html : true});
+							$("span.answers-count span.number").text(answers+1);
+
+							// add status followed after insert answer
 							var target = view.$el.find('ul.post-controls li.follow-question a.follow');
 							target.attr('data-original-title', 'Unfollow').attr('data-name', 'unfollow').removeClass('follow').addClass('followed');
 							target.find('i').removeClass('fa-plus-square').addClass('fa-minus-square');
-						//}
+						} else {
+							AE.pubsub.trigger('ae:notification', {
+								msg: status.msg,
+								notice_type: 'success',
+							});
+						}
+					} else {
+						AE.pubsub.trigger('ae:notification', {
+							msg: status.msg,
+							notice_type: 'error',
+						});
 					}
 				}
-			});			
+			});
 		}
 	});
 })( window.QAEngine.Models, window.QAEngine.Views, jQuery, Backbone );

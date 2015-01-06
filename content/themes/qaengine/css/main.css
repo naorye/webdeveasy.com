@@ -164,6 +164,10 @@ ul {
 }
 .header-avatar .dropdown-account {
 	display:block;
+	outline: none;
+}
+.header-avatar .dropdown-toggle {
+	box-shadow: none !important;
 }
 .header-avatar .dropdown-account .icon-down{
 	vertical-align: middle;
@@ -181,7 +185,7 @@ ul {
 }
 .header-avatar .dropdown-account span {
 	display: inline-block;
-	margin-right: 20px;
+	margin-right: 15px;
 }
 .header-avatar span.avatar {
 	max-width: 30px;
@@ -407,6 +411,62 @@ a.login-url {
 	position: relative;
 	bottom: 0;
 }
+/* ==== Widget Top Users ==== */
+.hot-user-question ul {
+
+}
+.hot-user-question ul li {
+	margin-bottom: 5px;
+}
+.hot-user-question ul li .number{
+	background: #3498db;
+	color: #fff;
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-ms-border-radius: 50%;
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+	text-align: center;
+	line-height: 15px;
+	font-size: 10px;
+}
+.hot-user-question ul li .username{
+	display: inline-block;
+	width: 65%;
+	vertical-align: middle;
+}
+.hot-user-question ul li .username.latest{
+	max-width: 90%;
+	width: auto;
+}
+.hot-user-question ul li .username a {
+	max-width: 100%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	display: inline-block;
+	line-height: 1.5;
+	/*font-size: 12px;*/
+	color: #2c3e50;
+}
+.hot-user-question ul li .username a:hover {
+	color: #15a4fa;
+}
+.hot-user-question ul li .questions-count,
+.hot-user-question ul li .answers-count,
+.hot-user-question ul li .points-count {
+	display: inline-block;
+	margin-right: 4px;
+	/*font-size: 12px;*/
+}
+.hot-user-question ul li .questions-count span,
+.hot-user-question ul li .answers-count span,
+.hot-user-question ul li .points-count span {
+	min-width: 24px;
+	display: inline-block;
+}
 /* ======================================= */
 .right-sidebar {
 	/*border-left: 1px solid #dadfea;*/
@@ -443,11 +503,13 @@ a.login-url {
 }
 .widget-related-tags, 
 .widget-hot-questions,
-.widget-statistic {
+.widget-statistic,
+.user-widget {
 	padding: 0 20px;
 }
 .widget-related-tags h3, 
-.widget-hot-questions h3 {
+.widget-hot-questions h3,
+.user-widget h3 {
 	color: #2c3e50;
 	font-weight: 700;
 	font-size: 14px;
@@ -1171,7 +1233,7 @@ ul.post-controls li a.action {
 #submit_question .select-categories:before{
 	top: 12px;
 }
-#submit_question > label.error {
+#submit_question label.error {
 	color: red;
 	font-size: 12px;
 	margin-top: -20px;
@@ -1299,6 +1361,7 @@ body.author .main-questions-list .blog-wrapper {
 .user-statistic {
 	min-height: 140px;
 	border-bottom: 1px solid #dadfea;
+	padding-bottom: 15px;
 }
 .user-post-count {
 	margin-top: 40px;
@@ -1313,12 +1376,14 @@ body.author .main-questions-list .blog-wrapper {
 .user-info span.avatar-80 {
 	float: left;
 	width: 80px;
+	height: 80px;
 }
 .user-info span.avatar-80 img{
 	border-radius: 50%;
 	-moz-border-radius: 50%;
 	-webkit-border-radius: 50%;
 	max-width: 100%;
+	height: 100%;
 }
 .user-info ul{
 	display: inline-block;
@@ -1329,6 +1394,7 @@ body.author .main-questions-list .blog-wrapper {
 }
 .user-info ul li i {
 	margin-right: 10px;
+	min-width: 15px;
 }
 .user-info ul li.name {
 	font-size: 20px;
@@ -1382,9 +1448,11 @@ span.star i {
 .author-edit .author-avatar{
 	margin-right: 25px;
 	width: 80px;
+	height: 80px;
 }
 .author-edit .author-avatar img{
 	max-width: 100%;
+	height: 100%;
 }
 .author-edit .edit-info-avatar .name-link-avatar{
 	display:block;
@@ -1426,7 +1494,8 @@ span.star i {
 	margin-top: 40px;
 }
 #submit_edit_profile input[type="text"],
-.form_modal_style input{
+.form_modal_style input,
+#submit_edit_profile textarea {
 	height: 40px;
 	border-radius: 3px;
 	-moz-border-radius: 3px;
@@ -1468,6 +1537,12 @@ span.star i {
 	height: 17px;
 	float: left;
 	margin: 0 5px 10px 0;
+}
+#submit_edit_profile textarea {
+	width: 100%;
+	height: 150px;
+	padding: 15px;
+	resize:none;
 }
 #submit_edit_profile .checkbox-email {
 	float: left;
@@ -2046,6 +2121,9 @@ a.hiddenanchor{
 	-ms-animation-name: fadeOutLeft;
 	-o-animation-name: fadeOutLeft;
 	animation-name: fadeOutLeft;
+}
+body.blog ul.page-numbers {
+	padding: 0 15px;
 }
 /* ---------------------------------------- */
 /* R E S P O N S I V E  I N T R O  S T Y L E  */
@@ -2936,6 +3014,9 @@ ul.socials-share li a.btn-gg:hover{
 .q-filter-waypoints .select-categories-wrapper .select-categories .select-grey-bg{
 	padding: 5px 10px;
 }
+.categories-wrapper {
+	text-align: right;
+}
 /* ---------------------------------------- */
 /* 	N O T I F I C A T I O N S T Y L E   	*/
 /* ---------------------------------------- */
@@ -3094,11 +3175,47 @@ ul.socials-share li a.btn-gg:hover{
 .having-adminbar {
 	top: 108px !important;
 }
+#wp-link-close span.screen-reader-text {
+	display: none;
+}
+.no-questions h2 {
+	text-align: center;
+}
+.cbp-spmenu {
+	overflow-y:auto;
+}
+.wp-editor-container .error {
+	margin: 0 !important;
+}
 /* ============= Notification Style ============= */
 #page_content {
 	float: none;
 	display: block;
 	margin: 0 auto;
+}
+.ads-wrapper {
+	text-align: center;
+	padding-top: 15px;
+}
+.single-content .answers-ad-wrapper {
+	border-bottom: 1px solid #dadfea;
+	padding-bottom: 15px;
+}
+.btm-ads-wrapper {
+	border-top: 1px solid #dadfea;
+}
+.ads-wrapper .widget {
+	list-style: none;
+}
+.widget_adrotate_widgets {
+	text-align: center;
+}
+/* ============= CUSTOM Style ============= */
+@-moz-document url-prefix() { 
+	.select-categories:before,
+	.number-of-questions-wrapper .number-of-questions:before {
+		content: "";
+	}
 }
 /* ---------------------------------------- */
 /* R E S P O N S I V E      S T Y L E       */
@@ -3193,5 +3310,10 @@ ul.socials-share li a.btn-gg:hover{
 	.main-questions-list ul.question-statistic li{
 		margin-right:5px;
 		margin-left: 5px;
+	}
+}
+@media (max-width:600px){
+	.header-menu {
+		display: none;
 	}
 }

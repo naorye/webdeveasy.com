@@ -47,7 +47,7 @@ the_post();
 				    </div>
 				</div>
             </div>
-        </div>      
+        </div>
     </div>
     <?php get_sidebar( 'right' ); ?>
 <?php get_footer() ?>

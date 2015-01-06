@@ -211,5 +211,5 @@ ul.social-icon{
 .sign-in-social {
 	position: absolute;
 	top: 130px;
-	z-index:9999;
+	z-index:99;
 }

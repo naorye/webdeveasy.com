@@ -37,7 +37,8 @@ QAEngine.Views.SocialAuth = Backbone.View.extend({
 							view.$('.social-auth-step2').fadeIn();	
 						});
 					} else if ( resp.data.status == 'linked' ){
-						window.location = ae_globals.homeURL;
+						//window.location = ae_globals.homeURL;
+						window.location.reload();
 					}
 				}
 				else{

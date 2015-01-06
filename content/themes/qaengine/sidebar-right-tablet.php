@@ -11,6 +11,10 @@
 					} else {
 					  	dynamic_sidebar( 'qa-right-sidebar' );
 					} 
+					//this is for single quesiton only
+					if(is_singular( 'question' )){
+						dynamic_sidebar( 'qa-question-right-sidebar' );
+					}					
                 ?>       
             </div><!-- END RIGHT-SIDEBAR -->
             

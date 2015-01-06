@@ -165,6 +165,7 @@ abstract class ET_SocialAuth extends AE_Base{
 
 				if ( isset($auth_info['user_login']) ){
 					$user = get_user_by( 'login', $auth_info['user_login'] );
+					$user = QA_Member::convert($user);
 					if ( $user == false ){
 						$result = QA_Member::insert($auth_info);
 
@@ -310,7 +311,8 @@ class ET_TwitterAuth extends ET_SocialAuth{
 
 		// only run if options are given
 		if (!empty($this->consumer_key ) && !empty($this->consumer_secret) && !is_user_logged_in()){
-			$this->add_action('init', 'redirect');
+			//$this->add_action('init', 'redirect');
+			$this->redirect();
 		}
 	}
 
@@ -632,12 +634,13 @@ class ET_GoogleAuth extends ET_SocialAuth{
 	public function add_scripts(){
 		//session_start();
 		//if( !is_page_template( 'page-social-connect.php' ) && ( !isset($_SESSION['et_auth_type']) || $_SESSION['et_auth_type'] != "google" )  ){
+		if(!et_load_mobile()){
 			$this->add_script('google_auth', TEMPLATEURL . '/js/googleauth.js', array('jquery'), false, true);
 			wp_localize_script( 'google_auth', 'google_auth', array(
 				'appID' 		=> ae_get_option('gplus_client_id'),
 				'auth_url' 		=> home_url( '?action=authentication')
 			) );
-		//}
+		}
 	}
 
 	// implement abstract method

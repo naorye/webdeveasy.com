@@ -27,13 +27,13 @@
 						success: function(result, status, jqXHR) {
 							view.blockUi.unblock();
 							if (status.success) {
-								//window.location.href = status.redirect;
+								window.location.href = status.redirect;
 							} else {
 								//bootbox.alert(status.msg);
 								AE.pubsub.trigger('ae:notification', {
 									msg: status.msg,
 									notice_type: 'error',
-								});								
+								});
 							}
 						}
 					});

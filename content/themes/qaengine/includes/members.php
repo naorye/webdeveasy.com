@@ -332,7 +332,7 @@ class QA_Member extends ET_User{
 	public function __construct(){
 		$this->meta_data = array(
 			'et_avatar',
-			'et_following_questions',
+			'qa_following_questions',
 			'user_facebook',
 			'user_twitter',
 			'user_gplus',
@@ -390,21 +390,23 @@ class QA_Member extends ET_User{
 		$instance 	= self::get_instance();
 		$result 	= $instance->_convert($user);
 		
-		$result->id 		= $result->ID;
-		$result->et_avatar 	= self::get_avatar($result->ID,64,array('class'=> 'avatar','alt' => $user->display_name));
+		$result->id                  = $result->ID;
+		$result->et_avatar           = self::get_avatar($result->ID,64,array('class'=> 'avatar','alt' => $user->display_name));
+		$result->et_question_count   = et_count_user_posts($result->ID, 'question');
+		$result->et_answer_count     = et_count_user_posts($result->ID, 'answer');
 
 		$excludes = array('user_pass');
 		foreach ($excludes as $value) {
 			unset($result->$value);
 		}
 
-		if ( !empty($result->et_question_count) ) 	$result->et_question_count = 0;
-		if ( !empty($result->et_answer_count) ) 	$result->et_answer_count = 0;
+		if ( empty($result->et_question_count) ) 	$result->et_question_count = 0;
+		if ( empty($result->et_answer_count) ) 	$result->et_answer_count = 0;
 
 		/**
 		 * add cap to user data
 		*/
-		$result->cap	=	qa_get_user_caps();
+		$result->cap =	qa_get_user_caps();
 
 		// additional 
 		return $result;
@@ -413,7 +415,7 @@ class QA_Member extends ET_User{
 	static public function get_avatar_urls($id, $size = 64){
 		$avatar = get_user_meta( $id, 'et_avatar', true );
 
-		if ( empty($avatar) || empty($avatar['thumbnail']) ){
+		if ( empty($avatar) || empty($avatar['thumbnail']) || !isset($avatar['thumbnail'][0]) ){
 			$link 	= get_avatar( $id, $size );
 			preg_match( '/src=(\'|")(.+?)(\'|")/i', $link, $array );
 			$sizes = get_intermediate_image_sizes();
@@ -423,7 +425,7 @@ class QA_Member extends ET_User{
 			}
 		} else {
 			$avatar = $avatar['thumbnail'][0];
-		}
+		} 
 		return $avatar;
 	}
 
@@ -565,11 +567,15 @@ class ET_UserAjax extends AE_Base{
 				if( $_POST['do_action'] == "saveProfile" ){
 
 					QA_Member::update(array(
-							'ID' 			=> $_POST['ID'],
-							'display_name'	=> $args['display_name'],
-							'user_location' => $args['user_location'],
-							'user_email' 	=> $args['user_email'],
-							'show_email' 	=> isset($args['show_email']) ? $args['show_email'] : "off" ,
+							'ID'            => $_POST['ID'],
+							'display_name'  => sanitize_text_field($args['display_name']),
+							'user_location' => sanitize_text_field($args['user_location']),
+							'user_facebook' => sanitize_text_field($args['user_facebook']),
+							'user_twitter'  => sanitize_text_field($args['user_twitter']),
+							'user_gplus'    => sanitize_text_field($args['user_gplus']),
+							'description'   => sanitize_text_field($args['description']),
+							'user_email'    => sanitize_text_field($args['user_email']),
+							'show_email'    => isset($args['show_email']) ? $args['show_email'] : "off" ,
 						));
 					$user = QA_Member::convert(get_userdata( $_POST['ID'] ));
 
@@ -792,7 +798,7 @@ class ET_UserAjax extends AE_Base{
 			do_action ('je_before_user_register', $args);
 
 			// apply register & log the user in 
-			$auto_sign  = get_option( 'user_confirm' ) ? false : true;
+			$auto_sign  = ae_get_option( 'user_confirm' ) ? false : true;
 			$user_id 	= et_register( $args , $role, $auto_sign );
 			
 			if ( is_wp_error($user_id) ){
@@ -802,7 +808,7 @@ class ET_UserAjax extends AE_Base{
 			$data 		= get_userdata( $user_id );
 			$userdata 	= QA_Member::convert($data);
 			// generate new nonces	
-			$msg = get_option( 'user_confirm' ) ? __('You have registered an account successfully but are not able to join the discussions yet. Please confirm your email address first.', ET_DOMAIN) : __('You are registered and logged in successfully.', ET_DOMAIN) ;	
+			$msg = ae_get_option( 'user_confirm' ) ? __('You have registered an account successfully but are not able to join the discussions yet. Please confirm your email address first.', ET_DOMAIN) : __('You are registered and logged in successfully.', ET_DOMAIN) ;	
 			$response = array(
 				'success' 		=> true,
 				'code' 			=> 200,
@@ -983,7 +989,7 @@ function et_make_member_data($user){
 	global $wpdb;
 	$info = (array)$user->data + array(
 		'id' 				=> $user->ID,
-		'question_count' 		=> get_user_meta($user->ID, 'et_question_count',true) ? get_user_meta($user->ID, 'et_question_count',true) : 0,
+		'question_count' 	=> get_user_meta($user->ID, 'et_question_count',true) ? get_user_meta($user->ID, 'et_question_count',true) : 0,
 		'answer_count' 		=> get_user_meta($user->ID, 'et_answer_count', true) ? get_user_meta($user->ID, 'et_answer_count',true) : 0,
 		'user_location' 	=> get_user_meta($user->ID, 'user_location', true) ? get_user_meta($user->ID, 'user_location', true) : 'NA',
 		'date_text' 		=> sprintf( __('Join on %s', ET_DOMAIN), date('jS M, Y', strtotime($user->user_registered)) ),
@@ -1004,7 +1010,7 @@ function et_count_user_posts($user_id,$post_type = "question"){
 	$sql = "SELECT COUNT(post.ID) 
 				FROM {$wpdb->posts} as post
 				WHERE post.post_type = '".$post_type."' 
-					AND post.post_status = 'publish'
+					AND ( post.post_status = 'publish' OR post.post_status = 'pending' )
 					AND post.post_author = ".$user_id;
 	return $wpdb->get_var( $sql );
 }

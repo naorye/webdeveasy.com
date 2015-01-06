@@ -8,7 +8,7 @@
 global $wp_query, $wp_rewrite, $current_user;
 
 $user = get_user_by( 'id', get_query_var( 'author' ) );
-$user = QA_Member::convert($user);    
+$user = QA_Member::convert($user);
 ?>
 <!-- CONTAINER -->
 <div class="wrapper-mobile">
@@ -23,11 +23,11 @@ $user = QA_Member::convert($user);
                 </div>
                 <div class="col-md-9 col-xs-9">
                     <div class="profile-wrapper">
-                    	<span class="user-name-profile"><?php echo $user->display_name;  ?></span>
+                    	<span class="user-name-profile"><?php echo esc_attr( $user->display_name );  ?></span>
                     	<span class="address-profile">
-                            <?php if( $user->user_location ) { 
-                                echo '<i class="fa fa-map-marker"></i>' .$user->user_location  ;
-                            }else { 
+                            <?php if( $user->user_location ) {
+                                echo '<i class="fa fa-map-marker"></i>' .esc_attr( $user->user_location )  ;
+                            }else {
                                 echo '<i class="fa fa-globe"></i>' . __("Earth", ET_DOMAIN)  ;
                             } ?>
                         </span>
@@ -44,15 +44,19 @@ $user = QA_Member::convert($user);
                 </div>
                 <div class="col-md-4 col-xs-4 padding-left-0">
                 	 <div class="list-bag-profile-wrapper text-right">
-                         <span class="question-profile"><?php echo et_count_user_posts($user->ID) ?><i class="fa fa-question-circle"></i></span>
-                         <span class="answers-profile"><?php echo et_count_user_posts($user->ID, "answer") ?><i class="fa fa-comments"></i></span>
+                         <span class="question-profile">
+                            <?php echo et_count_user_posts($user->ID) ?><i class="fa fa-question-circle"></i>
+                        </span>
+                         <span class="answers-profile">
+                            <?php echo et_count_user_posts($user->ID, "answer") ?><i class="fa fa-comments"></i>
+                        </span>
                      </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- TOP BAR / END -->
-    
+
     <!-- MIDDLE BAR -->
     <section class="middle-bar bg-white">
     	<div class="container">
@@ -65,9 +69,11 @@ $user = QA_Member::convert($user);
                         <li class="<?php if(isset($_GET['type']) && $_GET['type'] == "answer") echo 'active'; ?>" >
                             <a href="<?php echo add_query_arg(array('type'=>'answer')); ?>"><?php _e('Answers',ET_DOMAIN) ?></a>
                         </li>
-                        <li  class="<?php if(isset($_GET['type']) && $_GET['type'] == "post") echo 'active'; ?>">
-                            <a href="<?php echo add_query_arg(array('type'=>'post')); ?>"><?php _e('Posts',ET_DOMAIN) ?></a>
-                        </li>                        
+                        <?php if($current_user->ID == $user->ID){ ?>
+                        <li class="<?php if(isset($_GET['type']) && $_GET['type'] == "following") echo 'active'; ?>">
+                            <a href="<?php echo add_query_arg(array('type'=>'following')); ?>"><?php _e('Following',ET_DOMAIN) ?></a>
+                        </li>
+                        <?php } ?>
                     </ul>
                 </div>
     		</div>
@@ -75,13 +81,13 @@ $user = QA_Member::convert($user);
         <div class="form-search-wrapper">
         	<form id="form-search" class="collapse">
             	<a href="javascript:void(0)" class="clear-text-search"><i class="fa fa-times-circle"></i></a>
-                <a href="javascript:void(0)" class="close-form-search">Cancel</a>
-            	<input type="text" name="" id="" placeholder="Enter keyword" class="form-input-search">
+                <a href="javascript:void(0)" class="close-form-search"><?php _e('Cancel', ET_DOMAIN) ?></a>
+            	<input type="text" name="" id="" placeholder="<?php _e('Enter keyword',ET_DOMAIN) ?>" class="form-input-search">
             </form>
         </div>
     </section>
     <!-- MIDDLE BAR / END -->
-    
+
     <!-- LIST QUESTION -->
     <section class="list-question-wrapper">
     	<div class="container">
@@ -93,21 +99,37 @@ $user = QA_Member::convert($user);
 
                         $type = isset($_GET['type']) ? $_GET['type'] : 'question';
 
-                        $query = QA_Questions::get_questions(array(
-                                'post_type' => $type,
-                                'paged'     => $paged,
-                                'author'    => $user->ID
-                            ));
+                        $args       = array(
+                            'post_type' => $type,
+                            'paged'     => $paged,
+                            'author'    => $user->ID
+                        );
+                        //show pending question if current is author
+                        if($current_user->ID == $user->ID){
+                            $args['post_status'] = array('publish', 'pending');
+                        }
+                        //tab following questions
+                        if(isset($_GET['type']) && $_GET['type'] == "following"){
+                            $follow_questions  = array_filter( (array) get_user_meta( $user->ID, 'qa_following_questions', true ) );
+                            $args['post_type'] = $type = "question";
+                            $args['post__in']  = !empty($follow_questions) ? $follow_questions : array(0);
+                            unset($args['author']);
+                        }
+
+                        $query = QA_Questions::get_questions($args);
 
                         if($query->have_posts()){
                             while($query->have_posts()){
                                 $query->the_post();
                                 get_template_part( 'mobile/template/'.$type, 'loop' );
                             }
-                        }  
+                        } else {
+                            echo '<li class="no-questions">';
+                            echo '<h2>'.__('There is no questions yet.', ET_DOMAIN).'</h2>';
+                            echo '</li>';
+                        }
                         wp_reset_query();
-                        
-                    ?>                    
+                    ?>
                     </ul>
                 </div>
             </div>
@@ -115,7 +137,7 @@ $user = QA_Member::convert($user);
     </section>
     <!-- LIST QUESTION / END -->
     <section class="list-pagination-wrapper">
-        <?php 
+        <?php
             qa_template_paginations($query, $paged);
         ?>
     </section>

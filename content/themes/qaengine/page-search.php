@@ -16,15 +16,8 @@ $keyword = urldecode(get_query_var( 'keyword' ));
                 <span><?php printf( __("Search Questions: <em>%s</em>", ET_DOMAIN ), esc_attr( $keyword ) ) ; ?></span>
             </div>
             <div class="col-md-6 col-xs-6">
-                <div class="select-categories-wrapper">
-                	<div class="select-categories">
-                        <select class="select-grey-bg" id="move_to_category">
-                            <option value=""><?php _e("Filter by category",ET_DOMAIN) ?></option>
-                            <?php qa_option_categories_redirect() ?>
-                        </select>
-                    </div>
-                </div>
-            </div>            
+                <?php qa_tax_dropdown() ?>
+            </div>
         </div><!-- END SELECT-CATEGORY -->
         <?php qa_template_filter_questions(); ?>
         <div class="main-questions-list">
@@ -51,18 +44,18 @@ $keyword = urldecode(get_query_var( 'keyword' ));
                         _e('No results for keyword:', ET_DOMAIN);
                         echo '<strong><em>'.esc_attr( $keyword ).'</em></strong>';
                         echo '</h2>';
-                    }  
+                    }
                     wp_reset_query();
-                ?>                                                                                             
+                ?>
             </ul>
         </div><!-- END MAIN-QUESTIONS-LIST -->
         <div class="row paginations home">
             <div class="col-md-12">
-                <?php 
+                <?php
                     qa_template_paginations($search_query, $paged);
-                ?>                
+                ?>
             </div>
-        </div><!-- END MAIN-PAGINATIONS -->      
+        </div><!-- END MAIN-PAGINATIONS -->
     </div>
     <?php get_sidebar( 'right' ); ?>
 <?php get_footer() ?>

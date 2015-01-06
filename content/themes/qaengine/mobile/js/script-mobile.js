@@ -14,9 +14,15 @@ jQuery(document).ready(function($) {
 	    $('.post-question-form-wrapper').slideUp();
 	});
 	$('.post-question-btn, .cancel-post-question').click(function() {
+		if(currentUser.id == 0){
+			window.location.href = ae_globals.introURL;
+		} else {
+
 	    $('.post-question-form-wrapper').stop().slideToggle(300);
 	    $("input#question_title").focus();
 	    $('.menu-push').slideUp();
+
+		}
 	});
 	// $('.active-comment').click(function() {
 	//     $('.cmt-in-cmt-wrapper').stop().slideToggle(300);

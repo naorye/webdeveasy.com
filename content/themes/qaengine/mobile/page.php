@@ -30,12 +30,12 @@
     	<div class="container">
             <div class="row">
             	<div class="blog-list single-blog">
-                    <div class="col-xs-2">
+                    <!-- <div class="col-xs-2">
                         <a href="<?php echo get_author_posts_url( $post->post_author ); ?>" class="profile-avatar">
                             <?php echo et_get_avatar( $post->post_author, 65, array('class' => 'avatar img-responsive','alt' => '') ); ?>
                         </a>
-                    </div>
-                    <div class="col-xs-10">
+                    </div> -->
+                    <div class="col-xs-12" id="page_content">
                         <div class="blog-content">
                             <?php the_content(); ?>
                         </div>

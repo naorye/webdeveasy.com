@@ -61,6 +61,11 @@ jQuery(document).ready(function($) {
 		//event.preventDefault();
 		$(".group-btn-intro").find('.to_register').removeClass('active');
 		$(this).addClass('active');
+
+		if( $(this).attr('href') == "#tologin" )
+			$(".sign-in-social").css('top', "130px");
+		else
+			$(".sign-in-social").css('top', "160px");
 	});
 
 	$("a.your-remember").click(function(event) {
@@ -156,11 +161,11 @@ jQuery(document).ready(function($) {
 	// 	$('#wp-link-wrap input#link-target-checkbox').prop('checked', true);
 
 	// PUSH MENU
-	var menuLeft = document.getElementById('cbp-spmenu-s1'),
-		menuRight = document.getElementById('cbp-spmenu-s2'),
-		showLeftPush = document.getElementById('showLeftPush'),
+	var menuLeft 	  = document.getElementById('cbp-spmenu-s1'),
+		menuRight     = document.getElementById('cbp-spmenu-s2'),
+		showLeftPush  = document.getElementById('showLeftPush'),
 		showRightPush = document.getElementById('showRightPush'),
-		body = document.body;
+		body          = document.body;
 		
 	if( $('#showRightPush').length > 0 )
 		showLeftPush.onclick = function() {

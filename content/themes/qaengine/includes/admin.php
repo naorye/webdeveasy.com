@@ -17,6 +17,10 @@ class QA_Admin extends QA_Engine
             'ET_UserAjax',
         ));
         
+        if (isset($_REQUEST['page'])) {
+            $this->add_action('admin_print_footer_scripts', 'override_template_setting', 200);
+        }
+
         foreach ((array)$ajax_classes as $class) {
             if (class_exists($class)) new $class();
         }
@@ -62,7 +66,19 @@ class QA_Admin extends QA_Engine
         $options = QA_BadgeOptions::get_instance();
         if (!$options->init) $options->reset($default_badges);
     }
-    
+    function override_template_setting() {
+    ?>
+        <!-- override underscore template settings -->
+        <script type="text/javascript">
+            _.templateSettings = {
+                evaluate: /\<\#(.+?)\#\>/g,
+                interpolate: /\{\{=(.+?)\}\}/g,
+                escape: /\{\{-(.+?)\}\}/g
+            };
+        </script>
+        <!-- localize validator -->
+    <?php
+    }
     /**
      * ajax function reset option
      */
@@ -86,33 +102,71 @@ class QA_Admin extends QA_Engine
     function get_default_options() {
         
         return array(
-            'blogname' => get_option('blogname') ,
-            'blogdescription' => get_option('blogdescription') ,
+            'blogname'                       => get_option('blogname') ,
+
+            'blogdescription'                => get_option('blogdescription') ,
             
             // default forgot passmail
-            'forgotpass_mail_template' => '<p>Hello [display_name],</p><p>You have just sent a request to recover the password associated with your account in [blogname]. If you did not make this request, please ignore this email; otherwise, click the link below to create your new password:</p><p>[activate_url]</p><p>Regards,<br />[blogname]</p>',
+            'forgotpass_mail_template'       => '<p>Hello [display_name],</p>
+                                                <p>You have just sent a request to recover the password associated with your account in [blogname]. If you did not make this request, please ignore this email; otherwise, click the link below to create your new password:</p>
+                                                <p>[activate_url]</p>
+                                                <p>Regards,<br />[blogname]</p>',
             
             // default register mail template
-            'register_mail_template' => '<p>Hello [display_name],</p><p>You have successfully registered an account with &nbsp;&nbsp;[blogname].&nbsp;Here is your account information:</p><ol><li>Username: [user_login]</li><li>Email: [user_email]</li></ol><p>Thank you and welcome to [blogname].</p>',
-
+            'register_mail_template'         => '<p>Hello [display_name],</p>
+                                                <p>You have successfully registered an account with &nbsp;&nbsp;[blogname].&nbsp;Here is your account information:</p>
+                                                <ol><li>Username: [user_login]</li><li>Email: [user_email]</li></ol>
+                                                <p>Thank you and welcome to [blogname].</p>',
+            
             // default confirm mail template
-            'confirm_mail_template' => '<p>Hello [display_name],</p><p>You have successfully registered an account with &nbsp;&nbsp;[blogname].&nbsp;Here is your account information:</p><ol><li>Username: [user_login]</li><li>Email: [user_email]</li></ol><p>Please click the link below to confirm your email address.</p><p>[confirm_link]</p><p>Thank you and welcome to [blogname].</p>',
-
+            'confirm_mail_template'          => '<p>Hello [display_name],</p>
+                                                <p>You have successfully registered an account with &nbsp;&nbsp;[blogname].&nbsp;Here is your account information:</p>
+                                                <ol><li>Username: [user_login]</li><li>Email: [user_email]</li></ol>
+                                                <p>Please click the link below to confirm your email address.</p>
+                                                <p>[confirm_link]</p><p>Thank you and welcome to [blogname].</p>',
+            
             // default confirmed mail template
-            'confirmed_mail_template' => "<p>Hi [display_name],</p><p>Your email address has been successfully confirmed.</p><p>Thank you and welcome to [blogname].</p>",
+            'confirmed_mail_template'        => "<p>Hi [display_name],</p>
+                                                <p>Your email address has been successfully confirmed.</p>
+                                                <p>Thank you and welcome to [blogname].</p>",
+            
+            // default accepted answer mail template
+            'accept_answer_mail_template'    => "<p>Hi [display_name],</p>
+                                                <p>Your answer has been [action] as the best answer.</p>
+                                                <p>You can view your answer by visit this link:[question_link],</p>
+                                                <p>Sincerely,<br />[blogname]</p>",
             
             //  default reset pass mail template
-            'resetpass_mail_template' => "<p>Hello [display_name],</p><p>You have successfully changed your password. Click this link &nbsp;[site_url] to login to your [blogname]'s account.</p><p>Sincerely,<br />[blogname]</p>",
-
-            'init' => 1,
-
+            'resetpass_mail_template'        => "<p>Hello [display_name],</p>
+                                                <p>You have successfully changed your password. Click this link &nbsp;[site_url] to login to your [blogname]'s account.</p>
+                                                <p>Sincerely,<br />[blogname]</p>",
+            
+            'init'                           => 1,
+            
             //  default alert new answer mail template
-            'new_answer_mail_template' => '<p>Hello [display_name],</p><p>The question <strong>[question_title]</strong> you are following has a new answer. </p><p>Click the link below to view the question.</p><p>[question_link]</p><p>Sincerely,<br />[blogname]</p>',
-              //  default alert report mail template
-            'report_mail_template' => '<p>Hello [display_name],</p><p>You have a new  report from:  [blogname]</p><p>Thread content :</p><p> [thread_content]</p><p>Report message:</p><p> [report_message]</p><p>Thread link:</p><p> [thread_link]</p><p>Sincerely,<br />[blogname]</p>',
+            'new_answer_mail_template'       => '<p>Hello [display_name],</p>
+                                                <p>The question <strong>[question_title]</strong> you are following has a new answer. </p>
+                                                <p>Click the link below to view the question.</p>
+                                                <p>[question_link]</p>
+                                                <p>Sincerely,<br />[blogname]</p>',
 
+            //  default alert report mail template
+            'report_mail_template'           => '<p>Hello [display_name],</p>
+                                                <p>You have a new  report from:  [blogname]</p>
+                                                <p>Thread content :</p>
+                                                <p> [thread_content]</p>
+                                                <p>Report message:</p>
+                                                <p> [report_message]</p>
+                                                <p>Thread link:</p>
+                                                <p> [thread_link]</p>
+                                                <p>Sincerely,<br />[blogname]</p>',
+            
             //  default pending question mail template
-            'pending_question_mail_template' => '<p>Hello Admin,</p><p>The new pending question <strong>[question_title]</strong> is waiting for your approval. </p><p>Without your acceptance, it won’t be displayed in the site. Please check out the following link to approve the question.</p><p>[pending_question_link]</p><p>Sincerely,<br />[blogname]</p>'            
+            'pending_question_mail_template' => '<p>Hello Admin,</p>
+                                                <p>The new pending question <strong>[question_title]</strong> is waiting for your approval. </p>
+                                                <p>Without your acceptance, it won’t be displayed in the site. Please check out the following link to approve the question.</p
+                                                <p>[pending_question_link]</p>
+                                                <p>Sincerely,<br />[blogname]</p>'            
         );
     }
     
@@ -340,6 +394,24 @@ class QA_Admin extends QA_Engine
             'groups' => array(
                 array(
                     'args' => array(
+                        'title' => __("Filter Bad Words ( Questions / Answers )", ET_DOMAIN) ,
+                        'id'    => 'filter_keywords',
+                        'class' => '',
+                        'desc'  => __("Each word seperate by comma (,)", ET_DOMAIN),
+                    ) ,
+                    
+                    'fields' => array(
+                        array(
+                            'id'    => 'filter_keywords',
+                            'type'  => 'textarea',
+                            'title' => __("Enter Keywords Here", ET_DOMAIN) ,
+                            'name'  => 'filter_keywords',
+                            'class' => 'option-item bg-grey-input',
+                        )
+                    )
+                ),                
+                array(
+                    'args' => array(
                         'title' => __("Intro Text", ET_DOMAIN) ,
                         'id'    => 'intro-text',
                         'class' => '',
@@ -369,7 +441,7 @@ class QA_Admin extends QA_Engine
                         'title' => __("Custom Slugs", ET_DOMAIN) ,
                         'id'    => 'intro-text',
                         'class' => '',
-                        'desc'  => __("You can add custom slugs for question & category here.", ET_DOMAIN),
+                        'desc'  => __("Add custom slugs for question & category here. (You need to save permalink structure to apply this change.)", ET_DOMAIN),
                     ) ,
                     
                     'fields' => array(
@@ -400,7 +472,24 @@ class QA_Admin extends QA_Engine
 
                     )
                 ),
-
+                array(
+                    'args'  => array(
+                        'title' => __("Editor Upload Images", ET_DOMAIN) ,
+                        'id'    => 'upload-images',
+                        'class' => '',
+                        'desc'  => __("Turn on / off Feature Images Upload in Editor.", ET_DOMAIN)
+                    ) ,
+                    
+                    'fields' => array(
+                        array(
+                            'id'    => 'upload-images',
+                            'type'  => 'switch',
+                            'title' => __("Upload Images", ET_DOMAIN) ,
+                            'name'  => 'ae_upload_images',
+                            'class' => ''
+                        )
+                    )
+                ),
                 array(
                     'args'  => array(
                         'title' => __("Login To View Content", ET_DOMAIN) ,
@@ -430,10 +519,29 @@ class QA_Admin extends QA_Engine
                     
                     'fields' => array(
                         array(
-                            'id'    => 'pending-quesitons-field',
+                            'id'    => 'pending-questions-field',
                             'type'  => 'switch',
-                            'title' => __("Pending", ET_DOMAIN) ,
+                            'title' => __("Pending Questions", ET_DOMAIN) ,
                             'name'  => 'pending_questions',
+                            'class' => ''
+                        )
+                    )
+                ), 
+
+                array(
+                    'args'  => array(
+                        'title' => __("Pending Answers", ET_DOMAIN) ,
+                        'id'    => 'pending-answers',
+                        'class' => '',
+                        'desc'  => __("If you enable this option, the new posted answers have to be approved to be displayed.", ET_DOMAIN)
+                    ) ,
+                    
+                    'fields' => array(
+                        array(
+                            'id'    => 'pending-answers-field',
+                            'type'  => 'switch',
+                            'title' => __("Pending Answers", ET_DOMAIN) ,
+                            'name'  => 'pending_answers',
                             'class' => ''
                         )
                     )
@@ -456,7 +564,26 @@ class QA_Admin extends QA_Engine
                             'class' => ''
                         )
                     )
-                ),                               
+                ), 
+
+                array(
+                    'args'  => array(
+                        'title' => __("Live Notifications", ET_DOMAIN) ,
+                        'id'    => 'live-notifications',
+                        'class' => '',
+                        'desc'  => __("Turn on / off live notifications feature.", ET_DOMAIN)
+                    ) ,
+                    
+                    'fields' => array(
+                        array(
+                            'id'    => 'live-notifications',
+                            'type'  => 'switch',
+                            'title' => __("Live Notifications", ET_DOMAIN) ,
+                            'name'  => 'qa_live_notifications',
+                            'class' => ''
+                        )
+                    )
+                ),                              
             )
         );        
         /**
@@ -725,6 +852,24 @@ class QA_Admin extends QA_Engine
                             'type' => 'editor',
                             'title' => __("Report Mail", ET_DOMAIN) ,
                             'name' => 'report_mail_template',
+                            'class' => '',
+                            'reset' => 1
+                        )
+                    )
+                ),
+                array(
+                    'args' => array(
+                        'title' => __("Best Answer Mail Template", ET_DOMAIN) ,
+                        'id'    => 'best-answer-mail',
+                        'class' => '',
+                        'name'  => ''
+                    ) ,
+                    'fields' => array(
+                        array(
+                            'id'    => 'best_answer_mail_template',
+                            'type'  => 'editor',
+                            'title' => __("Best Answer Mail", ET_DOMAIN) ,
+                            'name'  => 'accept_answer_mail_template',
                             'class' => '',
                             'reset' => 1
                         )

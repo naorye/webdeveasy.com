@@ -2,11 +2,13 @@
 $privi  =   qa_get_privileges();
 ?>
 <!-- MODAL SUBMIT QUESTIONS -->
-<div class="modal fade modal-submit-questions" id="modal_submit_questions" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade modal-submit-questions" id="modal_submit_questions" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					<i class="fa fa-times"></i>
+				</button>
 				<h4 class="modal-title" id="myModalLabel"><?php _e('Ask a Question',ET_DOMAIN) ?></h4>
 			</div>
 			<div class="modal-body">
@@ -30,7 +32,7 @@ $privi  =   qa_get_privileges();
 					<?php do_action( 'after_insert_question_form' ); ?>
 					<button id="btn_submit_question" class="btn-submit-question"><?php _e('SUBMIT QUESTION',ET_DOMAIN) ?></button>
 					<p class="term-texts">
-						<?php qa_tos(); ?>
+						<?php qa_tos("question"); ?>
 					</p>
 				</form>
 			</div>

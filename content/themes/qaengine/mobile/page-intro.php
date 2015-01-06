@@ -4,6 +4,7 @@
  * version 1.0
  * @author: enginethemes
  **/
+$disabled_register = is_multisite() ? get_site_option('registration') : get_option('users_can_register');
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>	
@@ -56,7 +57,9 @@
                             <h2 class="slide-text">
                                 <?php 
                                     if(ae_get_option('intro_slide_text')){
-                                        echo stripcslashes( ae_get_option('intro_slide_text') );
+                                        $string = ae_get_option('intro_slide_text');
+                                        $string = implode("",explode("\\",$string));
+                                        echo stripslashes(trim($string));                                     
                                     }
                                 ?>
                                 <!-- Not just another
@@ -124,7 +127,7 @@
                                         </div>
                                     </form>
                                 </div>
-        
+                                <?php if($disabled_register == 1 || $disabled_register == "user" || $disabled_register == "all" || $disabled_register == "blog" ){ ?>
                                 <div id="register" class="animate ">
                                     <form class="sign-up-intro" id="sign_up" method="POST"> 
                                         <div class="row">
@@ -184,7 +187,7 @@
                                         </div>
                                     </form>
                                 </div>
-                                
+                                <?php } ?>
                             </div>
                     	</div>
                         <div class="clearfix" style="height:50px;"></div>

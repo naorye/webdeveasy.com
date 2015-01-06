@@ -234,12 +234,14 @@ class AE_Users {
 	*/
 	public function fetch($args) {
 
-		if (  isset($args['search']) && '' !== $args['search']  )
-            $args['search'] = '*' . $args['search'] . '*';
-        
+		if (  isset($args['search']) && '' !== $args['search']  ) {
+			$args['search'] = '*' . $args['search'] . '*';
+			$args['search_columns'] = array('ID', 'user_nicename', 'user_login');
+		}
+
 		$users_query	=	new WP_User_Query( $args );
 		$users			=	$users_query->results;
-
+		
 		$user_data		=	array();
 		
 		foreach ($users as $key => $user) {

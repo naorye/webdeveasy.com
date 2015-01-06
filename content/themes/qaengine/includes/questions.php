@@ -23,11 +23,11 @@ class ET_PostType extends AE_Base {
 	 */
 	static public function _init($name, $args, $taxonomy_args){
 		// register post type
-		register_post_type( 
-			$name, 
+		register_post_type(
+			$name,
 			$args
 		);
-		// register taxonomies	
+		// register taxonomies
 		if (!empty($taxonomy_args)){
 			foreach ($taxonomy_args as $tax_name => $args) {
 				register_taxonomy( $tax_name, array($name), $args );
@@ -59,7 +59,7 @@ class ET_PostType extends AE_Base {
 		global $current_user;
 
 		$args = wp_parse_args( $args, array(
-            'post_type'     => $this->name, 
+            'post_type'     => $this->name,
             'post_status'   => 'pending',
         ) );
 
@@ -77,7 +77,7 @@ class ET_PostType extends AE_Base {
          * update custom field and tax
         */
         $this->update_custom_field ($result, $data, $args );
-		
+
         // do action here
         do_action('et_insert_' . $this->name, $result);
         return $result;
@@ -98,7 +98,7 @@ class ET_PostType extends AE_Base {
         if (empty($args['ID'])) return new WP_Error('et_missing_ID', __('Thread not found!', ET_DOMAIN));
 
         // separate default data and meta data
-        $data = $this->trip_meta($args);       
+        $data = $this->trip_meta($args);
 
     	// insert into database
         $result = wp_update_post( $data['args'], true );
@@ -164,7 +164,7 @@ class ET_PostType extends AE_Base {
 		$post = get_post($id);
 		if ( $raw )
 			return $raw;
-		else 
+		else
 			return $this->_convert($post);
 	}
 
@@ -218,7 +218,7 @@ class ET_PostType extends AE_Base {
 		if ( in_array( $current_user->ID , $vote_up_authors ) ){
 
 			$pos = array_search( $current_user->ID , $vote_up_authors );
-			unset($vote_up_authors[$pos]);	
+			unset($vote_up_authors[$pos]);
 
 			if ( $type == 'vote_down'){
 				$vote_down_authors[] = $current_user->ID;
@@ -233,7 +233,7 @@ class ET_PostType extends AE_Base {
 				                'order'         => 'ASC',
 				                'type'  		=> 'vote_up',
 				                'user_id'		=> $current_user->ID
-							) );				
+							) );
 				wp_delete_comment( $user_cmt[0]->comment_ID, true );
 			}
 			else
@@ -262,7 +262,7 @@ class ET_PostType extends AE_Base {
 				                'order'         => 'ASC',
 				                'type'  		=> 'vote_down',
 				                'user_id'		=> $current_user->ID
-							) );				
+							) );
 				wp_delete_comment( $user_cmt[0]->comment_ID, true );
 			}
 			else
@@ -330,7 +330,7 @@ class ET_PostType extends AE_Base {
 		// save vote count
 		update_post_meta( $id, 'et_vote_count' , $vote_up - $vote_down );
 		//var_dump($vote_up .'-'. $vote_down);
-	}	
+	}
 }
 
 /**
@@ -355,19 +355,19 @@ class QA_Questions extends ET_PostType {
 			    'view_item' => __('View Question', ET_DOMAIN ),
 			    'search_items' => __('Search Questions', ET_DOMAIN ),
 			    'not_found' =>  __('No questions found', ET_DOMAIN ),
-			    'not_found_in_trash' => __('No questions found in Trash', ET_DOMAIN ), 
+			    'not_found_in_trash' => __('No questions found in Trash', ET_DOMAIN ),
 			    'parent_item_colon' => '',
 			    'menu_name' => __('Questions', ET_DOMAIN )
 			),
 		    'public' => true,
 		    'publicly_queryable' => true,
-		    'show_ui' => true, 
-		    'show_in_menu' => true, 
+		    'show_ui' => true,
+		    'show_in_menu' => true,
 		    'query_var' => true,
 		    //'rewrite' => array( 'slug' => apply_filters( 'qa_question_slug' , 'question' )),
 		    'rewrite' => array( 'slug' => ae_get_option('question_slug', 'question')),
 		    'capability_type' => 'post',
-		    'has_archive' => 'questions', 
+		    'has_archive' => 'questions',
 		    'hierarchical' => false,
 		    'menu_position' => null,
 		    'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'custom-fields',  'revisions'  )
@@ -425,7 +425,7 @@ class QA_Questions extends ET_PostType {
 		$this->meta_data = apply_filters( 'question_meta_fields', array(
 			'et_vote_count',
 			'et_view_count',
-			'et_answers_count', 
+			'et_answers_count',
 			'et_users_follow',
 			'et_answer_authors',
 			'et_last_author',
@@ -433,12 +433,12 @@ class QA_Questions extends ET_PostType {
 			'et_vote_down_authors',
 			'et_best_answer',
 
-		));	
+		));
 		parent::__construct( self::POST_TYPE , $this->args, $this->taxonomies, $this->meta_data );
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	static public function init(){
 		$instance = self::get_instance();
@@ -450,7 +450,7 @@ class QA_Questions extends ET_PostType {
 	static public function get_instance(){
 		if ( self::$instance == null){
 			self::$instance = new QA_Questions();
-		} 
+		}
 		return self::$instance;
 	}
 
@@ -467,8 +467,26 @@ class QA_Questions extends ET_PostType {
 		return $return;
 	}
 	static public function toggle_follow($question_id, $user_id){
-		$users_follow_arr = explode(',',get_post_meta($question_id,'et_users_follow',true));
 
+		$users_follow_arr = explode(',',get_post_meta($question_id,'et_users_follow',true));
+		$follow_questions = (array) get_user_meta( $user_id, 'qa_following_questions', true );
+
+		//check question_id is in meta user follow
+		if(!in_array($question_id, $follow_questions)){
+			array_push($follow_questions, $question_id);
+		} else {
+			foreach ($follow_questions as $key => $value) {
+				if ( $question_id == $value ){
+					unset($follow_questions[$key]);
+					break;
+				}
+			}
+		}
+
+		$follow_questions = array_unique(array_filter($follow_questions));
+		update_user_meta( $user_id, 'qa_following_questions', $follow_questions );
+
+		//check user_id is in meta follow question
 		if(!in_array($user_id, $users_follow_arr)){
 			array_push($users_follow_arr, $user_id);
 		} else {
@@ -479,9 +497,12 @@ class QA_Questions extends ET_PostType {
 				}
 			}
 		}
+
 		$users_follow_arr = array_unique(array_filter($users_follow_arr));
-		$users_follow = implode(',', $users_follow_arr);
+		$users_follow     = implode(',', $users_follow_arr);
+
 		QA_Questions::update_field($question_id, 'et_users_follow', $users_follow);
+
 		return $users_follow_arr;
 	}
 	/**
@@ -489,15 +510,16 @@ class QA_Questions extends ET_PostType {
 	*/
 	public static function update($data){
 
+		global $current_user;
 
-		if(!qa_user_can('edit_question')) { // check user cap with edit question
+		if( isset($data['post_author']) && $current_user->ID != $data['post_author'] && !qa_user_can('edit_question') ) { // check user cap with edit question
 			/**
 			 * get site privileges
 			*/
 			$privileges	=	qa_get_privileges();
 			return new WP_Error('cannot_edit', sprintf( __("You must have %d points to edit question.", ET_DOMAIN), $privileges->edit_question) );
 
-		} 
+		}
 
 		// update question category
 		if ( isset($data['question_category']) && isset($data['qa_tag']) ){
@@ -510,7 +532,7 @@ class QA_Questions extends ET_PostType {
 
 		$instance = self::get_instance();
 		$return = $instance->_update($data);
-		
+
 		return $return;
 	}
 
@@ -528,11 +550,23 @@ class QA_Questions extends ET_PostType {
 
 		if(is_array($answers) && count($answers) > 0){
 			foreach ($answers as $answer) {
-				wp_delete_post( $answer->ID, $force_delete );
+				$deleted = wp_trash_post( $answer->ID, $force_delete );
+				if($deleted){
+					//update answer count
+					$count = et_count_user_posts($answer->post_author, 'answer');
+					update_user_meta( $answer->post_author, 'et_answer_count', $count );
+				}
 			}
 		}
 
 		$success = $instance->_delete($id, $force_delete);
+
+		if($success){
+			//update question count
+			$count = et_count_user_posts($question->post_author, 'question');
+			update_user_meta( $question->post_author, 'et_question_count', $count );
+		}
+
 		return $success;
 	}
 
@@ -544,7 +578,7 @@ class QA_Questions extends ET_PostType {
 		global $current_user;
 		$result = self::get_instance()->_convert($post);
 
-		$result->qa_tag 				= wp_get_object_terms( $post->ID, 'qa_tag' );	
+		$result->qa_tag 				= wp_get_object_terms( $post->ID, 'qa_tag' );
 
 		$result->et_vote_up_authors 	= is_array($result->et_vote_up_authors) ? $result->et_vote_up_authors : array();
 		$result->et_vote_down_authors 	= is_array($result->et_vote_down_authors) ? $result->et_vote_down_authors : array();
@@ -567,7 +601,7 @@ class QA_Questions extends ET_PostType {
 	}
 
 	/**
-	 * Refresh question's meta 
+	 * Refresh question's meta
 	 */
 	public static function update_meta($id){
 		// refresh last update
@@ -580,7 +614,7 @@ class QA_Questions extends ET_PostType {
 		if ( isset($last_answers[0]) ){
 			$last_answer = $last_answers[0];
 
-			// update last answer author	
+			// update last answer author
 			update_post_meta( $id, 'et_last_author', $last_answer->post_author );
 		} else {
 			delete_post_meta( $id, 'et_last_author' );
@@ -598,12 +632,12 @@ class QA_Questions extends ET_PostType {
 				'ID' => $id,
 				'post_status' => $new_status
 			));
-		else 
+		else
 			return false;
 	}
 
-	// add new question 
-	public static function insert_question($title, $content, $cats, $status = "publish" , $author = 0){ 
+	// add new question
+	public static function insert_question($title, $content, $cats, $status = "publish" , $author = 0){
 		global $current_user;
 
 		if ( empty($cats) ) return new WP_Error(__('Category must not empty', ET_DOMAIN));
@@ -617,7 +651,21 @@ class QA_Questions extends ET_PostType {
 			'tax_input'			=> $cats,
 			'et_updated_date' 	=> current_time( 'mysql' ),
 		);
-		return self::insert($data);
+
+		$question_id = self::insert($data);
+
+		//update question count
+		$count = et_count_user_posts($current_user->ID, 'question');
+		update_user_meta( $current_user->ID, 'et_question_count', $count );
+
+		//update following questions
+		$follow_questions = (array) get_user_meta( $current_user->ID, 'qa_following_questions', true );
+		if(!in_array($question_id, $follow_questions))
+			array_push($follow_questions, $question_id);
+		$follow_questions = array_unique(array_filter($follow_questions));
+		update_user_meta( $current_user->ID, 'qa_following_questions', $follow_questions );
+
+		return $question_id;
 	}
 
 	// add like into database
@@ -637,7 +685,7 @@ class QA_Questions extends ET_PostType {
 
 		// add new author id
 		$index = array_search($author, $likes);
-		
+
 		if ( $index === false){
 			//$likes[] = $author;
 			array_unshift($likes, $author);
@@ -665,7 +713,7 @@ class QA_Questions extends ET_PostType {
 		// get reports list
 		$reports = QA_Questions::get_field($question_id, 'et_reports');
 
-		// 
+		//
 		if ( !is_array($reports) ) $reports = array();
 
 		if ( !in_array($current_user->ID, $reports) )
@@ -680,7 +728,7 @@ class QA_Questions extends ET_PostType {
 
 		if ( !current_user_can( 'close_questions' ) ) return new WP_Error('permission_denied', __('Permission denied', ET_DOMAIN));
 
-		// 
+		//
 		$result = QA_Questions::update( array(
 			'ID' 			=> $question_id,
 			'post_status' 	=> 'closed'
@@ -698,9 +746,9 @@ class QA_Questions extends ET_PostType {
 		$sql 	= "SELECT count(*) FROM {$wpdb->posts} WHERE post_parent = $question_id AND post_type = 'answer' AND post_status = 'publish'";
 		$count 	= $wpdb->get_var($sql);
 
-		// save 
+		// save
 		update_post_meta($question_id, 'et_answers_count', (int) $count);
-		
+
 		return $count;
 	}
 
@@ -716,7 +764,7 @@ class QA_Questions extends ET_PostType {
 		return $instance->_get_field($id, $key);
 	}
 
-	// search 
+	// search
 	public static function search($data){
 
 		$data = wp_parse_args( $data, array(
@@ -745,7 +793,7 @@ class QA_Questions extends ET_PostType {
 	public static function add_category($name, $color, $parent = 0){
 		if ( $parent )
 			$result = wp_insert_term( $name, 'question_category', array('parent' => $parent));
-		else 
+		else
 			$result = wp_insert_term( $name, 'question_category');
 
 		if ( !is_wp_error( $result ) ){
@@ -817,7 +865,7 @@ class QA_Questions extends ET_PostType {
 			 * do action when an answer was unmark best answer
 			*/
 			do_action('qa_remove_answer', $pre_answer );
-		}	
+		}
 		/**
 		 * do action when an question was mark answered
 		*/
@@ -848,25 +896,25 @@ class QA_Answers extends ET_PostType {
 			    'view_item' => __('View Answer', ET_DOMAIN),
 			    'search_items' => __('Search Answers', ET_DOMAIN),
 			    'not_found' =>  __('No answers found', ET_DOMAIN),
-			    'not_found_in_trash' => __('No answers found in Trash', ET_DOMAIN), 
+			    'not_found_in_trash' => __('No answers found in Trash', ET_DOMAIN),
 			    'parent_item_colon' => '',
 			    'menu_name' => __('Answers', ET_DOMAIN)
 			),
 		    'public' => true,
 		    'publicly_queryable' => true,
-		    'show_ui' => true, 
-		    'show_in_menu' => true, 
+		    'show_ui' => true,
+		    'show_in_menu' => true,
 		    'query_var' => true,
 		    'rewrite' => array( 'slug' => apply_filters( 'fe_answer_slug' , 'answer' )),
 		    'capability_type' => 'post',
-		    'has_archive' => 'answers', 
+		    'has_archive' => 'answers',
 		    'hierarchical' => false,
 		    'menu_position' => null,
 		    'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'custom-fields',  'revisions' )
 		);
 		$this->taxonomies = array();
 		$this->meta_data = apply_filters( 'answer_meta_fields', array(
-			'et_vote_count', 
+			'et_vote_count',
 			'et_answer_authors',
 			'et_answers_count',
 			'et_vote_up_authors',
@@ -907,7 +955,7 @@ class QA_Answers extends ET_PostType {
 	static public function get_instance(){
 		if ( self::$instance == null){
 			self::$instance = new QA_Answers();
-		} 
+		}
 		return self::$instance;
 	}
 
@@ -927,8 +975,8 @@ class QA_Answers extends ET_PostType {
 	 * update_answer
 	*/
 	public static function update($data){
-
-		if(!qa_user_can('edit_answer')) { // check user cap with edit answer
+		global $current_user;
+		if(isset($data['post_author']) && $current_user->ID != $data['post_author'] && !qa_user_can('edit_answer')) { // check user cap with edit answer
 			/**
 			 * get site privileges
 			*/
@@ -952,8 +1000,10 @@ class QA_Answers extends ET_PostType {
 	public static function delete($id, $force_delete = false){
 		$instance = self::get_instance();
 
-		$answer  = get_post($id);
-		$answer  = QA_Answers::convert($answer);
+		$answer   = get_post($id);
+		$question = get_post( $answer->post_parent );
+		$answer   = QA_Answers::convert($answer);
+		$question = QA_Questions::convert($question);
 
 		/* also delete question likes */
 		$comments = get_comments(array(
@@ -966,11 +1016,24 @@ class QA_Answers extends ET_PostType {
 		if (is_array($comments) && count($comments) > 0) {
 
 		    foreach($comments as $comment){
-		    	wp_delete_comment( $comment->comment_ID, $force_delete );    	
+		    	wp_delete_comment( $comment->comment_ID, $force_delete );
 		    }
 		}
 
 		$success = $instance->_delete($id, $force_delete);
+
+		if($success){
+
+			//update answer count
+			$count = et_count_user_posts($answer->post_author, 'answer');
+			update_user_meta( $answer->post_author, 'et_answer_count', $count );
+
+			//update status answered for question:
+			$is_best_answer = get_post_meta( $id, 'et_is_best_answer', true );
+			if($is_best_answer){
+				delete_post_meta( $question->ID, 'et_best_answer' );
+			}
+		}
 
 		return $success;
 	}
@@ -989,7 +1052,7 @@ class QA_Answers extends ET_PostType {
 		$result->voted_down 			= in_array($current_user->ID, (array)$result->et_vote_down_authors);
 		$result->voted_up 				= in_array($current_user->ID, (array)$result->et_vote_up_authors);
 		$result->et_vote_count 			= get_post_meta( $post->ID, 'et_vote_count', true ) ? get_post_meta( $post->ID, 'et_vote_count', true ) : 0;
-		$result->user_badge 		= qa_user_badge( $post->post_author, false );
+		$result->user_badge 		= qa_user_badge( $post->post_author, false, et_load_mobile() );
 		$result->et_answers_count 	= $result->et_answers_count ? $result->et_answers_count : 0;
 		$result->et_answer_authors 	= is_array($result->et_answer_authors) ? $result->et_answer_authors : array();
 		$result->avatar 			= et_get_avatar( $result->post_author , 30 );
@@ -1000,6 +1063,7 @@ class QA_Answers extends ET_PostType {
 		$result->parent_author		= $parent->post_author;
 		$result->comments			= sprintf( __( 'Comment(%d) ', ET_DOMAIN ), $result->comment_count);
 		$result->author_name 		= get_the_author_meta('display_name', $post->post_author);
+		$result->author_url 		= get_author_posts_url($post->post_author);
 		$result->reported  			= in_array($current_user->ID,(array)get_post_meta($post->ID, 'et_users_report', true ));
 		return $result;
 	}
@@ -1013,28 +1077,42 @@ class QA_Answers extends ET_PostType {
 
 		global $current_user;
 
-		if (!$current_user->ID) return new WP_Error('logged_in_required', __('Login Required',ET_DOMAIN));
+		if(!$current_user->ID)
+			return new WP_Error('logged_in_required', __('Login Required',ET_DOMAIN));
 
-		if ($author == false) $author = $current_user->ID;
-		
+		if($author == false)
+			$author = $current_user->ID;
+
 		$question = get_post($question_id);
 
-		$content = preg_replace('/\[quote\].*(<br\s*\/?>\s*).*\[\/quote\]/', '', $content);
-
-		$data = array(
-			'post_title' 	=> 'RE: ' . $question->post_title,
-			'post_content' 	=> ($content),
-			'post_parent' 	=> $question_id,
-			'author' 		=> $author,
-			'post_type' 	=> 'answer',
-			'post_status' 	=> 'publish',
-			'et_answer_parent' 	=> $answer_id
+		$content  = preg_replace('/\[quote\].*(<br\s*\/?>\s*).*\[\/quote\]/', '', $content);
+		//strip all tag for mobile
+		if(et_load_mobile())
+			$content = strip_tags($content, '<p><br>');
+		$data     = array(
+			'post_title'       => 'RE: ' . $question->post_title,
+			'post_content'     => $content,
+			'post_parent'      => $question_id,
+			'author'           => $author,
+			'post_type'        => 'answer',
+			'post_status'      => ae_get_option('pending_answers') && !(current_user_can( 'manage_options' ) || qa_user_can( 'approve_answer' )) ? 'pending' : 'publish',
+			'et_answer_parent' => $answer_id
 		);
-		
-		$result = $instance->_insert($data);	
+
+		$result = $instance->_insert($data);
 
 		// if item is inserted successfully, update statistic
 		if ($result){
+			//update user answers count
+			$count = et_count_user_posts($current_user->ID, 'answer');
+			update_user_meta( $current_user->ID, 'et_answer_count', $count );
+
+			//update user following questions
+			$follow_questions = (array) get_user_meta( $current_user->ID, 'qa_following_questions', true );
+			if(!in_array($question_id, $follow_questions))
+				array_push($follow_questions, $question_id);
+			$follow_questions = array_unique(array_filter($follow_questions));
+			update_user_meta( $current_user->ID, 'qa_following_questions', $follow_questions );
 
 			// update question's update date
 			update_post_meta( $question_id , 'et_updated_date', current_time( 'mysql' ));
@@ -1059,19 +1137,10 @@ class QA_Answers extends ET_PostType {
 				}
 			}
 
-			// 
 			if ( $answer_id == 0 ){
 				QA_Questions::count_comments($question->ID);
 			} else {
 				QA_Answers::count_comments($answer_id);
-			}
-
-			// update tag
-			$tags		= ( $data['post_content'] );	
-			if ( !empty($tags) ){
-				$answer 		= get_post($result);
-				$question 	= get_post($answer->post_parent);
-				wp_set_object_terms( $question->ID, $tags, 'fe_tag', true );
 			}
 		}
 		return $result;
@@ -1083,13 +1152,13 @@ class QA_Answers extends ET_PostType {
 	public static function count_comments($parent){
 		global $wpdb;
 
-		$sql 	= "SELECT count(*) FROM {$wpdb->posts} 
+		$sql 	= "SELECT count(*) FROM {$wpdb->posts}
 					INNER JOIN {$wpdb->postmeta} ON {$wpdb->posts}.ID = {$wpdb->postmeta}.post_id AND {$wpdb->postmeta}.meta_key = 'et_answer_parent'
 					WHERE {$wpdb->postmeta}.meta_value = $parent AND {$wpdb->posts}.post_type = 'answer' AND {$wpdb->posts}.post_status = 'publish' ";
 
 		$count 	= $wpdb->get_var($sql);
 
-		// save 
+		// save
 		update_post_meta($parent, 'et_answers_count', (int) $count);
 
 		return $count;
@@ -1106,7 +1175,7 @@ class QA_Answers extends ET_PostType {
  * Class QA_Comments
  */
 class QA_Comments {
-	
+
 	public static function convert($comment){
 		global $current_user;
 		$result = (object) $comment;
@@ -1129,6 +1198,9 @@ class QA_Comments {
 	}
 	public static function insert($data){
 		$meta_data 	= array('et_votes','et_votes_count','et_answer_authors','et_answers_count');
+		//strip all tag for mobile
+		if(et_load_mobile())
+			$data['comment_content'] = strip_tags($data['comment_content'], '<p><br>');
 		$result = wp_insert_comment($data);
 		foreach ($meta_data as $key => $value) {
 			add_comment_meta( $result, $value, '');
@@ -1147,22 +1219,22 @@ class QA_Comments {
  */
 function et_get_last_page($post_id){
 
-	$number     = get_option( 'comments_per_page' ); 
+	$number     = get_option( 'comments_per_page' );
 
-	$all_comments       = get_comments( array( 
+	$all_comments       = get_comments( array(
 	    'post_id' 	  => $post_id,
 	    'parent'  	  => 0,
 	    'status' 	  => 'approve',
 	    'post_status' => 'publish',
 	    'type'		  => 'answer',
 	    'order' 	  => 'ASC'
-	 ) );  
+	 ) );
 
-	$total_comments = count($all_comments);  
+	$total_comments = count($all_comments);
 	$total_pages    = ceil($total_comments / $number);
 
 	if(!get_option( 'et_infinite_scroll' ) && $total_pages > 1 )
 		return add_query_arg(array('page'=> $total_pages ),get_permalink( $post_id ));
-	else 
+	else
 		return get_permalink( $post_id );
 }

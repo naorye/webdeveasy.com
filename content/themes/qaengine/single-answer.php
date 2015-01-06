@@ -190,7 +190,7 @@ $commentsData = array_merge($parent_comments, $qa_answer_comments);
                             </button>
                         </div>
                         <div class="col-md-10 term-texts">
-                            <?php qa_tos(); ?>
+                            <?php qa_tos("answer"); ?>
                         </div>
                     </div>
                 </form>

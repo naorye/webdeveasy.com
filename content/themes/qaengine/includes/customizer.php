@@ -147,17 +147,31 @@ class QA_Customize {
 		* @since MyTheme 1.0
 		*/
 	 public static function header_output() {
-			?>
+	 	if(et_load_mobile()){
+		?>
 			<!--Customizer CSS--> 
 			<style type="text/css">
-					 <?php self::generate_css('.paginations ul li a:hover, .paginations ul li span.current, .submit-wrapper button, .ask-question, .modal-submit-questions .btn-submit-question, .question-main-content .vote-block span, #upload_images .button-event button', 'background-color', 'main_action_color'); ?> 
-					 <?php self::generate_css('.q-right-content .question-control ul li a.show-comments.active, a.add-comment, a.hide-comment, span.back a, .term-texts a, .widget a,.question-category a,.copyright a,.widget-menus ul li a', 'color', 'link_textcolor'); ?>
-					 <?php self::generate_css('#header,ul.dropdown-profile', 'background-color', 'header_color') ?>
-					 <?php self::generate_css('.right-sidebar', 'background-color', 'sidebar_color') ?>
-					 <?php self::generate_css('.header-menu', 'background-color', 'header_menus_color') ?>
+				<?php self::generate_css('.post-question-btn, .list-pagination-wrapper ul li span.current, .list-pagination-wrapper ul li a:hover, .post-answers-wrapper .btn-post-answers, .vote-wrapper .number-vote, .form-post-answers input[type="submit"], .form-post-answers a.close-form-post-answers, .group-btn-post .submit-post-question, .group-btn-post .cancel-post-question', 'background-color', 'main_action_color'); ?> 
+				<?php self::generate_css('.menu-push .list-categories li a', 'color', 'link_textcolor'); ?>
+				<?php self::generate_css('header, .menu-push', 'background-color', 'header_color') ?>
+				<?php self::generate_css('.right-sidebar', 'background-color', 'sidebar_color') ?>
+				<?php self::generate_css('.header-menu', 'background-color', 'header_menus_color') ?>
 			</style> 
 			<!--/Customizer CSS-->
-			<?php
+		<?php
+		} else {
+		?>
+			<!--Customizer CSS--> 
+			<style type="text/css">
+				<?php self::generate_css('.paginations ul li a:hover, .paginations ul li span.current, .submit-wrapper button, .ask-question, .modal-submit-questions .btn-submit-question, .question-main-content .vote-block span, #upload_images .button-event button', 'background-color', 'main_action_color'); ?> 
+				<?php self::generate_css('.q-right-content .question-control ul li a.show-comments.active, a.add-comment, a.hide-comment, span.back a, .term-texts a, .widget a,.question-category a,.copyright a,.widget-menus ul li a', 'color', 'link_textcolor'); ?>
+				<?php self::generate_css('#header,ul.dropdown-profile', 'background-color', 'header_color') ?>
+				<?php self::generate_css('.right-sidebar', 'background-color', 'sidebar_color') ?>
+				<?php self::generate_css('.header-menu', 'background-color', 'header_menus_color') ?>
+			</style> 
+			<!--/Customizer CSS-->
+		<?php
+		}
 	 }
 	 
 	 /**
