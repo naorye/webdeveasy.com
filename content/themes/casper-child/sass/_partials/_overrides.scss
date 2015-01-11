@@ -8,3 +8,8 @@
 .pagination {
    @include main-width;
 }
+
+
+.adsbygoogle iframe {
+    margin: 0;
+}

@@ -74,6 +74,11 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 1024px;
 }
 
+/* line 13, sass/_partials/_overrides.scss */
+.adsbygoogle iframe {
+  margin: 0;
+}
+
 /* line 1, sass/_partials/_disqus.scss */
 #disqus_thread {
   width: 80%;
